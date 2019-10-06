@@ -10,18 +10,47 @@ const NavBar = () => {
       css={css`
         position: relative;
         background-color: ${colors.white};
+        display: flex;
+        justify-content: space-between;
       `}
     >
-      <div className="logo">
-        <img src={Logo} alt="site-logo" />
+      <div
+        className="logo"
+        css={css`
+          width: 100px;
+          height: 100px;
+        `}
+      >
+        <Link to="/">
+          <img
+            src={Logo}
+            alt="site-logo"
+            css={css`
+              width: 100%;
+              height: 50%;
+            `}
+          />
+        </Link>
       </div>
       <div className="nav-menu">
         <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/about/">About</Link>
+          <li
+            css={css`
+              list-style: none;
+            `}
+          >
+            <Link
+              to="/about/"
+              css={css`
+                text-decoration: none;
+                color: ${colors.grey};
+                &:visited {
+                  color: ${colors.grey};
+                }
+              `}
+            >
+              About
+            </Link>
           </li>
         </ul>
       </div>

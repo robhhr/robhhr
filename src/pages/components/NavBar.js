@@ -2,12 +2,14 @@ import React from "react"
 import Logo from "../../../images/blueLogo.svg"
 import { Link } from "gatsby"
 import { css } from "@emotion/core"
+import colors from "../../colors"
 
 const NavBar = () => {
   return (
     <nav
       css={css`
         position: relative;
+        background-color: ${colors.white};
       `}
     >
       <div className="logo">

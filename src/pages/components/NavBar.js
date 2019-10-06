@@ -1,10 +1,15 @@
 import React from "react"
 import Logo from "../../../images/blueLogo.svg"
 import { Link } from "gatsby"
+import { css } from "@emotion/core"
 
-const Header = () => {
+const NavBar = () => {
   return (
-    <nav>
+    <nav
+      css={css`
+        position: relative;
+      `}
+    >
       <div className="logo">
         <img src={Logo} alt="site-logo" />
       </div>
@@ -22,4 +27,4 @@ const Header = () => {
   )
 }
 
-export default Header
+export default NavBar

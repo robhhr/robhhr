@@ -35,35 +35,9 @@ const NavBar = () => {
       </div>
       <div className="nav-menu">
         <ul>
-          <li
-            css={css`
-              list-style: none;
-            `}
-          >
-            <Link
-              to="/about/"
-              css={css`
-                text-decoration: none;
-                color: ${colors.grey};
-                &:visited {
-                  color: ${colors.grey};
-                }
-              `}
-            >
-              About
-            </Link>
-            <Link
-              to="/contact/"
-              css={css`
-                text-decoration: none;
-                color: ${colors.grey};
-                &:visited {
-                  color: ${colors.grey};
-                }
-              `}
-            >
-              Contact
-            </Link>
+          <li>
+            <Link to="/about/">About</Link>
+            <Link to="/contact/">Contact</Link>
           </li>
         </ul>
       </div>

@@ -1,6 +1,8 @@
 import React from "react"
 import { Global, css } from "@emotion/core"
 import NavBar from "./NavBar"
+import Footer from "./footer"
+import colors from "../../colors"
 
 const Layout = ({ children }) => (
   <>
@@ -22,7 +24,6 @@ const Layout = ({ children }) => (
             Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
           font-size: 16px;
           line-height: 1.4;
-          padding: 10px 15px;
 
           /* remove margin from main div built with Gatsby */
           > div {
@@ -42,14 +43,29 @@ const Layout = ({ children }) => (
             }
           }
 
+          li {
+            list-style: none;
+          }
+
           li > * {
             padding: 0 8px;
+            text-decoration: none;
+            color: ${colors.grey};
+            &:visited {
+              color: ${colors.grey};
+            }
           }
+        }
+
+        body {
+          position: relative;
+          height: 100vh;
         }
       `}
     />
     <NavBar />
     <main>{children}</main>
+    <Footer />
   </>
 )
 

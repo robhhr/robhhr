@@ -1,0 +1,11 @@
+{
+  "rules": {
+    "jsx-a11y/anchor-has-content": [
+      2,
+      {
+        "components": ["Anchor"]
+      }
+    ]
+  },
+  "plugins": ["jsx-a11y"]
+}

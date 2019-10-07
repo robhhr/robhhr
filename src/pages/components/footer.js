@@ -6,6 +6,7 @@ const Footer = () => {
   return (
     <footer
       css={css`
+        width: 100%;
         display: flex;
         position: absolute;
         bottom: 0;
@@ -15,9 +16,11 @@ const Footer = () => {
       <ul
         css={css`
           display: flex;
-          align-items: baseline;
+          align-items: center;
+          justify-content: space-evenly;
           padding: 0;
           margin: 0 auto;
+          width: 100%;
         `}
       >
         <li>

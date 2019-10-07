@@ -13,10 +13,6 @@ const Layout = ({ children }) => (
           margin: 0;
         }
 
-        * + * {
-          margin-top: 1rem;
-        }
-
         html,
         body {
           margin: 0;
@@ -37,10 +33,6 @@ const Layout = ({ children }) => (
           h5,
           h6 {
             line-height: 1.1;
-
-            + * {
-              margin-top: 0.5rem;
-            }
           }
 
           li {
@@ -60,6 +52,10 @@ const Layout = ({ children }) => (
         body {
           position: relative;
           height: 100vh;
+        }
+
+        .fa {
+          font-size: 20px;
         }
       `}
     />

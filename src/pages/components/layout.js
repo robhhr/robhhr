@@ -1,5 +1,6 @@
 import React from "react"
 import { Global, css } from "@emotion/core"
+import NavBar from "./NavBar"
 
 const Layout = ({ children }) => (
   <>
@@ -21,6 +22,7 @@ const Layout = ({ children }) => (
             Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
           font-size: 16px;
           line-height: 1.4;
+          padding: 10px 15px;
 
           /* remove margin from main div built with Gatsby */
           > div {
@@ -40,13 +42,13 @@ const Layout = ({ children }) => (
             }
           }
 
-          lie {
-            margin-top: 0.25rem;
+          li > * {
+            padding: 0 8px;
           }
         }
       `}
     />
-    <header />
+    <NavBar />
     <main>{children}</main>
   </>
 )

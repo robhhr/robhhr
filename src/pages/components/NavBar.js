@@ -12,6 +12,7 @@ const NavBar = () => {
         background-color: ${colors.white};
         display: flex;
         justify-content: space-between;
+        /* padding: 30px; */
       `}
     >
       <div
@@ -50,6 +51,18 @@ const NavBar = () => {
               `}
             >
               About
+            </Link>
+            <Link
+              to="/contact/"
+              css={css`
+                text-decoration: none;
+                color: ${colors.grey};
+                &:visited {
+                  color: ${colors.grey};
+                }
+              `}
+            >
+              Contact
             </Link>
           </li>
         </ul>

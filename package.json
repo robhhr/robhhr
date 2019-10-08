@@ -20,7 +20,8 @@
     "gatsby-cli": "^2.7.54",
     "gatsby-plugin-emotion": "^4.1.9",
     "react": "^16.10.2",
-    "react-dom": "^16.10.2"
+    "react-dom": "^16.10.2",
+    "react-particles-js": "^2.7.0"
   },
   "devDependencies": {
     "eslint": "^6.5.1",

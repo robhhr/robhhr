@@ -1,6 +1,7 @@
 import React from "react"
 import { css } from "@emotion/core"
 import "font-awesome/css/font-awesome.min.css"
+import colors from "../../colors"
 
 const Footer = () => {
   return (
@@ -8,9 +9,10 @@ const Footer = () => {
       css={css`
         width: 100%;
         display: flex;
-        position: absolute;
+        position: fixed;
         bottom: 0;
-        padding: 15px 0;
+        padding: 10px 0;
+        border-top: 0.5px solid ${colors.border_gray};
       `}
     >
       <ul

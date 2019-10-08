@@ -12,6 +12,8 @@ const NavBar = () => {
         background-color: ${colors.white};
         display: flex;
         justify-content: space-between;
+        align-items: center;
+        height: 100px;
         /* padding: 30px; */
       `}
     >
@@ -19,7 +21,7 @@ const NavBar = () => {
         className="logo"
         css={css`
           width: 100px;
-          height: 100px;
+          /* height: 100px; */
         `}
       >
         <Link to="/">
@@ -28,7 +30,7 @@ const NavBar = () => {
             alt="site-logo"
             css={css`
               width: 100%;
-              height: 50%;
+              /* height: 50%; */
             `}
           />
         </Link>

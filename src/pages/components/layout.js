@@ -20,7 +20,6 @@ const Layout = ({ children }) => (
             Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
           font-size: 16px;
           line-height: 1.4;
-
           /* remove margin from main div built with Gatsby */
           > div {
             margin-top: 0;
@@ -60,7 +59,7 @@ const Layout = ({ children }) => (
       `}
     />
     <NavBar />
-    <main>{children}</main>
+    <main style={{ position: "relative" }}>{children}</main>
     <Footer />
   </>
 )

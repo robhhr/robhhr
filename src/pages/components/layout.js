@@ -3,6 +3,7 @@ import { Global, css } from "@emotion/core"
 import NavBar from "./NavBar"
 import Footer from "./footer"
 import colors from "../../colors"
+import Particles from "react-particles-js"
 
 const Layout = ({ children }) => (
   <>
@@ -59,7 +60,13 @@ const Layout = ({ children }) => (
       `}
     />
     <NavBar />
-    <main style={{ position: "relative" }}>{children}</main>
+    <main
+      css={css`
+        position: relative;
+      `}
+    >
+      {children}
+    </main>
     <Footer />
   </>
 )

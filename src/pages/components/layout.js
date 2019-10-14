@@ -36,7 +36,6 @@ const Layout = ({ children }) => (
 
           li {
             list-style: none;
-            line-height: 40px;
           }
 
           li > * {
@@ -63,7 +62,6 @@ const Layout = ({ children }) => (
     <main
       css={css`
         position: relative;
-        padding: 0 20px;
       `}
     >
       {children}

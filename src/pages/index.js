@@ -22,10 +22,10 @@ const Home = () => {
         params={{
           particles: {
             number: {
-              value: 50,
+              value: 85,
               density: {
                 enable: true,
-                value_area: 800,
+                value_area: 850,
               },
             },
             color: {
@@ -75,9 +75,9 @@ const Home = () => {
             },
             move: {
               enable: true,
-              speed: 6,
+              speed: 2,
               direction: "none",
-              random: false,
+              random: true,
               straight: false,
               out_mode: "out",
               bounce: false,
@@ -96,7 +96,7 @@ const Home = () => {
                 mode: "repulse",
               },
               onclick: {
-                enable: false,
+                enable: true,
                 mode: "push",
               },
               resize: true,
@@ -130,38 +130,29 @@ const Home = () => {
           retina_detect: true,
         }}
       />
-      {/* <main> */}
-      <div
-        className="page-title"
+      <section
         css={css`
-          overflow: hidden;
-          position: absolute;
+          padding: 0 20px;
         `}
       >
-        <ul
-          css={css`
-            position: absolute;
-            padding: 0;
-            -webkit-animation-name: ${change};
-            -webkit-animation-duration: 5s;
-            -webkit-animation-iteration-count: infinite;
-          `}
-        >
-          <li>Hello!</li>
-          <li>Hola!</li>
-          <li>Bonjour!</li>
-          <li>Olá!</li>
-        </ul>
-        {/* </div>{" "} */}
-        <p
-          css={css`
-            display: inline;
-          `}
-        >
-          I'm Roberto, a front-end developer based in Vancouver
-        </p>
-      </div>
-      {/* </main> */}
+        <div className="page-title">
+          <h1
+            css={css`
+              line-height: 1.8;
+            `}
+          >
+            Hello! I'm Roberto, a{" "}
+            <span
+              css={css`
+                color: #fc3565;
+              `}
+            >
+              front-end developer
+            </span>{" "}
+            based in Vancouver
+          </h1>
+        </div>
+      </section>
     </Layout>
   )
 }

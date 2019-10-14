@@ -25,10 +25,10 @@ const NavBar = () => {
         params={{
           particles: {
             number: {
-              value: 50,
+              value: 85,
               density: {
                 enable: true,
-                value_area: 800,
+                value_area: 850,
               },
             },
             color: {
@@ -78,9 +78,9 @@ const NavBar = () => {
             },
             move: {
               enable: true,
-              speed: 6,
+              speed: 2,
               direction: "none",
-              random: false,
+              random: true,
               straight: false,
               out_mode: "out",
               bounce: false,
@@ -99,7 +99,7 @@ const NavBar = () => {
                 mode: "repulse",
               },
               onclick: {
-                enable: false,
+                enable: true,
                 mode: "push",
               },
               resize: true,

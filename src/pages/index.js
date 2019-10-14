@@ -1,7 +1,16 @@
 import React from "react"
 import Layout from "../pages/components/layout"
 import Particles from "react-particles-js"
-import { css } from "@emotion/core"
+import { css, keyframes } from "@emotion/core"
+
+const change = keyframes`
+  0%, 12.66%, 100% {transform:translate3d(0,0,0);}
+  16.66%, 29.32% {transform:translate3d(0,-25%,0);}
+  33.32%,45.98% {transform:translate3d(0,-50%,0);}
+  49.98%,62.64% {transform:translate3d(0,-75%,0);}
+  66.64%,79.3% {transform:translate3d(0,-50%,0);}
+  83.3%,95.96% {transform:translate3d(0,-25%,0);}
+`
 
 const Home = () => {
   return (
@@ -121,7 +130,38 @@ const Home = () => {
           retina_detect: true,
         }}
       />
-      <h1>Hello world!</h1>
+      {/* <main> */}
+      <div
+        className="page-title"
+        css={css`
+          overflow: hidden;
+          position: absolute;
+        `}
+      >
+        <ul
+          css={css`
+            position: absolute;
+            padding: 0;
+            -webkit-animation-name: ${change};
+            -webkit-animation-duration: 5s;
+            -webkit-animation-iteration-count: infinite;
+          `}
+        >
+          <li>Hello!</li>
+          <li>Hola!</li>
+          <li>Bonjour!</li>
+          <li>Olá!</li>
+        </ul>
+        {/* </div>{" "} */}
+        <p
+          css={css`
+            display: inline;
+          `}
+        >
+          I'm Roberto, a front-end developer based in Vancouver
+        </p>
+      </div>
+      {/* </main> */}
     </Layout>
   )
 }

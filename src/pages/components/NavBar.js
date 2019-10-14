@@ -15,7 +15,7 @@ const NavBar = () => {
         justify-content: space-between;
         align-items: center;
         height: 100px;
-        /* padding: 30px; */
+        padding: 20px;
       `}
     >
       <Particles

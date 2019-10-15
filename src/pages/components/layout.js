@@ -1,4 +1,6 @@
 import React from "react"
+import { Helmet } from "react-helmet"
+import Favicon from "../../../images/letter64.png"
 import { Global, css } from "@emotion/core"
 import NavBar from "./NavBar"
 import Footer from "./footer"
@@ -62,6 +64,11 @@ const Layout = ({ children }) => (
         }
       `}
     />
+    <Helmet>
+      <meta charSet="utf-8" />
+      <link rel="shortcut icon" href={`${Favicon}`} />
+      <title>Roberto Hernandez | Web Developer</title>
+    </Helmet>
     <NavBar />
     <main
       css={css`

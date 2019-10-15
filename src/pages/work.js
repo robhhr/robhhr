@@ -1,23 +1,11 @@
 import React from "react"
-import Logo from "../../../images/blueLogo.svg"
-import { Link } from "gatsby"
 import { css } from "@emotion/core"
-import colors from "../../colors"
+import Layout from "./components/layout"
 import Particles from "react-particles-js"
 
-const NavBar = () => {
+const Work = () => {
   return (
-    <nav
-      css={css`
-        position: relative;
-        background-color: ${colors.white};
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        height: 100px;
-        padding: 20px;
-      `}
-    >
+    <Layout>
       <Particles
         css={css`
           position: absolute;
@@ -134,48 +122,15 @@ const NavBar = () => {
         }}
       />
       <div
-        className="logo"
-        css={css`
-          width: 100px;
-          position: relative;
-          /* height: 100px; */
-        `}
-      >
-        <Link to="/">
-          <img
-            src={Logo}
-            alt="site-logo"
-            css={css`
-              width: 100%;
-              /* height: 50%; */
-            `}
-          />
-        </Link>
-      </div>
-      <div
-        className="nav-menu"
+        className="contact-section"
         css={css`
           position: relative;
         `}
       >
-        <ul
-          css={css`
-            display: flex;
-          `}
-        >
-          <li>
-            <Link to="/about/">About</Link>
-          </li>
-          <li>
-            <Link to="/contact/">Contact</Link>
-          </li>
-          <li>
-            <Link to="/work/">Work</Link>
-          </li>
-        </ul>
+        <h1>Portfolio</h1>
       </div>
-    </nav>
+    </Layout>
   )
 }
 
-export default NavBar
+export default Work

@@ -139,6 +139,7 @@ const Home = () => {
           <h1
             css={css`
               line-height: 1.8;
+              font-weight: 400;
             `}
           >
             Hello! I'm Roberto, a{" "}
@@ -149,7 +150,7 @@ const Home = () => {
             >
               front-end developer
             </span>{" "}
-            based in Vancouver
+            living in Vancouver
           </h1>
         </div>
       </section>

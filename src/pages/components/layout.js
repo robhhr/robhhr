@@ -39,7 +39,7 @@ const Layout = ({ children }) => (
           }
 
           li > * {
-            padding: 0 8px;
+            padding: 0 5px;
             text-decoration: none;
             color: ${colors.grey};
             &:visited {

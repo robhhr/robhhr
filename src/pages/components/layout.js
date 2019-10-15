@@ -3,6 +3,7 @@ import { Global, css } from "@emotion/core"
 import NavBar from "./NavBar"
 import Footer from "./footer"
 import colors from "../../colors"
+import "../../index.css"
 
 const Layout = ({ children }) => (
   <>
@@ -39,9 +40,12 @@ const Layout = ({ children }) => (
           }
 
           li > * {
-            padding: 0 5px;
+            padding: 0 6px;
             text-decoration: none;
             color: ${colors.grey};
+            font-family: "Poppins", serif;
+            font-weight: 500;
+            text-transform: lowercase;
             &:visited {
               color: ${colors.grey};
             }

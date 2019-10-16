@@ -1,7 +1,7 @@
 import React from "react"
 import Layout from "../pages/components/layout"
 import Particles from "react-particles-js"
-import { css, keyframes } from "@emotion/core"
+import { css } from "@emotion/core"
 
 const Home = () => {
   return (
@@ -126,11 +126,11 @@ const Home = () => {
           padding: 0 20px;
         `}
       >
-        <div className="page-title">
+        <div className="index__title">
           <h1
             css={css`
+              padding: 20px 0;
               line-height: 1.8;
-              font-weight: 400;
             `}
           >
             Hello! I'm Roberto, a{" "}
@@ -144,6 +144,24 @@ const Home = () => {
             living in Vancouver
           </h1>
         </div>
+        <section
+          className="index__projects"
+          css={css`
+            padding: 20px 0;
+          `}
+        >
+          <h1
+            className="index__section"
+            css={css`
+              font-size: 1.3rem;
+              font-weight: 500;
+              font-family: "Roboto Mono", monospace;
+              letter-spacing: -0.5px;
+            `}
+          >
+            Featured Projects
+          </h1>
+        </section>
       </section>
     </Layout>
   )

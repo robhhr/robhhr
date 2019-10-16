@@ -1,6 +1,6 @@
 import React from "react"
 import { Helmet } from "react-helmet"
-import Favicon from "../../../images/letter64.png"
+import Favicon from "../../../images/myInitial.png"
 import { Global, css } from "@emotion/core"
 import NavBar from "./NavBar"
 import Footer from "./footer"
@@ -35,6 +35,9 @@ const Layout = ({ children }) => (
           h5,
           h6 {
             line-height: 1.1;
+            font-family: "Poppins", serif;
+            font-weight: 400;
+            color: ${colors.grey};
           }
 
           li {
@@ -61,6 +64,12 @@ const Layout = ({ children }) => (
 
         .fa {
           font-size: 20px;
+        }
+
+        .css-1g9eken-Home,
+        canvas {
+          z-index: -999;
+          height: 100vh;
         }
       `}
     />

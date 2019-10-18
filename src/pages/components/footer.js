@@ -39,8 +39,8 @@ const Footer = () => {
         </li>
         <li>
           <a
-            className="fa fa-twitter"
-            href="https://twitter.com/hallorob"
+            className="fa fa-linkedin"
+            href="https://linkedin.com/in/robertohhr"
             target="_blank"
             rel="noopener noreferrer"
           />

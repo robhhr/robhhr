@@ -37,6 +37,16 @@ const Layout = ({ children }) => (
             line-height: 1.1;
             font-family: "Poppins", serif;
             font-weight: 400;
+          }
+
+          h1,
+          h2,
+          h3,
+          h3,
+          h4,
+          h5,
+          h6,
+          p {
             color: ${colors.grey};
           }
 

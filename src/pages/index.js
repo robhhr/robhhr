@@ -144,24 +144,18 @@ const Home = () => {
             living in Vancouver
           </h1>
         </div>
-        <section
-          className="index__projects"
+        <h1
+          className="index__section"
           css={css`
+            font-size: 1.3rem;
+            font-weight: 500;
+            font-family: "Roboto Mono", monospace;
+            letter-spacing: -0.5px;
             padding: 20px 0;
           `}
         >
-          <h1
-            className="index__section"
-            css={css`
-              font-size: 1.3rem;
-              font-weight: 500;
-              font-family: "Roboto Mono", monospace;
-              letter-spacing: -0.5px;
-            `}
-          >
-            Featured Projects
-          </h1>
-        </section>
+          Featured Projects
+        </h1>
       </section>
     </Layout>
   )

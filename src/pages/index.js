@@ -1,5 +1,6 @@
 import React from "react"
 import Layout from "../pages/components/layout"
+import { Link } from "gatsby"
 import Particles from "react-particles-js"
 import { css } from "@emotion/core"
 import styled from "@emotion/styled"
@@ -12,6 +13,18 @@ const dynamicProjects = props =>
 const Project = styled.div`
   ${dynamicProjects};
 `
+// const MoreWork = styled.Link`
+// background-color: #fff;
+// text-align: center;
+// text-transform: uppercase;
+// font-family: "Poppins", serif;
+// font-size: 0.875rem;
+// box-shadow: none;
+// border-radius: 50px;
+//   &:visited {
+//     color: red;
+//   }
+// `
 
 const Home = () => {
   return (
@@ -524,6 +537,26 @@ const Home = () => {
             </div>
           </Project>
         </section>{" "}
+        <Link
+          to="/work/"
+          css={css`
+            display: flex;
+            justify-content: center;
+            background-color: #fff;
+            text-transform: uppercase;
+            text-decoration: none;
+            font-family: "Poppins", serif;
+            letter-spacing: -0.25px;
+            font-size: 0.875rem;
+            box-shadow: none;
+            border-radius: 50px;
+            &:visited {
+              color: ${colors.font_color};
+            }
+          `}
+        >
+          More Projects
+        </Link>
       </section>
     </Layout>
   )

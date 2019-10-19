@@ -93,6 +93,7 @@ const Layout = ({ children }) => (
     <main
       css={css`
         position: relative;
+        padding-bottom: 50px;
       `}
     >
       {children}

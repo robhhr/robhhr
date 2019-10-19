@@ -187,6 +187,7 @@ const Home = () => {
               css={css`
                 color: ${colors.grey};
                 padding: 15px;
+                font-weight: 600;
               `}
             >
               Magic Toolbox
@@ -302,6 +303,7 @@ const Home = () => {
               css={css`
                 color: ${colors.grey};
                 padding: 15px;
+                font-weight: 600;
               `}
             >
               Rock, Paper, Scissors, Lizard, Spock
@@ -368,6 +370,126 @@ const Home = () => {
               </a>
               <a
                 href="https://rpsl-spock.netlify.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                css={css`
+                  text-decoration: none;
+                  font-weight: 400;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  background-color: #dfebf6;
+                  border-radius: 5px;
+                  padding: 5px 8px;
+                  width: 90px;
+                  margin-top: 10px;
+                `}
+              >
+                <span
+                  css={css`
+                    font-family: "Poppins", serif;
+                    font-size: 0.875rem;
+                    padding: 0 5px;
+                  `}
+                >
+                  View
+                </span>
+                <span
+                  className="fa fa-external-link"
+                  css={css`
+                    font-size: 1rem;
+                  `}
+                ></span>
+              </a>
+            </div>
+          </Project>
+          <Project
+            display="flex"
+            css={css`
+              flex-direction: column;
+              background-color: #fff;
+              border-radius: 5px;
+              -webkit-box-shadow: 0px 0px 5px -3px rgba(0, 0, 0, 0.4);
+              -moz-box-shadow: 0px 0px 5px -3px rgba(0, 0, 0, 0.4);
+              box-shadow: 0px 0px 5px -3px rgba(0, 0, 0, 0.4);
+              margin: 25px 0;
+            `}
+          >
+            <h1
+              css={css`
+                color: ${colors.grey};
+                padding: 15px;
+                font-weight: 600;
+              `}
+            >
+              Inhabitent
+            </h1>
+            <p
+              css={css`
+                font-size: 0.875rem;
+                padding: 5px 15px;
+              `}
+            >
+              WP-based theme inspired by the outdoors and active lifestyle 🧗{" "}
+            </p>
+            <div
+              className="project__description"
+              css={css`
+                padding: 15px 15px;
+                display: flex;
+                align-items: center;
+                flex-wrap: wrap;
+              `}
+            >
+              <span>HTML5</span>
+              <span>CSS3</span>
+              <span>Sass</span>
+              <span>JavaScript</span>
+              <span>Wordpress</span>
+              <span>PHP</span>
+            </div>
+            <div
+              className="project__btn"
+              css={css`
+                padding: 5px 15px 15px 15px;
+              `}
+            >
+              <a
+                href="https://github.com/robhhr/inhabitent-site"
+                target="_blank"
+                rel="noopener noreferrer"
+                css={css`
+                  text-decoration: none;
+                  font-weight: 400;
+                  display: flex;
+                  align-items: center;
+                  -webkit-box-shadow: 0px 0px 5px -3px rgba(0, 0, 0, 0.4);
+                  -moz-box-shadow: 0px 0px 5px -3px rgba(0, 0, 0, 0.4);
+                  box-shadow: 0px 0px 5px -3px rgba(0, 0, 0, 0.4);
+                  background-color: #f7f7f7;
+                  border-radius: 5px;
+                  padding: 5px 8px;
+                  width: 90px;
+                `}
+              >
+                <span
+                  className="fa fa-github"
+                  css={css`
+                    font-size: 1rem;
+                  `}
+                ></span>
+                <span
+                  css={css`
+                    font-family: "Poppins", serif;
+                    font-size: 0.875rem;
+                    padding: 0 5px;
+                  `}
+                >
+                  Source
+                </span>
+              </a>
+              <a
+                href="https://tent.academy.red/"
                 target="_blank"
                 rel="noopener noreferrer"
                 css={css`

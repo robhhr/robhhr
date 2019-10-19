@@ -12,8 +12,9 @@ const Footer = () => {
         position: fixed;
         bottom: 0;
         padding: 10px 0;
-        /* border-top: 0.5px solid ${colors.border_gray}; */
-        box-shadow: 0 -2px 5px rgba(0,0,0,.04);      `}
+        box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.04);
+        background-color: #fff;
+      `}
     >
       <ul
         css={css`

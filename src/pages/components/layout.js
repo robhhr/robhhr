@@ -70,7 +70,7 @@ const Layout = ({ children }) => (
 
         body {
           position: relative;
-          height: 100vh;
+          height: 100%;
         }
 
         .fa {

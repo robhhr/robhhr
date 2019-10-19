@@ -9,8 +9,8 @@
   width: 50px;
 }
 
-.project-description > span {
-  border: 1px solid #bfd8ed;
+.project__description > span {
+  border: 1.5px solid #bfd8ed;
   border-radius: 5px;
   padding: 5px 8px;
   margin-right: 10px;

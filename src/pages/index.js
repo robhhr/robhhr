@@ -200,7 +200,7 @@ const Home = () => {
               to-do list and digital calculator 🧙{" "}
             </p>
             <div
-              className="project-description"
+              className="project__description"
               css={css`
                 padding: 15px 15px;
               `}
@@ -209,6 +209,85 @@ const Home = () => {
               <span>CSS3</span>
               <span>Sass</span>
               <span>JavaScript</span>
+            </div>
+            <div
+              className="project__btn"
+              css={css`
+                padding: 5px 15px 15px 15px;
+              `}
+            >
+              <a
+                href="https://github.com/robhhr/magic-toolbox"
+                target="_blank"
+                rel="noopener noreferrer"
+                css={css`
+                  text-decoration: none;
+                  font-weight: 400;
+                  display: flex;
+                  align-items: center;
+                  /* border: 1.5px solid #bfd8ed; */
+                  -webkit-box-shadow: 0px 0px 5px -3px rgba(0, 0, 0, 0.4);
+                  -moz-box-shadow: 0px 0px 5px -3px rgba(0, 0, 0, 0.4);
+                  box-shadow: 0px 0px 5px -3px rgba(0, 0, 0, 0.4);
+                  background-color: #f7f7f7;
+                  border-radius: 5px;
+                  padding: 5px 8px;
+                  width: 90px;
+                `}
+              >
+                <span
+                  className="fa fa-github"
+                  css={css`
+                    font-size: 1rem;
+                  `}
+                ></span>
+                <span
+                  css={css`
+                    font-family: "Poppins", serif;
+                    font-size: 0.875rem;
+                    padding: 0 5px;
+                  `}
+                >
+                  Source
+                </span>
+              </a>
+              <a
+                href="https://magic-toolbox.netlify.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                css={css`
+                  text-decoration: none;
+                  font-weight: 400;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  /* border: 1.5px solid #bfd8ed; */
+                  -webkit-box-shadow: 0px 0px 5px -3px rgba(0, 0, 0, 0.4);
+                  -moz-box-shadow: 0px 0px 5px -3px rgba(0, 0, 0, 0.4);
+                  box-shadow: 0px 0px 5px -3px rgba(0, 0, 0, 0.4);
+                  background-color: #bfd8ed;
+                  border-radius: 5px;
+                  padding: 5px 8px;
+                  width: 90px;
+                  margin-top: 10px;
+                `}
+              >
+                <span
+                  css={css`
+                    font-family: "Poppins", serif;
+                    font-size: 0.875rem;
+                    padding: 0 5px;
+                  `}
+                >
+                  View
+                </span>
+                <span
+                  className="fa fa-external-link"
+                  css={css`
+                    font-size: 1rem;
+                  `}
+                ></span>
+              </a>
             </div>
           </Project>
         </section>{" "}

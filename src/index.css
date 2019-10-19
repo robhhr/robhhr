@@ -5,6 +5,14 @@
   content: " ";
   border-bottom: 4px solid #464f59;
   display: block;
-  margin: 25px 0;
+  margin: 25px 0 5px 0;
   width: 50px;
+}
+
+.project-description > span {
+  border: 1px solid #bfd8ed;
+  border-radius: 5px;
+  padding: 5px 8px;
+  margin-right: 10px;
+  font-size: 0.8rem;
 }

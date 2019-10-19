@@ -2,6 +2,16 @@ import React from "react"
 import Layout from "../pages/components/layout"
 import Particles from "react-particles-js"
 import { css } from "@emotion/core"
+import styled from "@emotion/styled"
+import colors from "../colors"
+
+const dynamicProjects = props =>
+  css`
+    display: ${props.display};
+  `
+const Project = styled.div`
+  ${dynamicProjects};
+`
 
 const Home = () => {
   return (
@@ -156,6 +166,52 @@ const Home = () => {
         >
           Featured Projects
         </h1>
+        <section
+          className="project__section"
+          css={css`
+            background-color: #fff;
+            border-radius: 5px;
+            -webkit-box-shadow: 0px 0px 5px -3px rgba(0, 0, 0, 0.4);
+            -moz-box-shadow: 0px 0px 5px -3px rgba(0, 0, 0, 0.4);
+            box-shadow: 0px 0px 5px -3px rgba(0, 0, 0, 0.4);
+          `}
+        >
+          <Project
+            display="flex"
+            css={css`
+              flex-direction: column;
+            `}
+          >
+            <h1
+              css={css`
+                color: ${colors.grey};
+                padding: 15px;
+              `}
+            >
+              Magic Toolbox
+            </h1>
+            <p
+              css={css`
+                font-size: 0.875rem;
+                padding: 5px 15px;
+              `}
+            >
+              Multi-tool app with a digital clock, weather, unit convertor,
+              to-do list and digital calculator 🧙{" "}
+            </p>
+            <div
+              className="project-description"
+              css={css`
+                padding: 15px 15px;
+              `}
+            >
+              <span>HTML5</span>
+              <span>CSS3</span>
+              <span>Sass</span>
+              <span>JavaScript</span>
+            </div>
+          </Project>
+        </section>{" "}
       </section>
     </Layout>
   )

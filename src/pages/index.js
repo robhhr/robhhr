@@ -5,26 +5,7 @@ import Particles from "react-particles-js"
 import { css } from "@emotion/core"
 import styled from "@emotion/styled"
 import colors from "../colors"
-
-const dynamicProjects = props =>
-  css`
-    display: ${props.display};
-  `
-const Project = styled.div`
-  ${dynamicProjects};
-`
-// const MoreWork = styled.Link`
-// background-color: #fff;
-// text-align: center;
-// text-transform: uppercase;
-// font-family: "Poppins", serif;
-// font-size: 0.875rem;
-// box-shadow: none;
-// border-radius: 50px;
-//   &:visited {
-//     color: red;
-//   }
-// `
+import Projects from "./components/projects"
 
 const Home = () => {
   return (
@@ -185,7 +166,14 @@ const Home = () => {
             height: auto;
           `}
         >
-          <Project
+          <Projects
+            title="Magic Toolbox"
+            description="Multi-tool app with a digital clock, weather, unit convertor, to-do list
+            and digital calculator 🧙"
+            url="https://github.com/robhhr/magic-toolbox"
+          />
+
+          {/* <Project
             display="flex"
             css={css`
               flex-direction: column;
@@ -535,7 +523,7 @@ const Home = () => {
                 ></span>
               </a>
             </div>
-          </Project>
+          </Project> */}
         </section>{" "}
         <Link
           to="/work/"

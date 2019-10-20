@@ -4,14 +4,6 @@ import { css } from "@emotion/core"
 import styled from "@emotion/styled"
 import colors from "../../colors"
 
-const dynamicProjects = props =>
-  css`
-    display: ${props.display};
-  `
-const Project = styled.div`
-  ${dynamicProjects};
-`
-
 const Projects = props => {
   return (
     <div
@@ -23,6 +15,7 @@ const Projects = props => {
         -webkit-box-shadow: 0px 0px 5px -3px rgba(0, 0, 0, 0.4);
         -moz-box-shadow: 0px 0px 5px -3px rgba(0, 0, 0, 0.4);
         box-shadow: 0px 0px 5px -3px rgba(0, 0, 0, 0.4);
+        margin: 25px 0;
       `}
     >
       <h1
@@ -45,13 +38,16 @@ const Projects = props => {
       <div
         className="project__description"
         css={css`
-          padding: 15px 15px;
+          padding: 15px 15px 5px 15px;
+          display: flex;
+          align-items: center;
+          flex-wrap: wrap;
         `}
       >
-        <span>HTML5</span>
-        <span>CSS3</span>
-        <span>Sass</span>
-        <span>JavaScript</span>
+        <span>{props.technology1}</span>
+        <span>{props.technology2}</span>
+        <span>{props.technology3}</span>
+        <span>{props.technology4}</span>
       </div>
       <div
         className="project__btn"
@@ -94,7 +90,7 @@ const Projects = props => {
           </span>
         </a>
         <a
-          href="https://magic-toolbox.netlify.com/"
+          href={props.live}
           target="_blank"
           rel="noopener noreferrer"
           css={css`

@@ -3,7 +3,6 @@ import Layout from "../pages/components/layout"
 import { Link } from "gatsby"
 import Particles from "react-particles-js"
 import { css } from "@emotion/core"
-import styled from "@emotion/styled"
 import colors from "../colors"
 import Projects from "./components/projects"
 
@@ -187,6 +186,26 @@ const Home = () => {
             technology3="Sass"
             technology4="JavaScript"
             live="https://rpsl-spock.netlify.com/"
+          />
+          <Projects
+            title="Inhabitent"
+            description="WP-based theme inspired by the outdoors and active lifestyle 🧗"
+            url="https://github.com/robhhr/inhabitent-site"
+            technology1="HTML5"
+            technology2="CSS3"
+            technology3="Sass"
+            technology4="JavaScript"
+            live="https://tent.academy.red/"
+          />
+          <Projects
+            title="Instanews App"
+            description="New York Times top news fetcher with an easy-looking individual grid 📰"
+            url="https://github.com/robhhr/instanews-app"
+            technology1="HTML5"
+            technology2="CSS3"
+            technology3="Sass"
+            technology4="JavaScript"
+            live="https://robhhr.github.io/instanews-app/"
           />
         </section>{" "}
         <Link

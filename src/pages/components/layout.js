@@ -56,7 +56,7 @@ const Layout = ({ children }) => (
           }
 
           li > * {
-            padding: 0 6px;
+            padding: 0 12px;
             text-decoration: none;
             color: ${colors.grey};
             font-family: "Poppins", serif;

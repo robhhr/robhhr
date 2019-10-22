@@ -2,7 +2,7 @@ import React from "react"
 import Logo from "../../../images/blueLogo.svg"
 import navSize from "./scrollEffect"
 import { Link } from "gatsby"
-import { css } from "@emotion/core"
+import { css, keyframes } from "@emotion/core"
 import colors from "../../colors"
 import Particles from "react-particles-js"
 
@@ -26,6 +26,7 @@ const NavBar = () => {
           height: 50px;
           padding: 37px 20px;
           box-shadow: 0 2px 5px rgba(0, 0, 0, 0.04);
+          transition: all 0.5s ease-in-out;
         }
       `}
     >

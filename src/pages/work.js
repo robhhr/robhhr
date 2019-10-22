@@ -2,6 +2,7 @@ import React from "react"
 import { css } from "@emotion/core"
 import Layout from "./components/layout"
 import Particles from "react-particles-js"
+import Projects from "./components/projects"
 
 const Work = () => {
   return (
@@ -121,14 +122,125 @@ const Work = () => {
           retina_detect: true,
         }}
       />
-      <div
-        className="contact-section"
+      <section
         css={css`
-          position: relative;
+          padding: 0 20px;
         `}
       >
-        <h1>Portfolio</h1>
-      </div>
+        <div
+          className="contact-section"
+          css={css`
+            position: relative;
+            padding: 20px 0;
+            line-height: 1.8;
+          `}
+        >
+          <h1
+            className="index__section"
+            css={css`
+              font-size: 1.3rem;
+              font-weight: 500;
+              font-family: "Roboto Mono", monospace;
+              letter-spacing: -0.5px;
+            `}
+          >
+            Portfolio
+          </h1>
+          <section
+            className="project__section"
+            css={css`
+              height: auto;
+            `}
+          >
+            <Projects
+              title="Personal Site"
+              description="Personal static site built with Gatsby.js"
+              url="https://github.com/robhhr/robhhr"
+              skills={["HTML5", "CSS3", "JavaScript", "React.js", "Gatsby.js"]}
+              live="https://robhhr.com"
+            />
+            <Projects
+              title="Beyond The Conversation"
+              description="Community project - site development for Beyond The Conversation 💬"
+              url="https://github.com/robhhr/beyond-ws1-2019"
+              skills={[
+                "HTML5",
+                "CSS3",
+                "Sass",
+                "JavaScript",
+                "jQuery",
+                "PHP",
+                "WordPress",
+              ]}
+              live="https://beyond.van.cp.academy.red/"
+            />
+            <Projects
+              title="Magic Toolbox"
+              description="Multi-tool app with a digital clock, weather, unit convertor, to-do list
+            and digital calculator 🧙"
+              url="https://github.com/robhhr/magic-toolbox"
+              skills={["HTML5", "CSS3", "Sass", "JavaScript"]}
+              live="https://magic-toolbox.netlify.com/"
+            />
+            <Projects
+              title="Recipe Finder"
+              description="Recipe finder by ingredient made w/ React.js and Spoonacular Recipe API 🍜"
+              url="https://github.com/robhhr/recipe-finder"
+              skills={["HTML5", "Sass", "JavaScript", "React.js"]}
+            />
+            <Projects
+              title="Rock, Paper, Scissors, Lizard, Spock"
+              description="An altered/newer version of the classic Rock, Paper, Scissors game
+            👾"
+              url="https://github.com/robhhr/rock-paper-scissors-lizard-spock"
+              skills={["HTML5", "CSS3", "Sass", "JavaScript"]}
+              live="https://rpsl-spock.netlify.com/"
+            />
+            <Projects
+              title="Instanews App"
+              description="New York Times top news fetcher with an easy-looking individual grid 📰"
+              url="https://github.com/robhhr/instanews-app"
+              skills={["HTML5", "CSS3", "Sass", "JavaScript", "jQuery"]}
+              live="https://robhhr.github.io/instanews-app/"
+            />
+            <Projects
+              title="Inhabitent"
+              description="WP-based theme inspired by the outdoors and active lifestyle 🧗"
+              url="https://github.com/robhhr/inhabitent-site"
+              skills={[
+                "HTML5",
+                "CSS3",
+                "Sass",
+                "JavaScript",
+                "PHP",
+                "WordPress",
+              ]}
+              live="https://tent.academy.red/"
+            />
+            <Projects
+              title="Quotes on Dev"
+              description="WP-based random quote generator 💬"
+              url="https://github.com/robhhr/quotes"
+              skills={[
+                "HTML5",
+                "CSS3",
+                "Sass",
+                "JavaScript",
+                "PHP",
+                "WordPress",
+              ]}
+              live="https://quotes.academy.red/"
+            />
+            <Projects
+              title="Aloha Apparel Co."
+              description="Responsive e-commerce website inspired by the beach 🏖️"
+              url="https://github.com/robhhr/aloha-project"
+              skills={["HTML5", "CSS3", "Sass", "JavaScript"]}
+              live="https://robhhr.github.io/aloha-project/"
+            />
+          </section>
+        </div>
+      </section>
     </Layout>
   )
 }

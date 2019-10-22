@@ -1,21 +1,32 @@
 import React from "react"
 import Logo from "../../../images/blueLogo.svg"
+import navSize from "./scrollEffect"
 import { Link } from "gatsby"
 import { css } from "@emotion/core"
 import colors from "../../colors"
 import Particles from "react-particles-js"
 
 const NavBar = () => {
+  const isScrolled = navSize()
   return (
     <nav
+      className={isScrolled ? "nav__resize" : ""}
       css={css`
-        position: relative;
+        position: fixed;
         background-color: ${colors.white};
         display: flex;
         justify-content: space-between;
         align-items: center;
-        height: 100px;
-        padding: 20px;
+        width: 100%;
+        height: 80px;
+        padding: 50px 20px;
+        z-index: 100;
+
+        &.nav__resize {
+          height: 50px;
+          padding: 37px 20px;
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.04);
+        }
       `}
     >
       <Particles

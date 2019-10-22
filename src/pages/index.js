@@ -142,21 +142,21 @@ const Home = () => {
                 color: #fc3565;
               `}
             >
-              front-end developer
+              web developer
             </span>{" "}
             living in Vancouver
           </h1>
           <p
             css={css`
-              font-size: 1.05rem;
+              font-size: 0.95rem;
               line-height: 1.8;
               font-family: "Poppins", serif;
               font-weight: 300;
               padding-bottom: 20px;
             `}
           >
-            I have a passion for building safer, faster and more accesible
-            websites
+            I am a front-end web developer with a passion for building safer,
+            faster and more accesible websites
           </p>
         </div>
         <h1

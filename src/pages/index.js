@@ -170,10 +170,7 @@ const Home = () => {
             description="Multi-tool app with a digital clock, weather, unit convertor, to-do list
             and digital calculator 🧙"
             url="https://github.com/robhhr/magic-toolbox"
-            technology1="HTML5"
-            technology2="CSS3"
-            technology3="Sass"
-            technology4="JavaScript"
+            skills={["HTML5", "CSS3", "Sass", "JavaScript"]}
             live="https://magic-toolbox.netlify.com/"
           />
           <Projects
@@ -181,30 +178,21 @@ const Home = () => {
             description="An altered/newer version of the classic Rock, Paper, Scissors game
             👾"
             url="https://github.com/robhhr/rock-paper-scissors-lizard-spock"
-            technology1="HTML5"
-            technology2="CSS3"
-            technology3="Sass"
-            technology4="JavaScript"
+            skills={["HTML5", "CSS3", "Sass", "JavaScript"]}
             live="https://rpsl-spock.netlify.com/"
           />
           <Projects
             title="Inhabitent"
             description="WP-based theme inspired by the outdoors and active lifestyle 🧗"
             url="https://github.com/robhhr/inhabitent-site"
-            technology1="HTML5"
-            technology2="CSS3"
-            technology3="Sass"
-            technology4="JavaScript"
+            skills={["HTML5", "CSS3", "Sass", "JavaScript", "PHP", "WordPress"]}
             live="https://tent.academy.red/"
           />
           <Projects
             title="Instanews App"
             description="New York Times top news fetcher with an easy-looking individual grid 📰"
             url="https://github.com/robhhr/instanews-app"
-            technology1="HTML5"
-            technology2="CSS3"
-            technology3="Sass"
-            technology4="JavaScript"
+            skills={["HTML5", "CSS3", "Sass", "JavaScript", "jQuery"]}
             live="https://robhhr.github.io/instanews-app/"
           />
         </section>{" "}
@@ -213,14 +201,15 @@ const Home = () => {
           css={css`
             display: flex;
             justify-content: center;
+            padding: 15px 0 25px 0;
             background-color: #fff;
             text-transform: uppercase;
             text-decoration: none;
             font-family: "Poppins", serif;
             letter-spacing: -0.25px;
             font-size: 0.875rem;
-            box-shadow: none;
-            border-radius: 50px;
+            /* box-shadow: none;
+            border-radius: 50px; */
             &:visited {
               color: ${colors.font_color};
             }
@@ -228,6 +217,18 @@ const Home = () => {
         >
           More Projects
         </Link>
+        <h1
+          className="index__section"
+          css={css`
+            font-size: 1.3rem;
+            font-weight: 500;
+            font-family: "Roboto Mono", monospace;
+            letter-spacing: -0.5px;
+            padding: 20px 0;
+          `}
+        >
+          Contact me!
+        </h1>
       </section>
     </Layout>
   )

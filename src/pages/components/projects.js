@@ -42,10 +42,9 @@ const Projects = props => {
           flex-wrap: wrap;
         `}
       >
-        <span>{props.technology1}</span>
-        <span>{props.technology2}</span>
-        <span>{props.technology3}</span>
-        <span>{props.technology4}</span>
+        {props.skills && props.skills.length
+          ? props.skills.map(skill => <span key={skill}>{skill}</span>)
+          : null}
       </div>
       <div
         className="project__btn"

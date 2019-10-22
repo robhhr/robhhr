@@ -132,7 +132,7 @@ const Home = () => {
         <div className="index__title">
           <h1
             css={css`
-              padding: 20px 0;
+              padding: 20px 0 10px 0;
               line-height: 1.8;
             `}
           >
@@ -146,6 +146,18 @@ const Home = () => {
             </span>{" "}
             living in Vancouver
           </h1>
+          <p
+            css={css`
+              font-size: 1.05rem;
+              line-height: 1.8;
+              font-family: "Poppins", serif;
+              font-weight: 300;
+              padding-bottom: 20px;
+            `}
+          >
+            I have a passion for building safer, faster and more accesible
+            websites
+          </p>
         </div>
         <h1
           className="index__section"

@@ -5,6 +5,7 @@ import colors from "../../colors"
 const Projects = props => {
   return (
     <div
+      class="project__display"
       display="flex"
       css={css`
         flex-direction: column;
@@ -14,6 +15,11 @@ const Projects = props => {
         -moz-box-shadow: 0px 0px 5px -3px rgba(0, 0, 0, 0.4);
         box-shadow: 0px 0px 5px -3px rgba(0, 0, 0, 0.4);
         margin: 25px 0;
+
+        @media (min-width: 850px) {
+          width: 100%;
+          margin: 0 auto;
+        }
       `}
     >
       <h1

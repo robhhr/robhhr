@@ -18,7 +18,7 @@ const Home = () => {
         params={{
           particles: {
             number: {
-              value: 50,
+              value: 75,
               density: {
                 enable: true,
                 value_area: 850,
@@ -140,6 +140,10 @@ const Home = () => {
             css={css`
               padding: 20px 0 10px 0;
               line-height: 1.8;
+
+              @media (min-width: 850px) {
+                width: 70%;
+              }
             `}
           >
             Hello! I'm Roberto, a{" "}
@@ -159,6 +163,11 @@ const Home = () => {
               font-family: "Poppins", serif;
               font-weight: 300;
               padding-bottom: 20px;
+
+              @media (min-width: 850px) {
+                width: 70%;
+                font-size: 1rem;
+              }
             `}
           >
             I am a front-end web developer with a passion for building safer,
@@ -173,6 +182,10 @@ const Home = () => {
             font-family: "Roboto Mono", monospace;
             letter-spacing: -0.5px;
             padding: 20px 0;
+
+            @media (min-width: 850px) {
+              padding: 40px 0;
+            }
           `}
         >
           Featured Projects
@@ -182,6 +195,12 @@ const Home = () => {
           css={css`
             height: auto;
             z-index: 100;
+
+            @media (min-width: 850px) {
+              display: grid;
+              grid-template-columns: repeat(2, 1fr);
+              grid-gap: 30px;
+            }
           `}
         >
           <Projects
@@ -231,6 +250,10 @@ const Home = () => {
             border-radius: 50px; */
             &:visited {
               color: ${colors.font_color};
+            }
+
+            @media (min-width: 850px) {
+              padding: 40px 0;
             }
           `}
         >

@@ -90,6 +90,14 @@ const Layout = ({ children }) => (
         .css-1yjd8j7-NavBar, canvas {
           z-index: -999;
         }
+
+        canvas {
+          z-index: -9999
+        }
+
+        .nav__resize > canvas {
+          z-index: -999
+        }
       `}
     />
     <Helmet>

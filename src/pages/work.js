@@ -11,6 +11,7 @@ const Work = () => {
         css={css`
           position: absolute;
           height: 100%;
+          z-index: -999;
         `}
         params={{
           particles: {
@@ -284,6 +285,7 @@ const Work = () => {
               color: #464f59;
               text-decoration: none;
               padding: 10px 0;
+              width: max-content;
               &.visited {
                 color: #464f59;
               }
@@ -301,6 +303,7 @@ const Work = () => {
               color: #464f59;
               text-decoration: none;
               padding: 10px 0;
+              width: max-content;
               &.visited {
                 color: #464f59;
               }
@@ -318,6 +321,7 @@ const Work = () => {
               color: #464f59;
               text-decoration: none;
               padding: 10px 0;
+              width: max-content;
               &.visited {
                 color: #464f59;
               }

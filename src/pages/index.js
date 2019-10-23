@@ -13,6 +13,7 @@ const Home = () => {
         css={css`
           position: absolute;
           height: 100%;
+          z-index: -999;
         `}
         params={{
           particles: {
@@ -176,6 +177,7 @@ const Home = () => {
           className="project__section"
           css={css`
             height: auto;
+            z-index: 100;
           `}
         >
           <Projects
@@ -273,6 +275,7 @@ const Home = () => {
               color: #464f59;
               text-decoration: none;
               padding: 10px 0;
+              width: max-content;
               &.visited {
                 color: #464f59;
               }
@@ -290,6 +293,7 @@ const Home = () => {
               color: #464f59;
               text-decoration: none;
               padding: 10px 0;
+              width: max-content;
               &.visited {
                 color: #464f59;
               }
@@ -307,6 +311,7 @@ const Home = () => {
               color: #464f59;
               text-decoration: none;
               padding: 10px 0;
+              width: max-content;
               &.visited {
                 color: #464f59;
               }

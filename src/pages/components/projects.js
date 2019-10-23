@@ -19,6 +19,9 @@ const Projects = props => {
         @media (min-width: 850px) {
           width: 100%;
           margin: 0 auto;
+          -webkit-box-shadow: 0px 0px 5px -2px rgba(0, 0, 0, 0.4);
+          -moz-box-shadow: 0px 0px 5px -2px rgba(0, 0, 0, 0.4);
+          box-shadow: 0px 0px 5px -2px rgba(0, 0, 0, 0.4);
         }
       `}
     >
@@ -35,6 +38,11 @@ const Projects = props => {
         css={css`
           font-size: 0.875rem;
           padding: 5px 15px;
+
+          @media (min-width: 850px) {
+            width: 75%;
+            line-height: 2;
+          }
         `}
       >
         {props.description}{" "}
@@ -56,6 +64,11 @@ const Projects = props => {
         className="project__btn"
         css={css`
           padding: 5px 15px 15px 15px;
+
+          @media (min-width: 850px) {
+            display: flex;
+            align-items: baseline;
+          }
         `}
       >
         <a

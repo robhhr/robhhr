@@ -127,6 +127,10 @@ const Work = () => {
       <section
         css={css`
           padding: 0 20px;
+
+          @media (min-width: 850px) {
+            padding: 0 150px;
+          }
         `}
       >
         <div
@@ -153,6 +157,13 @@ const Work = () => {
             css={css`
               height: auto;
               z-index: 999;
+
+              @media (min-width: 850px) {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                grid-gap: 30px;
+                padding: 45px 0;
+              }
             `}
           >
             <Projects

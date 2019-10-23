@@ -166,7 +166,7 @@ const Home = () => {
 
               @media (min-width: 850px) {
                 width: 60%;
-                font-size: 1rem;
+                font-size: 1.1rem;
                 line-height: 2.2;
               }
             `}

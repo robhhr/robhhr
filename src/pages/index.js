@@ -142,7 +142,7 @@ const Home = () => {
               line-height: 1.8;
 
               @media (min-width: 850px) {
-                width: 70%;
+                width: 60%;
               }
             `}
           >
@@ -165,8 +165,9 @@ const Home = () => {
               padding-bottom: 20px;
 
               @media (min-width: 850px) {
-                width: 70%;
+                width: 60%;
                 font-size: 1rem;
+                line-height: 2.2;
               }
             `}
           >

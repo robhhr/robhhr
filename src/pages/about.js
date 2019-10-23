@@ -125,6 +125,11 @@ export default () => (
     <section
       css={css`
         padding: 0 20px;
+
+        @media (min-width: 850px) {
+          padding: 0 150px;
+          height: 70vh;
+        }
       `}
     >
       <div
@@ -133,6 +138,11 @@ export default () => (
           position: relative;
           padding: 20px 0;
           line-height: 1.8;
+
+          @media (min-width: 850px) {
+            width: 75%;
+            line-height: 2.5;
+          }
         `}
       >
         <h1
@@ -181,7 +191,7 @@ export default () => (
         className="author-footer"
         css={css`
           position: absolute;
-          bottom: 55px;
+          bottom: 0px;
           right: 30px;
           font-size: 0.8rem;
           font-weight: lighter;

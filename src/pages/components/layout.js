@@ -23,6 +23,9 @@ const Layout = ({ children }) => (
             Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
           font-size: 16px;
           line-height: 1.4;
+          @media (min-width: 850px) {
+            font-size: 18px;
+          }
           /* remove margin from main div built with Gatsby */
           > div {
             margin-top: 0;
@@ -81,7 +84,11 @@ const Layout = ({ children }) => (
         .css-1g9eken-Home,
         canvas {
           z-index: -999;
-          height: 100vh;
+          height: 100vh;  
+        }
+
+        .css-1yjd8j7-NavBar, canvas {
+          z-index: -999;
         }
       `}
     />
@@ -96,6 +103,10 @@ const Layout = ({ children }) => (
         position: relative;
         top: 85px;
         padding-bottom: 50px;
+
+        @media (min-width: 850px) {
+          top: 120px;
+        }
       `}
     >
       {children}

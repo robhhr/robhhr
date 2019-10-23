@@ -27,17 +27,26 @@ const NavBar = () => {
           padding: 37px 20px;
           box-shadow: 0 2px 5px rgba(0, 0, 0, 0.04);
           transition: all 0.5s ease-in-out;
+
+          @media (min-width: 850px) {
+            padding: 40px 135px;
+          }
+        }
+
+        @media (min-width: 850px) {
+          padding: 60px 135px;
         }
       `}
     >
       <Particles
         css={css`
           position: absolute;
+          z-index: -999;
         `}
         params={{
           particles: {
             number: {
-              value: 85,
+              value: 50,
               density: {
                 enable: true,
                 value_area: 850,

@@ -18,7 +18,7 @@ const Home = () => {
         params={{
           particles: {
             number: {
-              value: 85,
+              value: 50,
               density: {
                 enable: true,
                 value_area: 850,
@@ -129,6 +129,10 @@ const Home = () => {
       <section
         css={css`
           padding: 0 20px;
+
+          @media (min-width: 850px) {
+            padding: 0 150px;
+          }
         `}
       >
         <div className="index__title">

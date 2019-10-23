@@ -152,6 +152,7 @@ const Work = () => {
             className="project__section"
             css={css`
               height: auto;
+              z-index: 999;
             `}
           >
             <Projects

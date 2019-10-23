@@ -120,6 +120,61 @@ export default () => (
         retina_detect: true,
       }}
     />
-    <h1>About page</h1>
+    <section
+      css={css`
+        padding: 0 20px;
+      `}
+    >
+      <div
+        className="about-section"
+        css={css`
+          position: relative;
+          padding: 20px 0;
+          line-height: 1.8;
+        `}
+      >
+        <h1
+          className="index__section"
+          css={css`
+            font-size: 1.3rem;
+            font-weight: 500;
+            font-family: "Roboto Mono", monospace;
+            letter-spacing: -0.5px;
+          `}
+        >
+          About me
+        </h1>
+        <p
+          css={css`
+            padding: 30px 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+              Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+              sans-serif;
+            font-size: 1rem;
+            font-weight: 300;
+            line-height: 2;
+          `}
+        >
+          I am a design-oriented front-end web developer with a passion for
+          building safer, faster and more accesible web content. I strive to
+          build immersive and efficient web applications, which is where my
+          passion for design and development converge. <br />
+          <div
+            css={css`
+              padding: 15px 0;
+            `}
+          >
+            See my previous work history on{" "}
+            <a href="https://linkedin.com/in/robertohhr" target="_blank">
+              LinkedIn
+            </a>{" "}
+            and check out my latest work on{" "}
+            <a href="https://github.com/robhhr" target="_blank">
+              Github
+            </a>
+          </div>
+        </p>
+      </div>
+    </section>
   </Layout>
 )

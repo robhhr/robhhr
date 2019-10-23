@@ -62,6 +62,7 @@ const Layout = ({ children }) => (
             font-family: "Poppins", serif;
             font-weight: 500;
             text-transform: lowercase;
+        }
             &:visited {
               color: ${colors.grey};
             }
@@ -75,7 +76,7 @@ const Layout = ({ children }) => (
 
         .fa {
           font-size: 20px;
-        }
+
 
         .css-1g9eken-Home,
         canvas {

@@ -8,6 +8,7 @@ export default () => (
     <Particles
       css={css`
         position: absolute;
+        height: 100%;
       `}
       params={{
         particles: {
@@ -175,6 +176,29 @@ export default () => (
           </div>
         </p>
       </div>
+      <p
+        className="author-footer"
+        css={css`
+          position: absolute;
+          bottom: 55px;
+          right: 30px;
+          font-size: 0.8rem;
+          font-weight: lighter;
+          font-family: "Roboto Mono", monospace;
+        `}
+      >
+        Made with 💙 by{" "}
+        <a
+          href="https://github.com/robhhr"
+          target="_blank"
+          rel="noopener noreferrer"
+          css={css`
+            color: #464f59;
+          `}
+        >
+          Roberto
+        </a>
+      </p>
     </section>
   </Layout>
 )

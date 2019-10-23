@@ -12,6 +12,7 @@ const Home = () => {
       <Particles
         css={css`
           position: absolute;
+          height: 100%;
         `}
         params={{
           particles: {
@@ -241,6 +242,102 @@ const Home = () => {
         >
           Contact me!
         </h1>
+        <p
+          css={css`
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+              Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+              sans-serif;
+            font-size: 1rem;
+            font-weight: 300;
+            line-height: 2;
+          `}
+        >
+          If your like my work don't hesitate to contact me!
+        </p>
+        <div
+          className="contact-items"
+          css={css`
+            padding: 15px 0 50px 0;
+            display: flex;
+            flex-direction: column;
+          `}
+        >
+          {" "}
+          <a
+            href="mailto:robhhr@outlook.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            css={css`
+              font-size: 1rem;
+              font-weight: 300;
+              color: #464f59;
+              text-decoration: none;
+              padding: 10px 0;
+              &.visited {
+                color: #464f59;
+              }
+            `}
+          >
+            email
+          </a>
+          <a
+            href="https://linkedin.com/in/robertohhr"
+            target="_blank"
+            rel="noopener noreferrer"
+            css={css`
+              font-size: 1rem;
+              font-weight: 300;
+              color: #464f59;
+              text-decoration: none;
+              padding: 10px 0;
+              &.visited {
+                color: #464f59;
+              }
+            `}
+          >
+            linkedin
+          </a>
+          <a
+            href="https://twitter.com/hallorob"
+            target="_blank"
+            rel="noopener noreferrer"
+            css={css`
+              font-size: 1rem;
+              font-weight: 300;
+              color: #464f59;
+              text-decoration: none;
+              padding: 10px 0;
+              &.visited {
+                color: #464f59;
+              }
+            `}
+          >
+            twitter
+          </a>
+        </div>
+        <p
+          className="author-footer"
+          css={css`
+            position: absolute;
+            bottom: 55px;
+            right: 30px;
+            font-size: 0.8rem;
+            font-weight: lighter;
+            font-family: "Roboto Mono", monospace;
+          `}
+        >
+          Made with 💙 by{" "}
+          <a
+            href="https://github.com/robhhr"
+            target="_blank"
+            rel="noopener noreferrer"
+            css={css`
+              color: #464f59;
+            `}
+          >
+            Roberto
+          </a>
+        </p>
       </section>
     </Layout>
   )

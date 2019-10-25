@@ -172,7 +172,7 @@ const Home = () => {
             `}
           >
             I am a front-end web developer with a passion for building safer,
-            faster and more accesible websites
+            faster and more accessible websites
           </p>
         </div>
         <h1

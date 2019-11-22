@@ -11,6 +11,7 @@ const Work = () => {
         css={css`
           position: absolute;
           height: 100%;
+          width: 100%;
           z-index: -999;
         `}
         params={{

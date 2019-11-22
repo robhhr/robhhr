@@ -92,7 +92,8 @@ const Layout = ({ children }) => (
         }
 
         canvas {
-          z-index: -9999
+          z-index: -9999;
+          height: 100%
         }
 
         .nav__resize > canvas {

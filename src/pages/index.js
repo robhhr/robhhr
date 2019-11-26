@@ -283,7 +283,7 @@ const Home = () => {
             line-height: 2;
           `}
         >
-          If your like my work don't hesitate to contact me!
+          If you like my work don't hesitate to contact me!
         </p>
         <div
           className="contact-items"

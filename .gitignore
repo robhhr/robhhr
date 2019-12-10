@@ -51,13 +51,16 @@ typings/
 # Output of 'npm pack'
 *.tgz
 
-# dotenv environment variables file
-.env
-
-# gatsby files
+# General files
 .cache/
+static
 public
 images/
+.prettierrc
+.prettierignore
+.eslintrc
+LICENSE
+
 
 # Mac files
 .DS_Store

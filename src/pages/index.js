@@ -311,25 +311,25 @@ const Home = () => {
           `}
         >
           <Skillset>
-            <Skills skill={iconHTML} />
-            <Skills skill={iconCSS} />
-            <Skills skill={iconJS} />
-            <Skills skill={iconReact} />
-            <Skills skill={iconGatsby} />
-            <Skills skill={iconSASS} />
+            <Skills skill={iconHTML} alt={"HTML5"} />
+            <Skills skill={iconCSS} alt={"CSS3"} />
+            <Skills skill={iconJS} alt={"Javascript"} />
+            <Skills skill={iconReact} alt={"React"} />
+            <Skills skill={iconGatsby} alt={"Gatsby"} />
+            <Skills skill={iconSASS} alt={"SASS"} />
           </Skillset>
           <Skillset>
-            <Skills skill={iconNPM} />
-            <Skills skill={iconYarn} />
-            <Skills skill={iconGit} />
-            <Skills skill={iconWP} />
-            <Skills skill={iconGulp} />
+            <Skills skill={iconNPM} alt={"NPM"} />
+            <Skills skill={iconYarn} alt={"Yarn"} />
+            <Skills skill={iconGit} alt={"Git"} />
+            <Skills skill={iconWP} alt={"WordPress"} />
+            <Skills skill={iconGulp} alt={"Gulp"} />
           </Skillset>
           <Skillset>
-            <Skills skill={iconMeteor} />
-            <Skills skill={iconNode} />
-            <Skills skill={iconPHP} />
-            <Skills skill={iconMongo} />
+            <Skills skill={iconMeteor} alt={"Meteor"} />
+            <Skills skill={iconNode} alt={"Nodejs"} />
+            <Skills skill={iconPHP} alt={"PHP"} />
+            <Skills skill={iconMongo} alt={"Mongo DB"} />
           </Skillset>
         </div>
         <h1

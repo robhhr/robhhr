@@ -5,6 +5,7 @@ const Skills = props => {
   return (
     <img
       src={props.skill}
+      alt={props.alt}
       css={css`
         max-width: 75px;
         width: 75px;

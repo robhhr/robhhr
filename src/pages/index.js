@@ -15,7 +15,11 @@ import iconHTML from "../../images/iconHTML.svg"
 import iconCSS from "../../images/iconCSS.svg"
 import iconNode from "../../images/iconNode.svg"
 import iconPHP from "../../images/iconPHP.svg"
+import iconGit from "../../images/iconGit.svg"
+import iconYarn from "../../images/iconYarn.svg"
+import iconWP from "../../images/iconWP.svg"
 import iconMeteor from "../../images/iconMeteor.svg"
+import iconGulp from "../../images/iconGulp.svg"
 import iconGatsby from "../../images/iconGatsby.svg"
 import Skills from "./components/skills"
 
@@ -301,7 +305,8 @@ const Home = () => {
             @media (min-width: 850px) {
               display: flex;
               flex-direction: row;
-              margin: 0 auto;
+              align-items: flex-start;
+              margin: 20px auto;
             }
           `}
         >
@@ -310,7 +315,15 @@ const Home = () => {
             <Skills skill={iconCSS} />
             <Skills skill={iconJS} />
             <Skills skill={iconReact} />
+            <Skills skill={iconGatsby} />
             <Skills skill={iconSASS} />
+          </Skillset>
+          <Skillset>
+            <Skills skill={iconNPM} />
+            <Skills skill={iconYarn} />
+            <Skills skill={iconGit} />
+            <Skills skill={iconWP} />
+            <Skills skill={iconGulp} />
           </Skillset>
           <Skillset>
             <Skills skill={iconMeteor} />

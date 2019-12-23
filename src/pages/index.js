@@ -10,9 +10,12 @@ import iconNPM from "../../images/iconNPM.svg"
 import iconJS from "../../images/iconJS.svg"
 import iconReact from "../../images/iconReact.svg"
 import iconMongo from "../../images/iconMongo.svg"
+import iconSASS from "../../images/iconSASS.svg"
 import iconHTML from "../../images/iconHTML.svg"
 import iconCSS from "../../images/iconCSS.svg"
+import iconNode from "../../images/iconNode.svg"
 import iconPHP from "../../images/iconPHP.svg"
+import iconMeteor from "../../images/iconMeteor.svg"
 import iconGatsby from "../../images/iconGatsby.svg"
 import Skills from "./components/skills"
 
@@ -292,10 +295,12 @@ const Home = () => {
           className="skill__section"
           css={css`
             display: flex;
-            justify-content: center;
+            flex-direction: column;
+            align-items: center;
             width: 100%;
             @media (min-width: 850px) {
               display: flex;
+              flex-direction: row;
               margin: 0 auto;
             }
           `}
@@ -305,6 +310,13 @@ const Home = () => {
             <Skills skill={iconCSS} />
             <Skills skill={iconJS} />
             <Skills skill={iconReact} />
+            <Skills skill={iconSASS} />
+          </Skillset>
+          <Skillset>
+            <Skills skill={iconMeteor} />
+            <Skills skill={iconNode} />
+            <Skills skill={iconPHP} />
+            <Skills skill={iconMongo} />
           </Skillset>
         </div>
         <h1

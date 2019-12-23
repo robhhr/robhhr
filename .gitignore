@@ -54,7 +54,6 @@ typings/
 # General files
 .cache/
 static
-public
 images/
 .prettierrc
 .prettierignore

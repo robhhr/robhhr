@@ -9,6 +9,7 @@ import Skillset from "./components/Skillset"
 import iconNPM from "../../images/iconNPM.svg"
 import iconReact from "../../images/iconReact.svg"
 import iconMongo from "../../images/iconMongo.svg"
+import iconHTML from "../../images/iconHTML.svg"
 import Skills from "./components/skills"
 
 const Home = () => {
@@ -287,11 +288,16 @@ const Home = () => {
           className="skill__section"
           css={css`
             display: flex;
-            margin: 0 auto;
-            width: 65%;
+            justify-content: center;
+            width: 100%;
+            @media (min-width: 850px) {
+              display: flex;
+              margin: 0 auto;
+            }
           `}
         >
           <Skillset>
+            <Skills skill={iconHTML} />
             <Skills skill={iconNPM} />
             <Skills skill={iconReact} />
             <Skills skill={iconMongo} />

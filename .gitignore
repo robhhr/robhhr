@@ -53,8 +53,7 @@ typings/
 
 # General files
 .cache/
-static
-images/
+public
 .prettierrc
 .prettierignore
 .eslintrc

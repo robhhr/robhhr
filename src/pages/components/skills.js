@@ -6,14 +6,16 @@ const Skills = props => {
     <img
       src={props.skill}
       css={css`
-        width: 70px;
-        height: 100%;
+        max-width: 75px;
+        width: 75px;
+        max-height: 75px;
+        height: 75px;
         margin: 15px auto;
         filter: grayscale(35%);
         @media (min-width: 850px) {
-          width: 85px;
-          height: 100%;
-          filter: grayscale(50%);
+          max-width: 85px;
+          max-height: 85px;
+          filter: grayscale(65%);
           margin: 20px 0;
           &:hover {
             filter: grayscale(0%);

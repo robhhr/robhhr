@@ -5,10 +5,11 @@ const Skillset = ({ children }) => {
   return (
     <div
       css={css`
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         background-color: #fff;
-        width: 70%;
+        width: 50%;
         height: 100%;
         border-radius: 5px;
         -webkit-box-shadow: 0px 0px 5px -3px rgba(0, 0, 0, 0.4);

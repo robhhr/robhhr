@@ -7,9 +7,13 @@ import colors from "../colors"
 import Projects from "./components/projects"
 import Skillset from "./components/Skillset"
 import iconNPM from "../../images/iconNPM.svg"
+import iconJS from "../../images/iconJS.svg"
 import iconReact from "../../images/iconReact.svg"
 import iconMongo from "../../images/iconMongo.svg"
 import iconHTML from "../../images/iconHTML.svg"
+import iconCSS from "../../images/iconCSS.svg"
+import iconPHP from "../../images/iconPHP.svg"
+import iconGatsby from "../../images/iconGatsby.svg"
 import Skills from "./components/skills"
 
 const Home = () => {
@@ -298,9 +302,9 @@ const Home = () => {
         >
           <Skillset>
             <Skills skill={iconHTML} />
-            <Skills skill={iconNPM} />
+            <Skills skill={iconCSS} />
+            <Skills skill={iconJS} />
             <Skills skill={iconReact} />
-            <Skills skill={iconMongo} />
           </Skillset>
         </div>
         <h1

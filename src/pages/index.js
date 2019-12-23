@@ -5,6 +5,9 @@ import Particles from "react-particles-js"
 import { css } from "@emotion/core"
 import colors from "../colors"
 import Projects from "./components/projects"
+import Skillset from "./components/Skillset"
+import npmIcon from "../../images/npmIcon.svg"
+import Skills from "./components/skills"
 
 const Home = () => {
   return (
@@ -279,19 +282,16 @@ const Home = () => {
           Skillset
         </h1>
         <div
+          className="skill__section"
           css={css`
-            border: 1px solid lightgray;
-            border-radius: 10px;
             display: flex;
-            padding: 30px 10px;
+            margin: 0 auto;
+            width: 65%;
           `}
         >
-          <div className="skill__container">
-            <h6>Front end</h6>
-          </div>
-          <div className="skill__container">
-            <h6>Back end</h6>
-          </div>
+          <Skillset>
+            <Skills skill={npmIcon} />
+          </Skillset>
         </div>
         <h1
           className="index__section"

@@ -6,7 +6,9 @@ import { css } from "@emotion/core"
 import colors from "../colors"
 import Projects from "./components/projects"
 import Skillset from "./components/Skillset"
-import npmIcon from "../../images/npmIcon.svg"
+import iconNPM from "../../images/iconNPM.svg"
+import iconReact from "../../images/iconReact.svg"
+import iconMongo from "../../images/iconMongo.svg"
 import Skills from "./components/skills"
 
 const Home = () => {
@@ -290,7 +292,9 @@ const Home = () => {
           `}
         >
           <Skillset>
-            <Skills skill={npmIcon} />
+            <Skills skill={iconNPM} />
+            <Skills skill={iconReact} />
+            <Skills skill={iconMongo} />
           </Skillset>
         </div>
         <h1

@@ -153,6 +153,7 @@ const Home = () => {
                 color: #fc3565;
               `}
             >
+              {" "}
               web developer
             </span>{" "}
             living in Vancouver
@@ -261,6 +262,37 @@ const Home = () => {
         >
           More Projects
         </Link>
+        <h1
+          className="index__section"
+          css={css`
+            font-size: 1.3rem;
+            font-weight: 500;
+            font-family: "Roboto Mono", monospace;
+            letter-spacing: -0.5px;
+            padding: 20px 0;
+
+            @media (min-width: 850px) {
+              padding: 40px 0;
+            }
+          `}
+        >
+          Skillset
+        </h1>
+        <div
+          css={css`
+            border: 1px solid lightgray;
+            border-radius: 10px;
+            display: flex;
+            padding: 30px 10px;
+          `}
+        >
+          <div className="skill__container">
+            <h6>Front end</h6>
+          </div>
+          <div className="skill__container">
+            <h6>Back end</h6>
+          </div>
+        </div>
         <h1
           className="index__section"
           css={css`

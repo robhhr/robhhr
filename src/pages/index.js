@@ -329,7 +329,6 @@ const Home = () => {
             <Skills skill={iconMeteor} alt={"Meteor"} />
             <Skills skill={iconNode} alt={"Nodejs"} />
             <Skills skill={iconPHP} alt={"PHP"} />
-            <Skills skill={iconMongo} alt={"Mongo DB"} />
           </Skillset>
         </div>
         <h1

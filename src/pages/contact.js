@@ -131,11 +131,6 @@ const Contact = () => {
         `}
       >
         <h1>Contact me!</h1>
-        {/* <iframe
-          src="https://docs.google.com/gview?url=https://github.com/robhhr/robhhr/raw/master/Roberto_CV.pdf &embedded=true"
-          style="width:100%; height:100%;"
-          frameborder="0"
-        ></iframe> */}
       </div>
     </Layout>
   )

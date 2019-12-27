@@ -268,8 +268,6 @@ const Home = () => {
             font-size: 0.875rem;
             min-width: 35%;
             margin: 0 auto;
-            /* box-shadow: none;
-            border-radius: 50px; */
             &:visited {
               color: ${colors.font_color};
             }

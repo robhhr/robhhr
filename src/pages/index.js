@@ -266,7 +266,8 @@ const Home = () => {
             font-family: "Poppins", serif;
             letter-spacing: -0.25px;
             font-size: 0.875rem;
-            width: 100%;
+            min-width: 35%;
+            margin: 0 auto;
             /* box-shadow: none;
             border-radius: 50px; */
             &:visited {
@@ -275,6 +276,7 @@ const Home = () => {
 
             @media (min-width: 850px) {
               padding: 40px 0;
+              max-width: 15%;
             }
           `}
         >

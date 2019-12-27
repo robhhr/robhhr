@@ -266,6 +266,7 @@ const Home = () => {
             font-family: "Poppins", serif;
             letter-spacing: -0.25px;
             font-size: 0.875rem;
+            width: 100%;
             /* box-shadow: none;
             border-radius: 50px; */
             &:visited {

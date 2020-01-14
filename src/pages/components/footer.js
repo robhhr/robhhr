@@ -1,7 +1,6 @@
 import React from "react"
 import { css } from "@emotion/core"
 import "font-awesome/css/font-awesome.min.css"
-import colors from "../../colors"
 
 const Footer = () => {
   return (

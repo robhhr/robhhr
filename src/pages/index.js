@@ -156,8 +156,9 @@ const Home = () => {
         <div className="index__title">
           <h1
             css={css`
-              padding: 20px 0 10px 0;
+              padding: 20px 0;
               line-height: 1.8;
+              width: 85%;
 
               @media (min-width: 850px) {
                 width: 60%;
@@ -175,24 +176,6 @@ const Home = () => {
             </span>{" "}
             living in Vancouver
           </h1>
-          <p
-            css={css`
-              font-size: 0.95rem;
-              line-height: 1.8;
-              font-family: "Poppins", serif;
-              font-weight: 300;
-              padding-bottom: 20px;
-
-              @media (min-width: 850px) {
-                width: 60%;
-                font-size: 1.1rem;
-                line-height: 2.2;
-              }
-            `}
-          >
-            I am a front-end web developer with a passion for building safer,
-            faster and more accessible websites
-          </p>
         </div>
         <h1
           className="index__section"

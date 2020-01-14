@@ -104,7 +104,7 @@ const Layout = ({ children }) => (
     <Helmet>
       <meta charSet="utf-8" />
       <link rel="shortcut icon" href={`${Favicon}`} />
-      <title>Roberto Hernandez | Web Developer</title>
+      <title>Roberto | Web Developer</title>
     </Helmet>
     <NavBar />
     <main

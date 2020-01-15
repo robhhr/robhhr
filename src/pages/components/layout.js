@@ -1,6 +1,6 @@
 import React from "react"
 import { Helmet } from "react-helmet"
-import Favicon from "../../../images/myInitial.png"
+import Favicon from "../../../images/R2D2.png"
 import { Global, css } from "@emotion/core"
 import NavBar from "./NavBar"
 import Footer from "./footer"

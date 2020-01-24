@@ -168,17 +168,17 @@ export default () => (
             line-height: 2;
           `}
         >
-          I am a design-oriented front-end web developer with a passion for
-          building safer, faster and more accesible web content. I strive to
-          build immersive and efficient web applications, which is where my
-          passion for design and development converge. <br />
+          I am a design-oriented Web Developer with a passion for building
+          safer, faster and more accessible web content. I strive to build
+          immersive and efficient web applications, which is where my passion
+          for design and development converge. <br />
           <div
             css={css`
               padding: 15px 0;
             `}
           >
             See my previous work history on{" "}
-            <a href="https://linkedin.com/in/robertohhr" target="_blank">
+            <a href="https://linkedin.com/in/roberto-h" target="_blank">
               LinkedIn
             </a>{" "}
             and check out my latest work on{" "}

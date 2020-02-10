@@ -7,22 +7,33 @@ const StyledNav = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.04);
+  height: 70px;
 `
 
 const StyledLogo = styled.img`
+  margin: 0 20px;
   width: 100px;
-  height: 100px;
+`
+
+const StyledLink = styled(props => <Link {...props} />)`
+  text-decoration: none;
+  margin: 0 14px;
+
+  &:last-child {
+    margin-right: 20px;
+  }
 `
 
 const NavBar = () => {
   return (
     <StyledNav>
-      <Link to="index">
+      <Link to="/">
         <StyledLogo src={Logo} />
       </Link>
       <div>
-        <Link to="about">about</Link>
-        <Link to="contact">contact</Link>
+        <StyledLink to="about">about</StyledLink>
+        <StyledLink to="contact">contact</StyledLink>
       </div>
     </StyledNav>
   )

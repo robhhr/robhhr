@@ -1,15 +1,15 @@
 import React from "react"
 import { Layout, NavBar } from "../components"
 
-const Contact = () => {
+const Work = () => {
   return (
     <>
       <NavBar />
       <Layout>
-        <h1>Contact</h1>
+        <h1>Work</h1>
       </Layout>
     </>
   )
 }
 
-export default Contact
+export default Work

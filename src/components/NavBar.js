@@ -34,8 +34,8 @@ const NavBar = () => {
         <StyledLogo src={Logo} />
       </Link>
       <div>
-        <StyledLink to="about">about</StyledLink>
-        <StyledLink to="contact">contact</StyledLink>
+        <StyledLink to="/about">about</StyledLink>
+        <StyledLink to="/work">work</StyledLink>
       </div>
     </StyledNav>
   )

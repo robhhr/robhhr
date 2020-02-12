@@ -1,5 +1,5 @@
 import React from "react"
-import { Footer, Layout, NavBar, SEO } from "../components"
+import { Footer, Layout, NavBar, ProjectSection, SEO } from "../components"
 import { Section, Summary } from "../components/Typography"
 
 const App = () => (
@@ -12,7 +12,12 @@ const App = () => (
         <span style={{ color: "#fc3565" }}>web developer</span> based in
         Vancouver
       </Summary>
-      <Section>Featured Projects</Section>
+      <div>
+        <Section>Featured Projects</Section>
+        <ProjectSection />
+      </div>
+      <Section>Skillset</Section>
+      <Section>Contact</Section>
     </Layout>
     <Footer />
   </>

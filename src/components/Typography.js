@@ -9,11 +9,6 @@ const ProjectDescription = styled.p`
   margin: 0;
 `
 
-const ProjectTitle = styled.a`
-  font-size: 1.15rem;
-  font-weight: 400;
-`
-
 const StyledSection = styled.h1`
   font-family: "Cairo", sans-serif;
   font-size: 1.35rem;
@@ -40,12 +35,8 @@ const Description = ({ children }) => (
   <ProjectDescription>{children}</ProjectDescription>
 )
 
-const Name = ({ children, href, ...props }) => (
-  <ProjectTitle href={href}>{children}</ProjectTitle>
-)
-
 const Section = ({ children }) => <StyledSection>{children}</StyledSection>
 
 const Summary = ({ children }) => <StyledSummary>{children}</StyledSummary>
 
-export { Description, Name, Section, Summary }
+export { Description, Section, Summary }

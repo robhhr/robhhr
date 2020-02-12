@@ -1,5 +1,5 @@
 import React from "react"
-import { Layout, NavBar, SEO } from "../components"
+import { Footer, Layout, NavBar, SEO } from "../components"
 
 const App = () => (
   <>
@@ -7,6 +7,7 @@ const App = () => (
     <Layout>
       <SEO title="Roberto Hernandez | Web Developer" />
     </Layout>
+    <Footer />
   </>
 )
 

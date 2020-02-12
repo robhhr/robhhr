@@ -19,6 +19,8 @@ const StyledLogo = styled.img`
 const StyledLink = styled(props => <Link {...props} />)`
   text-decoration: none;
   margin: 0 14px;
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
 
   &:last-child {
     margin-right: 20px;

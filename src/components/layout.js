@@ -13,6 +13,10 @@ const GlobalStyle = createGlobalStyle`
     font-size: 1.2rem;
     color: #464f59;
   }
+
+  main {
+    margin: 0 25px;
+  }
 `
 
 const Layout = ({ children }) => {

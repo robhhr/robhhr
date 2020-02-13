@@ -1,5 +1,6 @@
 import React from "react"
 import {
+  Author,
   Button,
   Contact,
   Footer,
@@ -29,6 +30,7 @@ const App = () => (
         <Section>Contact</Section>
         <Contact />
       </div>
+      <Author />
     </Layout>
     <Footer />
   </>

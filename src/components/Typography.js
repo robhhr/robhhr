@@ -2,6 +2,10 @@ import React from "react"
 import styled from "styled-components"
 import "../assets/fonts.css"
 
+const AuthorTitle = styled.p`
+  font-size: 0.95rem;
+`
+
 const ContactTitle = styled.h1`
   font-size: 1.05rem;
   font-weight: 300;
@@ -44,6 +48,9 @@ const StyledSummary = styled.h1`
   line-height: 1.8;
   width: 80%;
 `
+
+const Author = ({ children }) => <AuthorTitle>{children}</AuthorTitle>
+
 const Contact = ({ children }) => <ContactTitle>{children}</ContactTitle>
 
 const Description = ({ children }) => (
@@ -60,4 +67,4 @@ const Section = ({ children }) => <StyledSection>{children}</StyledSection>
 
 const Summary = ({ children }) => <StyledSummary>{children}</StyledSummary>
 
-export { Contact, Description, Links, Section, Summary }
+export { Author, Contact, Description, Links, Section, Summary }

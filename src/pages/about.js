@@ -1,5 +1,5 @@
 import React from "react"
-import { Author, Footer, Layout, NavBar } from "../components"
+import { Author, Layout, NavBar, SEO } from "../components"
 import { AboutLink, Description, Section } from "../components/Typography"
 
 const About = () => {
@@ -7,6 +7,7 @@ const About = () => {
     <>
       <NavBar />
       <Layout>
+        <SEO title="Roberto Hernandez | About" />
         <Section>About</Section>
         <Description>
           I am a design-oriented Web Developer with a passion for building

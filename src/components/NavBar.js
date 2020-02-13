@@ -10,11 +10,20 @@ const StyledNav = styled.nav`
   align-items: center;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.04);
   height: 70px;
+
+  @media (min-width: 850px) {
+    padding: 0px 135px;
+    height: 80px;
+  }
 `
 
 const StyledLogo = styled.img`
   margin: 0 20px;
   width: 100px;
+
+  @media (min-width: 850px) {
+    width: 120px;
+  }
 `
 
 const StyledLink = styled(props => <Link {...props} />)`
@@ -26,12 +35,20 @@ const StyledLink = styled(props => <Link {...props} />)`
   &:last-child {
     margin-right: 20px;
   }
+
+  @media (min-width: 850px) {
+    font-size: 1.15rem;
+  }
 `
 
 const ResumeLink = styled.a`
   text-decoration: none;
   margin-right: 20px;
   font-size: 1rem;
+
+  @media (min-width: 850px) {
+    font-size: 1.15rem;
+  }
 `
 
 const NavBar = () => {

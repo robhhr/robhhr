@@ -20,7 +20,7 @@ const heartbeat = keyframes`
 
 const Icon = styled.i`
   animation: ${heartbeat} 1.2s ease infinite;
-  color: rgb(252, 53, 101);
+  color: #6dbfd7;
   font-size: 0.8rem;
 `
 

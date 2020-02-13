@@ -35,24 +35,28 @@ const Footer = () => {
           <StyledIcon
             className="fa fa-github"
             href="https://github.com/robhhr"
+            aria-label="Github"
             target="_blank"
             rel="noopener noreferrer"
           />
           <StyledIcon
             className="fa fa-envelope"
             href="mailto:robhhr@outlook.com"
+            aria-label="Mail"
             target="_blank"
             rel="noopener noreferrer"
           />
           <StyledIcon
             className="fa fa-linkedin"
             href="https://linkedin.com/in/roberto-h"
+            aria-label="LinkedIn"
             target="_blank"
             rel="noopener noreferrer"
           />
           <StyledIcon
             className="fa fa-file"
             href={Resume}
+            aria-label="Resume"
             download="roberto-resume"
             rel="noopener noreferrer"
           />

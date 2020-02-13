@@ -3,13 +3,14 @@ import styled from "styled-components"
 import "font-awesome/css/font-awesome.min.css"
 
 const StyledButton = styled.a`
-  /* border: 1.5px solid #a7a7a7; */
+  font-family: "Cairo", sans-serif;
   color: #858585;
-  font-size: 1.05rem;
+  text-transform: lowercase;
+  font-size: 1.15rem;
   text-decoration: none;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: baseline;
   width: 45%;
   margin: 0 auto;
   padding: 5px 0;

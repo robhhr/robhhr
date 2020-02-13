@@ -40,6 +40,10 @@ const StyledSection = styled.h1`
     width: 50px;
     margin: 10px 0 5px;
   }
+
+  @media (min-width: 850px) {
+    font-size: 1.5rem;
+  }
 `
 const StyledSummary = styled.h1`
   font-size: 1.7rem;
@@ -47,6 +51,10 @@ const StyledSummary = styled.h1`
   padding: 20px 5px;
   line-height: 1.8;
   width: 80%;
+
+  @media (min-width: 850px) {
+    width: 60%;
+  }
 `
 
 const Author = ({ children }) => <AuthorTitle>{children}</AuthorTitle>

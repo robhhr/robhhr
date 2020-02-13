@@ -13,18 +13,28 @@ const StyledFooter = styled.footer`
   align-items: center;
   justify-content: center;
   background-color: #fff;
+  @media (min-width: 850px) {
+    position: fixed;
+    height: 55px;
+  }
 `
 
 const IconContainer = styled.div`
   width: 80%;
   display: flex;
   justify-content: center;
+  @media (min-width: 850px) {
+    justify-content: space-evenly;
+  }
 `
 
 const StyledIcon = styled.a`
   text-decoration: none;
   margin: 0 30px;
   font-size: 1.2rem;
+  @media (min-width: 850px) {
+    font-size: 1.5rem;
+  }
 `
 
 const Footer = () => {

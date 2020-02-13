@@ -18,6 +18,11 @@ const GlobalStyle = createGlobalStyle`
 
   main {
     margin: 0 15px;
+
+    @media (min-width: 850px) {
+      margin: 0px 150px;
+
+        }
   }
 `
 

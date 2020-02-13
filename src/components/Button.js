@@ -5,6 +5,7 @@ import "font-awesome/css/font-awesome.min.css"
 const StyledButton = styled.a`
   font-family: "Cairo", sans-serif;
   color: #858585;
+  background-color: #fff;
   text-transform: lowercase;
   font-size: 1.15rem;
   text-decoration: none;

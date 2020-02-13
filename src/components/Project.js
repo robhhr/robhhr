@@ -21,9 +21,11 @@ const Container = styled.div`
   margin-bottom: 25px;
   padding: 25px 30px;
   max-width: 450px;
+  background-color: #fff;
   @media (min-width: 850px) {
     min-width: 250px;
     margin: 0;
+    width: 90%;
   }
 `
 

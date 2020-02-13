@@ -4,9 +4,10 @@ import "../assets/fonts.css"
 
 const ProjectDescription = styled.p`
   font-family: "Cairo", sans-serif;
+  line-height: 1.5;
   font-size: 1.1rem;
   font-weight: 400;
-  margin: 0;
+  margin-bottom: 15px;
 `
 
 const StyledSection = styled.h1`

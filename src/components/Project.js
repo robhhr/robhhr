@@ -5,7 +5,7 @@ import "font-awesome/css/font-awesome.min.css"
 import "../assets/fonts.css"
 
 const Name = styled.a`
-  font-size: 1.15rem;
+  font-size: 1.2rem;
   font-weight: 400;
   text-decoration: none;
 `
@@ -14,7 +14,8 @@ const Container = styled.div`
   -webkit-box-shadow: 0px 0px 8px -4px rgba(167, 167, 167, 1);
   -moz-box-shadow: 0px 0px 8px -4px rgba(167, 167, 167, 1);
   box-shadow: 0px 0px 8px -4px rgba(167, 167, 167, 1);
-  margin: 0 8px;
+  margin: 0px 8px;
+  margin-bottom: 20px;
   padding: 20px 15px;
 `
 
@@ -46,16 +47,13 @@ const Site = styled.a`
 `
 
 const Skill = styled.p`
-  font-size: 0.9rem;
-  border: 2px solid #bfd8ed;
+  font-size: 0.8rem;
+  text-transform: lowercase;
+  border: 1.35px solid rgb(252, 53, 101);
   border-radius: 5px;
-  margin: 0;
+  margin: 0 10px 10px 0;
   padding: 2px 10px;
-  width: min-content;
-
-  &:not(:first-child) {
-    margin: 0 12px;
-  }
+  min-width: max-content;
 `
 
 const Project = ({ description, link, github, title, tech, site }) => {
@@ -65,7 +63,7 @@ const Project = ({ description, link, github, title, tech, site }) => {
         {title}
       </Name>
       <Description>{description}</Description>
-      <div style={{ display: "flex", margin: "10px 0 20px 0" }}>
+      <div style={{ display: "flex", margin: "10px 0 0 0", flexWrap: "wrap" }}>
         {tech && tech.length
           ? tech.map(skill => <Skill key={skill}>{skill}</Skill>)
           : null}

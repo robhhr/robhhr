@@ -85,13 +85,13 @@ const Description = ({ children }) => (
 )
 
 const Links = ({ children, link }) => (
-  <ContactLinks href={link} target="_blank">
+  <ContactLinks href={link} target="_blank" rel="noopener noreferrer">
     {children}
   </ContactLinks>
 )
 
 const AboutLink = ({ children, link }) => (
-  <AboutLinks href={link} target="_blank">
+  <AboutLinks href={link} target="_blank" rel="noopener noreferrer">
     {children}
   </AboutLinks>
 )

@@ -93,7 +93,7 @@ const Skill = styled.p`
 const Project = ({ description, link, github, title, tech, site }) => {
   return (
     <Container>
-      <Name href={link} target="_blank">
+      <Name href={link} target="_blank" rel="noopener noreferrer">
         {title}
       </Name>
       <Description>{description}</Description>
@@ -103,11 +103,11 @@ const Project = ({ description, link, github, title, tech, site }) => {
           : null}
       </SkillContainer>
       <SourceContainer>
-        <Repo href={github} target="_blank">
+        <Repo href={github} target="_blank" rel="noopener noreferrer">
           <i className="fa fa-github" /> Source
         </Repo>
         {site ? (
-          <Site href={site} target="_blank">
+          <Site href={site} target="_blank" rel="noopener noreferrer">
             View <i className="fa fa-external-link" />
           </Site>
         ) : null}

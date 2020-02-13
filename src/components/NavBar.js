@@ -55,7 +55,7 @@ const NavBar = () => {
   return (
     <StyledNav>
       <Link to="/">
-        <StyledLogo src={Logo} />
+        <StyledLogo src={Logo} alt="site-logo" />
       </Link>
       <div>
         <StyledLink to="/about">about</StyledLink>

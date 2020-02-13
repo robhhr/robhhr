@@ -18,6 +18,11 @@ const StyledButton = styled.a`
   -webkit-box-shadow: 0px 0px 8px -4px rgba(167, 167, 167, 1);
   -moz-box-shadow: 0px 0px 8px -4px rgba(167, 167, 167, 1);
   box-shadow: 0px 0px 8px -4px rgba(167, 167, 167, 1);
+  @media (min-width: 850px) {
+    font-size: 1.25rem;
+    width: 20%;
+    margin: 35px auto;
+  }
 `
 
 const StyledIcon = styled.i`

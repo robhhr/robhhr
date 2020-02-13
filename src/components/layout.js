@@ -20,9 +20,8 @@ const GlobalStyle = createGlobalStyle`
     margin: 0 15px;
 
     @media (min-width: 850px) {
-      margin: 0px 150px;
-
-        }
+      margin: 40px 150px 60px 150px;
+    }
   }
 `
 

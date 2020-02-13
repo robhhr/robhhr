@@ -4,6 +4,9 @@ import "../assets/fonts.css"
 
 const AuthorTitle = styled.p`
   font-size: 0.95rem;
+  @media (min-width: 850px) {
+    font-size: 1.05rem;
+  }
 `
 
 const ContactTitle = styled.h1`
@@ -19,12 +22,27 @@ const ContactLinks = styled.a`
   margin-right: 20px;
 `
 
+const AboutLinks = styled.a`
+  text-decoration: underline;
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+
+  &:visited {
+    color: #464f59;
+  }
+`
+
 const ProjectDescription = styled.p`
   font-family: "Cairo", sans-serif;
   line-height: 1.5;
   font-size: 1.1rem;
   font-weight: 400;
   margin-bottom: 15px;
+  @media (min-width: 850px) {
+    font-size: 1.2rem;
+    width: 90%;
+    margin-bottom: 22px;
+  }
 `
 
 const StyledSection = styled.h1`
@@ -53,7 +71,8 @@ const StyledSummary = styled.h1`
   width: 80%;
 
   @media (min-width: 850px) {
-    width: 60%;
+    font-size: 2rem;
+    width: 80%;
   }
 `
 
@@ -71,8 +90,14 @@ const Links = ({ children, link }) => (
   </ContactLinks>
 )
 
+const AboutLink = ({ children, link }) => (
+  <AboutLinks href={link} target="_blank">
+    {children}
+  </AboutLinks>
+)
+
 const Section = ({ children }) => <StyledSection>{children}</StyledSection>
 
 const Summary = ({ children }) => <StyledSummary>{children}</StyledSummary>
 
-export { Author, Contact, Description, Links, Section, Summary }
+export { AboutLink, Author, Contact, Description, Links, Section, Summary }

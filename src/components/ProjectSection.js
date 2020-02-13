@@ -1,14 +1,33 @@
 import React from "react"
 import { Project } from "../components"
+import styled from "styled-components"
+
+const Container = styled.div`
+  @media (min-width: 850px) {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    grid-gap: 2rem;
+    padding: 0;
+    justify-content: center;
+  }
+`
 
 const ProjectSection = () => (
-  <>
+  <Container>
     <Project
       title="R10 App"
       link="https://github.com/robhhr/R10"
       description="iOS/Android app for an upcoming tech conference"
       tech={["React Native", "GraphQL", "Apollo"]}
       github="https://github.com/robhhr/R10"
+    />
+    <Project
+      title="Inhabitent"
+      link="https://github.com/robhhr/inhabitent-site"
+      description="WP-based theme inspired by the outdoors and active lifestyle made w/ custom plugins and post types "
+      tech={["HTML5", "WordPress", "PHP", "JS", "CSS3", "Sass"]}
+      github="https://github.com/robhhr/inhabitent-site"
+      site="http://tent.academy.red"
     />
     <Project
       title="Boomtown"
@@ -24,14 +43,6 @@ const ProjectSection = () => (
         "Material UI",
       ]}
       github="https://github.com/robhhr/boomtown"
-    />
-    <Project
-      title="Inhabitent"
-      link="https://github.com/robhhr/inhabitent-site"
-      description="WP-based theme inspired by the outdoors and active lifestyle made w/ custom plugins and post types "
-      tech={["HTML5", "WordPress", "PHP", "JS", "CSS3", "Sass"]}
-      github="https://github.com/robhhr/inhabitent-site"
-      site="http://tent.academy.red"
     />
     <Project
       title="Coral"
@@ -56,7 +67,7 @@ const ProjectSection = () => (
       github="https://github.com/robhhr/beyond-ws1-2019"
       site="https://beyond.van.cp.academy.red/"
     />
-  </>
+  </Container>
 )
 
 export default ProjectSection

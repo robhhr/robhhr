@@ -18,7 +18,7 @@ const App = () => (
       <SEO title="Roberto Hernandez | Web Developer" />
       <Summary>
         Hello! I'm Roberto, a{" "}
-        <span style={{ color: "#fc3565" }}>web developer</span> based in
+        <span style={{ color: "#fc3565" }}>web developer</span> living in
         Vancouver
       </Summary>
       <div>

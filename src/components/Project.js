@@ -8,6 +8,9 @@ const Name = styled.a`
   font-size: 1.2rem;
   font-weight: 400;
   text-decoration: none;
+  @media (min-width: 850px) {
+    font-size: 1.4rem;
+  }
 `
 const Container = styled.div`
   border-radius: 5px;
@@ -17,6 +20,11 @@ const Container = styled.div`
   margin: 0px 8px;
   margin-bottom: 25px;
   padding: 25px 30px;
+  max-width: 450px;
+  @media (min-width: 850px) {
+    min-width: 250px;
+    margin: 0;
+  }
 `
 
 const Repo = styled.a`
@@ -29,6 +37,9 @@ const Repo = styled.a`
   width: 70px;
   text-align: center;
   margin: 5px 0;
+  @media (min-width: 850px) {
+    margin-right: 15px;
+  }
 `
 
 const Site = styled.a`
@@ -46,6 +57,24 @@ const Site = styled.a`
   margin: 5px 0;
 `
 
+const SourceContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  @media (min-width: 850px) {
+    flex-direction: row;
+  }
+`
+
+const SkillContainer = styled.div`
+  display: flex;
+  margin: 10px 0 0 0;
+  flex-wrap: wrap;
+  @media (min-width: 850px) {
+    width: 90%;
+    margin-bottom: 10px;
+  }
+`
+
 const Skill = styled.p`
   font-size: 0.8rem;
   text-transform: lowercase;
@@ -54,6 +83,9 @@ const Skill = styled.p`
   margin: 0 10px 10px 0;
   padding: 2px 10px;
   min-width: max-content;
+  @media (min-width: 850px) {
+    font-size: 0.9rem;
+  }
 `
 
 const Project = ({ description, link, github, title, tech, site }) => {
@@ -63,12 +95,12 @@ const Project = ({ description, link, github, title, tech, site }) => {
         {title}
       </Name>
       <Description>{description}</Description>
-      <div style={{ display: "flex", margin: "10px 0 0 0", flexWrap: "wrap" }}>
+      <SkillContainer>
         {tech && tech.length
           ? tech.map(skill => <Skill key={skill}>{skill}</Skill>)
           : null}
-      </div>
-      <div style={{ display: "flex", flexDirection: "column" }}>
+      </SkillContainer>
+      <SourceContainer>
         <Repo href={github} target="_blank">
           <i className="fa fa-github" /> Source
         </Repo>
@@ -77,7 +109,7 @@ const Project = ({ description, link, github, title, tech, site }) => {
             View <i className="fa fa-external-link" />
           </Site>
         ) : null}
-      </div>
+      </SourceContainer>
     </Container>
   )
 }

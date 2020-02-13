@@ -1,6 +1,7 @@
 import React from "react"
 import {
   Button,
+  Contact,
   Footer,
   Layout,
   NavBar,
@@ -24,8 +25,10 @@ const App = () => (
         <ProjectSection />
         <Button link="https://github.com/robhhr">More Projects</Button>
       </div>
-      <Section>Skillset</Section>
-      <Section>Contact</Section>
+      <div style={{ margin: "40px 0" }}>
+        <Section>Contact</Section>
+        <Contact />
+      </div>
     </Layout>
     <Footer />
   </>

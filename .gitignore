@@ -25,6 +25,7 @@ coverage
 
 # Bower dependency directory (https://bower.io/)
 bower_components
+.vscode
 
 # node-waf configuration
 .lock-wscript
@@ -51,14 +52,12 @@ typings/
 # Output of 'npm pack'
 *.tgz
 
-# General files
+# dotenv environment variable files
+.env*
+
+# gatsby files
 .cache/
 public
-.prettierrc
-.prettierignore
-.eslintrc
-LICENSE
-
 
 # Mac files
 .DS_Store

@@ -4,7 +4,7 @@ import {
   Button,
   Contact,
   Footer,
-  Layout,
+  layout,
   NavBar,
   ProjectSection,
   SEO,
@@ -14,7 +14,7 @@ import { Section, Summary } from "../components/Typography"
 const App = () => (
   <>
     <NavBar />
-    <Layout>
+    <layout>
       <SEO title="web developer" />
       <Summary>
         Hello! I'm Roberto, a{" "}
@@ -31,7 +31,7 @@ const App = () => (
         <Contact />
       </div>
       <Author />
-    </Layout>
+    </layout>
     <Footer />
   </>
 )

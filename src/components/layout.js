@@ -31,7 +31,7 @@ const GlobalStyle = createGlobalStyle`
   }
 `
 
-const Layout = ({ children }) => {
+const layout = ({ children }) => {
   return (
     <>
       <GlobalStyle />
@@ -153,4 +153,4 @@ const Layout = ({ children }) => {
   )
 }
 
-export default Layout
+export default layout

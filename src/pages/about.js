@@ -1,12 +1,12 @@
 import React from "react"
-import { Author, Layout, NavBar, SEO } from "../components"
+import { Author, layout, NavBar, SEO } from "../components"
 import { AboutLink, Description, Section } from "../components/Typography"
 
 const About = () => {
   return (
     <>
       <NavBar />
-      <Layout>
+      <layout>
         <SEO title="about" />
         <Section>About</Section>
         <Description>
@@ -27,7 +27,7 @@ const About = () => {
           <AboutLink link="https://twitter.com/hallorob">Twitter</AboutLink>
         </Description>
         <Author />
-      </Layout>
+      </layout>
     </>
   )
 }

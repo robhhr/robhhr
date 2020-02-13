@@ -2,7 +2,7 @@ import Author from "./Author"
 import Button from "./Button"
 import Contact from "./Contact"
 import Footer from "./Footer"
-import Layout from "./Layout"
+import layout from "./layout"
 import NavBar from "./NavBar"
 import Project from "./Project"
 import ProjectSection from "./ProjectSection"
@@ -13,7 +13,7 @@ export {
   Button,
   Contact,
   Footer,
-  Layout,
+  layout,
   NavBar,
   Project,
   ProjectSection,

@@ -12,6 +12,7 @@ const StyledFooter = styled.footer`
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: #fff;
 `
 
 const IconContainer = styled.div`

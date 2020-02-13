@@ -15,8 +15,8 @@ const Container = styled.div`
   -moz-box-shadow: 0px 0px 8px -4px rgba(167, 167, 167, 1);
   box-shadow: 0px 0px 8px -4px rgba(167, 167, 167, 1);
   margin: 0px 8px;
-  margin-bottom: 20px;
-  padding: 20px 15px;
+  margin-bottom: 25px;
+  padding: 25px 30px;
 `
 
 const Repo = styled.a`

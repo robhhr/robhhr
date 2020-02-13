@@ -1,5 +1,12 @@
 import React from "react"
-import { Footer, Layout, NavBar, ProjectSection, SEO } from "../components"
+import {
+  Button,
+  Footer,
+  Layout,
+  NavBar,
+  ProjectSection,
+  SEO,
+} from "../components"
 import { Section, Summary } from "../components/Typography"
 
 const App = () => (
@@ -15,6 +22,7 @@ const App = () => (
       <div>
         <Section>Featured Projects</Section>
         <ProjectSection />
+        <Button link="https://github.com/robhhr">More Projects</Button>
       </div>
       <Section>Skillset</Section>
       <Section>Contact</Section>

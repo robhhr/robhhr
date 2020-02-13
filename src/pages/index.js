@@ -15,7 +15,7 @@ const App = () => (
   <>
     <NavBar />
     <Layout>
-      <SEO title="Roberto Hernandez | Web Developer" />
+      <SEO title="web developer" />
       <Summary>
         Hello! I'm Roberto, a{" "}
         <span style={{ color: "#fc3565" }}>web developer</span> living in

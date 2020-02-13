@@ -7,7 +7,7 @@ const About = () => {
     <>
       <NavBar />
       <Layout>
-        <SEO title="Roberto Hernandez | About" />
+        <SEO title="about" />
         <Section>About</Section>
         <Description>
           I am a design-oriented Web Developer with a passion for building

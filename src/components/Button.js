@@ -32,7 +32,7 @@ const StyledIcon = styled.i`
 `
 
 const Button = ({ children, link }) => (
-  <StyledButton href={link} target="_blank">
+  <StyledButton href={link} target="_blank" rel="noopener noreferrer">
     {children} <StyledIcon className="fa fa-external-link" />
   </StyledButton>
 )

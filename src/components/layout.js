@@ -1,5 +1,4 @@
 import React from "react"
-import PropTypes from "prop-types"
 import { createGlobalStyle } from "styled-components"
 import Particles from "react-particles-js"
 import "../assets/fonts.css"
@@ -152,10 +151,6 @@ const Layout = ({ children }) => {
       <main>{children}</main>
     </>
   )
-}
-
-Layout.propTypes = {
-  children: PropTypes.node.isRequired,
 }
 
 export default Layout

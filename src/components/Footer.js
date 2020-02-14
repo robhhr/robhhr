@@ -4,6 +4,7 @@ import Resume from "../assets/roberto-resume.pdf"
 import "font-awesome/css/font-awesome.min.css"
 
 const StyledFooter = styled.footer`
+  position: fixed;
   bottom: 0;
   box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.04);
   width: 100%;
@@ -13,7 +14,6 @@ const StyledFooter = styled.footer`
   justify-content: center;
   background-color: #fff;
   @media (min-width: 850px) {
-    position: fixed;
     height: 55px;
   }
 `

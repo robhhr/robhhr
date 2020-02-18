@@ -5,7 +5,7 @@ import styled from "styled-components"
 const Container = styled.div`
   @media (min-width: 850px) {
     display: grid;
-    grid-template-columns: repeat(2, auto);
+    grid-template-columns: repeat(3, auto);
     grid-gap: 2rem;
     padding: 0;
     justify-content: center;

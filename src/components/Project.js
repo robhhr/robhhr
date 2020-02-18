@@ -25,7 +25,7 @@ const Container = styled.div`
   @media (min-width: 850px) {
     min-width: 250px;
     margin: 0;
-    width: 90%;
+    width: auto;
   }
 `
 

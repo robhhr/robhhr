@@ -38,6 +38,7 @@ const StyledLink = styled(props => <Link {...props} />)`
 
   @media (min-width: 850px) {
     font-size: 1.15rem;
+    margin-right: 35px;
   }
 `
 

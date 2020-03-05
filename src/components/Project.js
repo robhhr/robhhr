@@ -86,15 +86,34 @@ const SkillContainer = styled.div`
 const Skill = styled.p`
   font-size: 0.8rem;
   text-transform: lowercase;
-  border: 1.35px solid rgb(252, 53, 101);
   border-radius: 5px;
   margin: 0 10px 10px 0;
   padding: 2px 10px;
   min-width: max-content;
   @media (min-width: 850px) {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
+    text-transform: initial;
   }
 `
+const TAG_COLORS = {
+  "React Native": "#427EAD",
+  NodeJS: "#F7524A",
+  PostgreSQL: "#5f759a",
+  Gatsby: "#9145F5",
+  React: "#41A6F4",
+  Apollo: "#db7093",
+  Meteor: "#159e15",
+  GraphQL: "#B30000",
+  Prisma: "#7352F7",
+  JavaScript: "#b8860b",
+  Sass: "#5284F7",
+  MongoDB: "#9EB63A",
+  Express: "#e67300",
+  PHP: "#2D9095",
+  WordPress: "#007ACC",
+  jQuery: "#639f90",
+  CSS3: "#CC0088",
+}
 
 const Project = ({ description, link, github, title, tech, site }) => {
   return (
@@ -105,7 +124,20 @@ const Project = ({ description, link, github, title, tech, site }) => {
       <Description>{description}</Description>
       <SkillContainer>
         {tech && tech.length
-          ? tech.map(skill => <Skill key={skill}>{skill}</Skill>)
+          ? tech.map(skill => {
+              const color = TAG_COLORS[skill] ? TAG_COLORS[skill] : "#FFFFFF"
+              return (
+                <Skill
+                  key={skill}
+                  style={{
+                    border: `1px solid ${color}`,
+                    color,
+                  }}
+                >
+                  {skill}
+                </Skill>
+              )
+            })
           : null}
       </SkillContainer>
       <SourceContainer>

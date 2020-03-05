@@ -22,7 +22,7 @@ const App = () => (
         Vancouver
       </Summary>
       <SummarySkills>
-        React/React Native, Node, GraphQL, MySQL/MongoDB
+        React/React Native, Node, GraphQL, PostgreSQL/MongoDB
       </SummarySkills>
       <div>
         <Section>Featured Projects</Section>

@@ -99,7 +99,6 @@ const TAG_COLORS = {
   "React Native": "#427EAD",
   NodeJS: "#F7524A",
   PostgreSQL: "#5f759a",
-  Gatsby: "#9145F5",
   React: "#41A6F4",
   Apollo: "#db7093",
   Meteor: "#159e15",

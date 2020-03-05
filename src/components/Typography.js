@@ -73,13 +73,24 @@ const StyledSection = styled.h1`
 const StyledSummary = styled.h1`
   font-size: 1.7rem;
   font-weight: 300;
-  padding: 20px 5px;
+  padding: 20px 5px 0 0;
   line-height: 1.8;
   width: 80%;
 
   @media (min-width: 850px) {
     font-size: 2rem;
     width: 80%;
+  }
+`
+
+const SummarySKill = styled.p`
+  font-size: 1.1rem;
+  font-style: italic;
+  color: #a6a6a6;
+  padding: 0 5px 20px 0;
+
+  @media (min-width: 850px) {
+    font-size: 1.25rem;
   }
 `
 
@@ -107,4 +118,15 @@ const Section = ({ children }) => <StyledSection>{children}</StyledSection>
 
 const Summary = ({ children }) => <StyledSummary>{children}</StyledSummary>
 
-export { AboutLink, Author, Contact, Description, Links, Section, Summary }
+const SummarySkills = ({ children }) => <SummarySKill>{children}</SummarySKill>
+
+export {
+  AboutLink,
+  Author,
+  Contact,
+  Description,
+  Links,
+  Section,
+  Summary,
+  SummarySkills,
+}

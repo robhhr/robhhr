@@ -9,7 +9,7 @@ import {
   SEO,
   Wrapper,
 } from "../components"
-import { Section, Summary } from "../components/Typography"
+import { Section, Summary, SummarySkills } from "../components/Typography"
 
 const App = () => (
   <>
@@ -21,6 +21,7 @@ const App = () => (
         <span style={{ color: "#fc3565" }}>web developer</span> living in
         Vancouver
       </Summary>
+      <SummarySkills>React, Node, GraphQL, SQL</SummarySkills>
       <div>
         <Section>Featured Projects</Section>
         <ProjectSection />

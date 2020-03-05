@@ -25,7 +25,7 @@ const ContactLinks = styled.a`
   font-size: 1rem;
   margin-right: 20px;
   @media (min-width: 850px) {
-    font-size: 1.2rem;
+    font-size: 1.15rem;
   }
 `
 

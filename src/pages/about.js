@@ -1,5 +1,5 @@
 import React from "react"
-import { Author, NavBar, SEO, Wrapper } from "../components"
+import { Author, Contact, NavBar, SEO, Wrapper } from "../components"
 import { AboutLink, Description, Section } from "../components/Typography"
 
 const About = () => {
@@ -26,6 +26,8 @@ const About = () => {
           Occassionally you can see me retweeting interesting stuff in my{" "}
           <AboutLink link="https://twitter.com/hallorob">Twitter</AboutLink>
         </Description>
+        <Section>Contact!</Section>
+        <Contact />
         <Author />
       </Wrapper>
     </>

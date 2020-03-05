@@ -21,7 +21,9 @@ const App = () => (
         <span style={{ color: "#fc3565" }}>web developer</span> living in
         Vancouver
       </Summary>
-      <SummarySkills>React, Node, GraphQL, SQL</SummarySkills>
+      <SummarySkills>
+        React/React Native, Node, GraphQL, MySQL/MongoDB
+      </SummarySkills>
       <div>
         <Section>Featured Projects</Section>
         <ProjectSection />

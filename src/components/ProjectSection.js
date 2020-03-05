@@ -29,19 +29,19 @@ const ProjectSection = () => (
       github="https://github.com/robhhr/R10"
     />
     <Project
+      title="Boomtown"
+      link="https://github.com/robhhr/boomtown"
+      description="Full-stack site to share and borrow items between users"
+      tech={["React", "NodeJS", "PostgreSQL", "GraphQL", "Apollo"]}
+      github="https://github.com/robhhr/boomtown"
+    />
+    <Project
       title="Inhabitent"
       link="https://github.com/robhhr/inhabitent-site"
       description="WP-based theme inspired by the outdoors and active lifestyle made w/ custom plugins and post types "
       tech={["JavaScript", "WordPress", "PHP", "CSS3", "Sass"]}
       github="https://github.com/robhhr/inhabitent-site"
       site="http://tent.academy.red"
-    />
-    <Project
-      title="Boomtown"
-      link="https://github.com/robhhr/boomtown"
-      description="Full-stack site to share and borrow items between users"
-      tech={["React", "NodeJS", "PostgreSQL", "GraphQL", "Apollo"]}
-      github="https://github.com/robhhr/boomtown"
     />
     <Project
       title="Coral"

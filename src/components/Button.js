@@ -12,7 +12,7 @@ const StyledButton = styled.a`
   display: flex;
   justify-content: center;
   align-items: baseline;
-  width: 45%;
+  max-width: 45%;
   margin: 0 auto;
   padding: 5px 0;
   border-radius: 5px;
@@ -20,8 +20,8 @@ const StyledButton = styled.a`
   -moz-box-shadow: 0px 0px 8px -4px rgba(167, 167, 167, 1);
   box-shadow: 0px 0px 8px -4px rgba(167, 167, 167, 1);
   @media (min-width: 850px) {
+    width: 250px;
     font-size: 1.25rem;
-    width: 20%;
     margin: 35px auto;
   }
 `

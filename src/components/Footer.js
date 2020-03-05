@@ -14,7 +14,7 @@ const StyledFooter = styled.footer`
   justify-content: center;
   background-color: #fff;
   @media (min-width: 850px) {
-    height: 55px;
+    display: none;
   }
 `
 

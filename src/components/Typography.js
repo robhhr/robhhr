@@ -10,9 +10,13 @@ const AuthorTitle = styled.p`
 `
 
 const ContactTitle = styled.h1`
-  font-size: 1.05rem;
+  font-size: 1.1rem;
   font-weight: 300;
   margin-bottom: 20px;
+  @media (min-width: 850px) {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+  }
 `
 
 const ContactLinks = styled.a`
@@ -20,6 +24,9 @@ const ContactLinks = styled.a`
   font-family: "Poppins", sans-serif;
   font-size: 1rem;
   margin-right: 20px;
+  @media (min-width: 850px) {
+    font-size: 1.2rem;
+  }
 `
 
 const AboutLinks = styled.a`

@@ -3,9 +3,9 @@ import styled from "styled-components"
 import "../assets/fonts.css"
 
 const AuthorTitle = styled.p`
-  font-size: 1.05rem;
+  font-size: 14px;
   @media (min-width: 850px) {
-    font-size: 1.15rem;
+    font-size: 16px;
   }
 `
 
@@ -22,39 +22,43 @@ const ContactTitle = styled.h1`
 const ContactLinks = styled.a`
   text-decoration: underline;
   font-family: "Poppins", sans-serif;
-  font-size: 1rem;
+  font-size: 14px;
   margin-right: 20px;
   @media (min-width: 850px) {
-    font-size: 1.15rem;
+    font-size: 16px;
   }
 `
 
 const AboutLinks = styled.a`
   text-decoration: underline;
   font-family: "Poppins", sans-serif;
-  font-size: 1rem;
+  font-size: 14px;
 
   &:visited {
     color: #464f59;
+  }
+
+  @media (min-width: 850px) {
+    font-size: 16px;
   }
 `
 
 const ProjectDescription = styled.p`
   font-family: "Cairo", sans-serif;
   line-height: 1.5;
-  font-size: 1.1rem;
+  font-size: 16px;
   font-weight: 400;
   margin-bottom: 15px;
   @media (min-width: 850px) {
-    font-size: 1.2rem;
+    font-size: 17px;
     width: 90%;
-    margin-bottom: 22px;
+    margin-bottom: 18px;
   }
 `
 
 const StyledSection = styled.h1`
   font-family: "Cairo", sans-serif;
-  font-size: 1.35rem;
+  font-size: 20px;
   font-weight: 500;
   padding: 0 5px 20px 5px;
 
@@ -67,30 +71,30 @@ const StyledSection = styled.h1`
   }
 
   @media (min-width: 850px) {
-    font-size: 1.5rem;
+    font-size: 22px;
   }
 `
 const StyledSummary = styled.h1`
-  font-size: 1.7rem;
+  font-size: 24px;
   font-weight: 300;
   padding: 20px 5px 0 0;
   line-height: 1.8;
   width: 80%;
 
   @media (min-width: 850px) {
-    font-size: 2rem;
+    font-size: 28px;
     width: 80%;
   }
 `
 
 const SummarySKill = styled.p`
-  font-size: 1.1rem;
+  font-size: 16px;
   font-style: italic;
   color: #a6a6a6;
   padding: 0 5px 20px 0;
 
   @media (min-width: 850px) {
-    font-size: 1.25rem;
+    font-size: 20px;
   }
 `
 

@@ -5,11 +5,11 @@ import "font-awesome/css/font-awesome.min.css"
 import "../assets/fonts.css"
 
 const Name = styled.a`
-  font-size: 1.2rem;
+  font-size: 16px;
   font-weight: 400;
   text-decoration: none;
   @media (min-width: 850px) {
-    font-size: 1.4rem;
+    font-size: 20px;
   }
 `
 const Container = styled.div`
@@ -44,14 +44,14 @@ const SourceContainer = styled.div`
 `
 
 const Repo = styled.a`
-  font-size: 1rem;
+  font-size: 14px;
   border-radius: 5px;
   text-decoration: none;
   width: 70px;
   text-align: center;
   margin-right: 10px;
   @media (min-width: 850px) {
-    font-size: 1.12rem;
+    font-size: 16px;
     width: auto;
     margin-right: 20px;
   }
@@ -61,14 +61,14 @@ const Site = styled.a`
   display: flex;
   justify-content: space-evenly;
   align-items: baseline;
-  font-size: 1rem;
+  font-size: 14px;
   border-radius: 5px;
   padding: 5px 8px;
   text-decoration: none;
   width: 70px;
   text-align: center;
   @media (min-width: 850px) {
-    font-size: 1.12rem;
+    font-size: 16px;
     width: 85px;
   }
 `
@@ -84,14 +84,14 @@ const SkillContainer = styled.div`
 `
 
 const Skill = styled.p`
-  font-size: 0.8rem;
+  font-size: 13px;
   text-transform: lowercase;
   border-radius: 5px;
   margin: 0 10px 10px 0;
   padding: 2px 10px;
   min-width: max-content;
   @media (min-width: 850px) {
-    font-size: 0.95rem;
+    font-size: 14px;
     text-transform: initial;
   }
 `

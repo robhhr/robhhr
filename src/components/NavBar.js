@@ -30,14 +30,14 @@ const StyledLink = styled(props => <Link {...props} />)`
   text-decoration: none;
   margin: 0 14px;
   font-family: "Poppins", sans-serif;
-  font-size: 1rem;
+  font-size: 14px;
 
   &:last-child {
     margin-right: 20px;
   }
 
   @media (min-width: 850px) {
-    font-size: 1.15rem;
+    font-size: 17px;
     margin-right: 35px;
   }
 `
@@ -45,10 +45,10 @@ const StyledLink = styled(props => <Link {...props} />)`
 const ResumeLink = styled.a`
   text-decoration: none;
   margin-right: 20px;
-  font-size: 1rem;
+  font-size: 14px;
 
   @media (min-width: 850px) {
-    font-size: 1.15rem;
+    font-size: 17px;
   }
 `
 

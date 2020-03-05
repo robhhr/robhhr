@@ -1,5 +1,5 @@
 import React from "react"
-import { Contact as Title, Links, Description } from "./Typography"
+import { Links, Description } from "./Typography"
 import styled from "styled-components"
 
 const Container = styled.div`

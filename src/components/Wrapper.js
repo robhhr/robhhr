@@ -13,7 +13,7 @@ const GlobalStyle = createGlobalStyle`
   h1, h2, h3, h4, h5, h6, p, a {
     font-family: "Poppins", sans-serif;
     font-size: 1.2rem;
-    color: #464f59;
+    color: #222222;
   }
 
   main {

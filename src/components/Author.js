@@ -27,7 +27,7 @@ const Icon = styled.i`
 const Container = styled.div`
   display: flex;
   justify-content: flex-end;
-  margin: 10px 0;
+  margin: 15px 0;
   width: 100%;
 `
 

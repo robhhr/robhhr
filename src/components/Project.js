@@ -22,25 +22,38 @@ const Container = styled.div`
   padding: 25px 30px;
   max-width: 450px;
   background-color: #fff;
+  display: flex;
+  flex-direction: column;
   @media (min-width: 850px) {
     min-width: 250px;
     margin: 0;
     width: auto;
+    height: 260px;
+    position: relative;
+  }
+`
+
+const SourceContainer = styled.div`
+  display: flex;
+  align-items: center;
+  margin-top: 15px;
+  @media (min-width: 850px) {
+    position: absolute;
+    bottom: 15px;
   }
 `
 
 const Repo = styled.a`
-  font-size: 0.9rem;
-  background-color: #f1f1f1;
-  box-shadow: 0px 0px 5px -3px rgba(0, 0, 0, 0.4);
+  font-size: 1rem;
   border-radius: 5px;
-  padding: 5px 8px;
   text-decoration: none;
   width: 70px;
   text-align: center;
-  margin: 5px 0;
+  margin-right: 10px;
   @media (min-width: 850px) {
-    margin-right: 15px;
+    font-size: 1.12rem;
+    width: auto;
+    margin-right: 20px;
   }
 `
 
@@ -48,22 +61,15 @@ const Site = styled.a`
   display: flex;
   justify-content: space-evenly;
   align-items: baseline;
-  font-size: 0.9rem;
-  background-color: #dfebf6;
-  box-shadow: 0px 0px 5px -3px rgba(0, 0, 0, 0.4);
+  font-size: 1rem;
   border-radius: 5px;
   padding: 5px 8px;
   text-decoration: none;
   width: 70px;
   text-align: center;
-  margin: 5px 0;
-`
-
-const SourceContainer = styled.div`
-  display: flex;
-  flex-direction: column;
   @media (min-width: 850px) {
-    flex-direction: row;
+    font-size: 1.12rem;
+    width: 85px;
   }
 `
 
@@ -73,7 +79,7 @@ const SkillContainer = styled.div`
   flex-wrap: wrap;
   @media (min-width: 850px) {
     width: 90%;
-    margin-bottom: 10px;
+    margin: 0;
   }
 `
 

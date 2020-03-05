@@ -3,9 +3,9 @@ import styled from "styled-components"
 import "../assets/fonts.css"
 
 const AuthorTitle = styled.p`
-  font-size: 0.95rem;
+  font-size: 1.05rem;
   @media (min-width: 850px) {
-    font-size: 1.05rem;
+    font-size: 1.15rem;
   }
 `
 

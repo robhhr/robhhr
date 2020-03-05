@@ -15,6 +15,13 @@ const Container = styled.div`
 const ProjectSection = () => (
   <Container>
     <Project
+      title="Kindred Notes"
+      link="https://github.com/redacademy/KindredNotes-WS2-2019"
+      description="Full stack native app for sharing kind messages with people"
+      tech={["React Native", "GraphQL", "Apollo", "Prisma"]}
+      github="https://github.com/robhhr/R10"
+    />
+    <Project
       title="R10 App"
       link="https://github.com/robhhr/R10"
       description="iOS/Android app for an upcoming tech conference"

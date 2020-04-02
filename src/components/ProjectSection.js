@@ -19,7 +19,7 @@ const ProjectSection = () => (
       link="https://github.com/redacademy/KindredNotes-WS2-2019"
       description="Full-stack native app for sharing kind messages with people"
       tech={["React Native", "GraphQL", "Apollo", "Prisma"]}
-      github="https://github.com/redacademy/KindredNotes-WS2-2019"
+      github="https://github.com/robhhr/kindred-notes"
     />
     <Project
       title="R10 App"
@@ -49,14 +49,6 @@ const ProjectSection = () => (
       description="Coral is a beautiful, powerful full-stack writing app for personal and collaborative notes"
       tech={["React", "Meteor", "MongoDB"]}
       github="https://github.com/robhhr/coral"
-    />
-    <Project
-      title="Instanews"
-      link="https://github.com/robhhr/instanews-app"
-      description="New York Times News API front-end"
-      tech={["JavaScript", "CSS3", "Sass", "jQuery"]}
-      github="https://github.com/robhhr/instanews-app"
-      site="https://robhhr.github.io/instanews-app/"
     />
     <Project
       title="Beyond the Conversation"

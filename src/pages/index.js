@@ -9,7 +9,7 @@ import {
   SEO,
   Wrapper,
 } from "../components"
-import { Section, Summary, SummarySkills } from "../components/Typography"
+import { Bio, Section, Summary, SummarySkills } from "../components/Typography"
 
 const App = () => (
   <>
@@ -21,6 +21,12 @@ const App = () => (
         <span style={{ color: "#fc3565" }}>web developer</span> living in
         Vancouver
       </Summary>
+      <Bio>
+        I am a design-oriented Web Developer with a passion for building safer,
+        faster and more accessible web content. I strive to build immersive and
+        efficient web applications, which is where my passion for design and
+        development converge.
+      </Bio>
       <SummarySkills>
         React/React Native, Node, GraphQL, PostgreSQL/MongoDB
       </SummarySkills>

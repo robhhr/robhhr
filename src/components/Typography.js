@@ -87,6 +87,20 @@ const StyledSummary = styled.h1`
   }
 `
 
+const StyledBio = styled.h2`
+  color: #3c3c3c;
+  font-size: 16px;
+  font-weight: lighter;
+  line-height: 1.8;
+  width: 80%;
+
+  @media (min-width: 850px) {
+    font-size: 18px;
+    padding: 10px 0;
+    width: 65%;
+  }
+`
+
 const SummarySKill = styled.p`
   font-size: 16px;
   font-style: italic;
@@ -94,7 +108,7 @@ const SummarySKill = styled.p`
   padding: 0 5px 20px 0;
 
   @media (min-width: 850px) {
-    font-size: 20px;
+    font-size: 18px;
   }
 `
 
@@ -122,11 +136,14 @@ const Section = ({ children }) => <StyledSection>{children}</StyledSection>
 
 const Summary = ({ children }) => <StyledSummary>{children}</StyledSummary>
 
+const Bio = ({ children }) => <StyledBio>{children}</StyledBio>
+
 const SummarySkills = ({ children }) => <SummarySKill>{children}</SummarySKill>
 
 export {
   AboutLink,
   Author,
+  Bio,
   Contact,
   Description,
   Links,

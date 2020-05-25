@@ -7,6 +7,7 @@ import NavBar from "./NavBar"
 import Project from "./Project"
 import ProjectSection from "./ProjectSection"
 import SEO from "./seo"
+import ToggleMode from "./ToggleMode"
 import Wrapper from "./Wrapper"
 
 export {
@@ -19,5 +20,6 @@ export {
   Project,
   ProjectSection,
   SEO,
+  ToggleMode,
   Wrapper,
 }

@@ -4,6 +4,7 @@ import Contact from "./Contact"
 import Footer from "./Footer"
 import layout from "./layout"
 import NavBar from "./NavBar"
+import ParticlesCanvas from "./ParticlesCanvas"
 import Project from "./Project"
 import ProjectSection from "./ProjectSection"
 import SEO from "./seo"
@@ -17,6 +18,7 @@ export {
   Footer,
   layout,
   NavBar,
+  ParticlesCanvas,
   Project,
   ProjectSection,
   SEO,

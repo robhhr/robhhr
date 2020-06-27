@@ -1,7 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
 import Logo from "../images/blueLogo.svg"
-import Resume from "../assets/roberto-resume.pdf"
 import styled from "styled-components"
 
 const StyledNav = styled.nav`
@@ -42,16 +41,6 @@ const StyledLink = styled(props => <Link {...props} />)`
   }
 `
 
-const ResumeLink = styled.a`
-  text-decoration: none;
-  margin-right: 20px;
-  font-size: 14px;
-
-  @media (min-width: 850px) {
-    font-size: 17px;
-  }
-`
-
 const NavBar = () => {
   return (
     <StyledNav>
@@ -60,14 +49,6 @@ const NavBar = () => {
       </Link>
       <div>
         <StyledLink to="/about">about</StyledLink>
-        <ResumeLink
-          href={Resume}
-          aria-label="Resume"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          resume
-        </ResumeLink>
       </div>
     </StyledNav>
   )

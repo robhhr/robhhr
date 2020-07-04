@@ -1,6 +1,5 @@
 import React from "react"
 import { createGlobalStyle } from "styled-components"
-import { ParticlesCanvas } from "../components"
 import "../assets/fonts.css"
 
 const GlobalStyle = createGlobalStyle`
@@ -35,7 +34,6 @@ const Wrapper = ({ children }) => {
   return (
     <>
       <GlobalStyle />
-      <ParticlesCanvas />
       <main>{children}</main>
     </>
   )

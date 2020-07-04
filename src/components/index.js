@@ -1,27 +1,6 @@
-import Author from "./Author"
-import Button from "./Button"
-import Contact from "./Contact"
-import Footer from "./Footer"
 import layout from "./layout"
 import NavBar from "./NavBar"
-import ParticlesCanvas from "./ParticlesCanvas"
-import Project from "./Project"
-import ProjectSection from "./ProjectSection"
 import SEO from "./seo"
-import ToggleMode from "./ToggleMode"
 import Wrapper from "./Wrapper"
 
-export {
-  Author,
-  Button,
-  Contact,
-  Footer,
-  layout,
-  NavBar,
-  ParticlesCanvas,
-  Project,
-  ProjectSection,
-  SEO,
-  ToggleMode,
-  Wrapper,
-}
+export { layout, NavBar, SEO, Wrapper }

@@ -17,8 +17,8 @@ const App = () => (
     <Wrapper>
       <SEO title="web developer" />
       <Summary>
-        Hello! I'm Roberto, a{" "}
-        <span style={{ color: "#fc3565" }}>web developer</span> living in
+        I'm Roberto, a{" "}
+        <span style={{ color: "#fc3565" }}> developer</span> based in
         Vancouver
       </Summary>
       <Bio>

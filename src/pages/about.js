@@ -7,7 +7,7 @@ const About = () => {
       <NavBar />
       <Wrapper>
         <SEO title="about" />
-        <p>new site</p>
+        <p>new site | about page</p>
       </Wrapper>
     </>
   )

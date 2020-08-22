@@ -1,12 +1,12 @@
 import React from 'react'
-import {layout, NavBar, SEO} from '../components'
+import {NavBar, SEO, Wrapper} from '../components'
 
 const App = () => (
-  <layout>
+  <Wrapper>
     <NavBar />
     <SEO title="web developer" />
     <p>new site</p>
-  </layout>
+  </Wrapper>
 )
 
 export default App

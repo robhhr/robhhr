@@ -1,6 +1,5 @@
-import layout from "./layout"
-import NavBar from "./NavBar"
-import SEO from "./seo"
-import Wrapper from "./Wrapper"
+import layout from './layout'
+import NavBar from './NavBar'
+import SEO from './seo'
 
-export { layout, NavBar, SEO, Wrapper }
+export {layout, NavBar, SEO}

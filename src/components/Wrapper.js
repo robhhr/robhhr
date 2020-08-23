@@ -1,8 +1,10 @@
 import React from 'react'
 import {createGlobalStyle} from 'styled-components'
+import {normalize} from 'polished'
 import {primaryFont} from '../utils'
 
 const GlobalStyle = createGlobalStyle`
+  ${normalize()}
   body {
     margin: 0;
     padding: 0;

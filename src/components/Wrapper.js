@@ -1,5 +1,6 @@
 import React from 'react'
 import {createGlobalStyle} from 'styled-components'
+import {primaryFont} from '../utils'
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -8,6 +9,7 @@ const GlobalStyle = createGlobalStyle`
     position: relative;
   }
   h1, h2, h3, h4, h5, h6, p, a {
+    font-family: ${primaryFont};
     font-size: 1rem;
   }
   main {

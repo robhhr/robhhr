@@ -42,8 +42,7 @@ const App = () => {
       }
     >
       <Wrapper>
-        <NavBar />
-        <ThemeToggler onClick={toggleTheme} />
+        <NavBar onClick={toggleTheme} />
         <SEO title="web developer" />
         <p>new site</p>
       </Wrapper>

@@ -1,7 +1,7 @@
 import React from 'react'
 import {Link} from 'gatsby'
 import styled from 'styled-components'
-import Logo from '../assets/blue-logo.svg'
+import Logo from '../assets/profile.svg'
 
 const StyledNav = styled.nav`
   display: flex;
@@ -9,8 +9,11 @@ const StyledNav = styled.nav`
 `
 
 const StyledLogo = styled.img`
-  width: 100px;
-  height: 100px;
+  width: 60px;
+  height: 60px;
+  background-color: ${props => props.theme.profileBackground};
+  border-radius: 50%;
+  padding: 10px;
 `
 
 const NavBar = () => {

@@ -1,19 +1,52 @@
 import React, {useState} from 'react'
 import {NavBar, SEO, Wrapper} from '../components'
 import {ThemeProvider} from 'styled-components'
-import {darkTheme, defaultTheme} from '../utils'
+import {
+  darkTheme,
+  defaultTheme,
+  greenTheme,
+  blueTheme,
+  redTheme,
+} from '../utils'
 import ThemeButton from '../assets/moon.svg'
 
 const App = () => {
-  const [isDarkTheme, setIsDarkTheme] = useState(false)
+  const [theme, setTheme] = useState('default')
+  const toggleTheme = () => {
+    if (theme === 'default') {
+      setTheme('dark')
+    } else if (theme === 'dark') {
+      setTheme('green')
+    } else if (theme === 'green') {
+      setTheme('blue')
+    } else if (theme === 'blue') {
+      setTheme('red')
+    } else if (theme === 'red') {
+      setTheme('default')
+    }
+  }
+
   return (
-    <ThemeProvider theme={isDarkTheme ? darkTheme : defaultTheme}>
+    <ThemeProvider
+      theme={
+        theme === 'default'
+          ? defaultTheme
+          : theme === 'dark'
+          ? darkTheme
+          : theme === 'green'
+          ? greenTheme
+          : theme === 'blue'
+          ? blueTheme
+          : theme === 'red'
+          ? redTheme
+          : defaultTheme
+      }
+    >
       <Wrapper>
         <NavBar />
         <SEO title="web developer" />
         <p>new site</p>
-        <img src={ThemeButton} onClick={() => setIsDarkTheme(!isDarkTheme)} />
-        <p>{isDarkTheme ? 'dark theme enabled' : 'dark theme disabled'}</p>
+        <img src={ThemeButton} alt="theme-button" onClick={toggleTheme} />
       </Wrapper>
     </ThemeProvider>
   )

@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import {NavBar, SEO, ThemeToggler, Wrapper} from '../components'
+import {NavBar, SEO, Wrapper} from '../components'
 import {ThemeProvider} from 'styled-components'
 import {
   darkTheme,
@@ -10,15 +10,43 @@ import {
 } from '../utils'
 
 const darkThemeQuery = window.matchMedia('(prefers-color-scheme: dark)')
+const greenThemeQuery = window.matchMedia('(prefers-color-scheme: green)')
+const blueThemeQuery = window.matchMedia('(prefers-color-scheme: blue)')
+const redThemeQuery = window.matchMedia('(prefers-color-scheme: red)')
 const savedTheme = localStorage.getItem('theme')
 
 const App = () => {
   const [theme, setTheme] = useState(
-    savedTheme ? savedTheme : darkThemeQuery.matches ? darkTheme : 'default',
+    savedTheme
+      ? savedTheme
+      : darkThemeQuery.matches
+      ? darkTheme
+      : greenThemeQuery.matches
+      ? greenTheme
+      : blueThemeQuery.matches
+      ? blueTheme
+      : redThemeQuery.matches
+      ? redTheme
+      : 'default',
   )
   useEffect(() => {
-    darkThemeQuery.addListener(event => {
-      setTheme(event.matches ? 'dark' : 'default')
+    darkThemeQuery.addListener(e => {
+      setTheme(e.matches ? 'dark' : 'default')
+    })
+  }, [])
+  useEffect(() => {
+    greenThemeQuery.addListener(e => {
+      setTheme(e.matches ? 'green' : 'default')
+    })
+  }, [])
+  useEffect(() => {
+    blueThemeQuery.addListener(e => {
+      setTheme(e.matches ? 'blue' : 'default')
+    })
+  }, [])
+  useEffect(() => {
+    redThemeQuery.addListener(e => {
+      setTheme(e.matches ? 'red' : 'default')
     })
   }, [])
   useEffect(() => {
@@ -26,20 +54,18 @@ const App = () => {
   }, [theme])
 
   const toggleTheme = () => {
-    const newTheme = theme === 'default' ? 'dark' : 'default'
+    const newTheme =
+      theme === 'default'
+        ? 'dark'
+        : theme === 'dark'
+        ? 'green'
+        : theme === 'green'
+        ? 'blue'
+        : theme === 'blue'
+        ? 'red'
+        : 'default'
     setTheme(newTheme)
     localStorage.setItem('theme', newTheme)
-    // if (theme === 'default') {
-    //   setTheme('dark')
-    // } else if (theme === 'dark') {
-    //   setTheme('green')
-    // } else if (theme === 'green') {
-    //   setTheme('blue')
-    // } else if (theme === 'blue') {
-    //   setTheme('red')
-    // } else if (theme === 'red') {
-    //   setTheme('default')
-    // }
   }
 
   return (

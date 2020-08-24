@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import {NavBar, SEO, ThemeToggler, Wrapper} from '../components'
 import {ThemeProvider} from 'styled-components'
 import {
@@ -9,20 +9,37 @@ import {
   redTheme,
 } from '../utils'
 
+const darkThemeQuery = window.matchMedia('(prefers-color-scheme: dark)')
+const savedTheme = localStorage.getItem('theme')
+
 const App = () => {
-  const [theme, setTheme] = useState('default')
+  const [theme, setTheme] = useState(
+    savedTheme ? savedTheme : darkThemeQuery.matches ? darkTheme : 'default',
+  )
+  useEffect(() => {
+    darkThemeQuery.addListener(event => {
+      setTheme(event.matches ? 'dark' : 'default')
+    })
+  }, [])
+  useEffect(() => {
+    document.body.setAttribute('data-theme', theme)
+  }, [theme])
+
   const toggleTheme = () => {
-    if (theme === 'default') {
-      setTheme('dark')
-    } else if (theme === 'dark') {
-      setTheme('green')
-    } else if (theme === 'green') {
-      setTheme('blue')
-    } else if (theme === 'blue') {
-      setTheme('red')
-    } else if (theme === 'red') {
-      setTheme('default')
-    }
+    const newTheme = theme === 'default' ? 'dark' : 'default'
+    setTheme(newTheme)
+    localStorage.setItem('theme', newTheme)
+    // if (theme === 'default') {
+    //   setTheme('dark')
+    // } else if (theme === 'dark') {
+    //   setTheme('green')
+    // } else if (theme === 'green') {
+    //   setTheme('blue')
+    // } else if (theme === 'blue') {
+    //   setTheme('red')
+    // } else if (theme === 'red') {
+    //   setTheme('default')
+    // }
   }
 
   return (

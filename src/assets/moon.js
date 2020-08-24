@@ -2,16 +2,16 @@ import React from 'react'
 import styled from 'styled-components'
 
 const StyledMoon = styled.svg`
-  fill: ${props => props.theme.textColor};
-  stroke: ${props => props.theme.textColor};
+  fill: ${props => props.theme.iconColor};
+  stroke: none;
+  width: 35px;
+  height: 35px;
 `
 
 export const Moon = () => {
   return (
     <StyledMoon
       xmlns="http://www.w3.org/2000/svg"
-      width="30"
-      height="30"
       viewBox="0 0 24 24"
       stroke-width="2"
       stroke-linecap="round"

@@ -7,6 +7,7 @@ export const defaultTheme = {
   backgroundColor: neutral[200],
   profileBackground: neutral[200],
   textColor: dark[400],
+  iconColor: dark[400],
   primaryFont,
 }
 
@@ -16,6 +17,7 @@ export const darkTheme = {
   backgroundColor: dark[400],
   profileBackground: neutral[200],
   textColor: neutral[200],
+  iconColor: neutral[200],
   primaryFont,
 }
 
@@ -25,6 +27,7 @@ export const greenTheme = {
   backgroundColor: green[600],
   profileBackground: green[600],
   textColor: green[100],
+  iconColor: green[200],
   primaryFont,
 }
 
@@ -34,6 +37,7 @@ export const blueTheme = {
   backgroundColor: blue[400],
   profileBackground: blue[400],
   textColor: blue[100],
+  iconColor: blue[200],
   primaryFont,
 }
 
@@ -43,5 +47,6 @@ export const redTheme = {
   backgroundColor: red[400],
   profileBackground: red[400],
   textColor: pink[200],
+  iconColor: pink[400],
   primaryFont,
 }

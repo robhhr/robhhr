@@ -10,11 +10,23 @@ const StyledNav = styled.nav`
 `
 
 const StyledLogo = styled.img`
-  width: 60px;
-  height: 60px;
+  width: 50px;
+  height: 50px;
   background-color: ${props => props.theme.profileBackground};
   border-radius: 50%;
   padding: 10px;
+`
+
+const MoonContainer = styled.button`
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+
+  &:focus {
+    border: none;
+    outline: none;
+  }
 `
 
 const NavBar = ({onClick}) => {
@@ -23,9 +35,9 @@ const NavBar = ({onClick}) => {
       <Link to="/">
         <StyledLogo src={Logo} alt="home" />
       </Link>
-      <div onClick={onClick}>
+      <MoonContainer onClick={onClick}>
         <Moon />
-      </div>
+      </MoonContainer>
     </StyledNav>
   )
 }

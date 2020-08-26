@@ -6,15 +6,27 @@ import {Moon} from '../assets/moon'
 
 const StyledNav = styled.nav`
   display: flex;
-  align-items: center;
+  justify-content: space-between;
+  margin: 20px auto;
 `
 
 const StyledLogo = styled.img`
-  width: 50px;
-  height: 50px;
+  width: 35px;
+  height: 35px;
   background-color: ${props => props.theme.profileBackground};
   border-radius: 50%;
-  padding: 10px;
+`
+
+const StyledLink = styled(props => <Link {...props} />)`
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+`
+
+const Title = styled.p`
+  font-size: 1.2rem;
+  font-weight: bolder;
+  padding: 0 10px;
 `
 
 const MoonContainer = styled.button`
@@ -32,9 +44,10 @@ const MoonContainer = styled.button`
 const NavBar = ({onClick}) => {
   return (
     <StyledNav>
-      <Link to="/">
+      <StyledLink to="/">
         <StyledLogo src={Logo} alt="home" />
-      </Link>
+        <Title>robhhr</Title>
+      </StyledLink>
       <MoonContainer onClick={onClick}>
         <Moon />
       </MoonContainer>

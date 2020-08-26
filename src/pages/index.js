@@ -7,6 +7,7 @@ import {
   greenTheme,
   blueTheme,
   redTheme,
+  ParticlesCanvas,
 } from '../utils'
 
 const darkThemeQuery = window.matchMedia('(prefers-color-scheme: dark)')
@@ -84,6 +85,7 @@ const App = () => {
           : defaultTheme
       }
     >
+      {theme === 'default' ? <ParticlesCanvas /> : null}
       <Wrapper>
         <NavBar onClick={toggleTheme} />
         <SEO title="web developer" />

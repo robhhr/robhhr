@@ -10,7 +10,7 @@ const GlobalStyle = createGlobalStyle`
   }
   body {
     margin: 0;
-    padding: 0 20px;
+    padding: 0;
     position: relative;
   }
   h1, h2, h3, h4, h5, h6, p, a {
@@ -20,10 +20,11 @@ const GlobalStyle = createGlobalStyle`
   }
   main {
     margin: 0;
+    padding: 0 20px
   }
 `
 
-const Wrapper = ({children}) => {
+const Wrapper = ({children, theme}) => {
   return (
     <>
       <GlobalStyle />

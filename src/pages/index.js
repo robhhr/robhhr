@@ -22,13 +22,21 @@ const SummaryTitle = styled.h1`
   padding: 0 5px;
 `
 
-const SummarySection = styled.div`
-  display: flex;
-  align-items: center;
+const Summary = styled.p`
+  font-size: 1.12rem;
+  padding: 0 5px;
 `
 
-const Summary = styled.p`
+const SummaryTech = styled.p`
+  font-size: 0.9rem;
   padding: 0 5px;
+  font-style: italic;
+  color: ${props => props.theme.primaryColorHover};
+`
+
+const SkillTitle = styled.h1`
+  font-size: 1.3rem;
+  padding: 10px 5px;
 `
 
 const App = () => {
@@ -105,7 +113,15 @@ const App = () => {
         <NavBar onClick={toggleTheme} />
         <SEO title="full-stack developer" />
         <SummaryTitle>Hello, I'm Roberto</SummaryTitle>
-        <Summary>Full-stack developer, based in Vancouver B.C.</Summary>
+        <Summary>Full-stack developer. Based in Vancouver, CA</Summary>
+        <Summary>
+          I am a design-oriented developer, passionate for building safer,
+          faster and more accessible web content
+        </Summary>
+        <SummaryTech>
+          React/React Native, Redux, NodeJS, GraphQL, PostgreSQL/MongoDB
+        </SummaryTech>
+        <SkillTitle>Projects</SkillTitle>
       </Wrapper>
     </ThemeProvider>
   )

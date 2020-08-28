@@ -16,11 +16,12 @@ const GlobalStyle = createGlobalStyle`
   h1, h2, h3, h4, h5, h6, p, a {
     font-family: ${primaryFont};
     font-size: 1rem;
-    color: ${props => props.theme.textColor}
+    color: ${props => props.theme.textColor};
+    line-height: 1.625;
   }
   main {
     margin: 0;
-    padding: 0 20px
+    padding: 0.5rem 1.5rem;
   }
 `
 

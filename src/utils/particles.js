@@ -1,43 +1,49 @@
-import React from "react"
-import Particles from "react-particles-js"
+import React from 'react'
+import Particles from 'react-particles-js'
+import {neutral} from './colors'
 
-const ParticlesCanvas = () => {
+export const ParticlesCanvas = () => {
   return (
     <Particles
-      style={{ position: "absolute", width: "100%", height: "100%" }}
+      style={{
+        position: 'absolute',
+        width: '100%',
+        height: '100%',
+        zIndex: -999,
+      }}
       params={{
         particles: {
           number: {
-            value: 75,
+            value: 20,
             density: {
               enable: true,
-              value_area: 850,
+              value_area: 1000,
             },
           },
           color: {
-            value: "#989898",
+            value: neutral[400],
           },
           shape: {
-            type: "circle",
+            type: 'circle',
             stroke: {
-              width: 0,
-              color: "#989898",
+              width: 1,
+              color: neutral[400],
             },
             polygon: {
               nb_sides: 5,
             },
             image: {
-              src: "img/github.svg",
+              src: 'img/github.svg',
               width: 100,
               height: 100,
             },
           },
           opacity: {
-            value: 0.5,
+            value: 0.3,
             random: false,
             anim: {
               enable: false,
-              speed: 1,
+              speed: 0.5,
               opacity_min: 0.1,
               sync: false,
             },
@@ -55,17 +61,17 @@ const ParticlesCanvas = () => {
           line_linked: {
             enable: true,
             distance: 150,
-            color: "#989898",
+            color: neutral[400],
             opacity: 0.4,
             width: 1,
           },
           move: {
             enable: true,
-            speed: 2,
-            direction: "none",
-            random: true,
+            speed: 6,
+            direction: 'none',
+            random: false,
             straight: false,
-            out_mode: "out",
+            out_mode: 'out',
             bounce: false,
             attract: {
               enable: false,
@@ -75,15 +81,15 @@ const ParticlesCanvas = () => {
           },
         },
         interactivity: {
-          detect_on: "canvas",
+          detect_on: 'canvas',
           events: {
             onhover: {
-              enable: false,
-              mode: "repulse",
+              enable: true,
+              mode: 'repulse',
             },
             onclick: {
-              enable: true,
-              mode: "push",
+              enable: false,
+              mode: 'push',
             },
             resize: true,
           },
@@ -118,5 +124,3 @@ const ParticlesCanvas = () => {
     />
   )
 }
-
-export default ParticlesCanvas

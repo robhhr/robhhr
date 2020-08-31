@@ -1,17 +1,53 @@
-import React from "react"
-import { Links, Description } from "./Typography"
-import styled from "styled-components"
+import React from 'react'
+import styled from 'styled-components'
+import {Git, Mail, Twitter} from '../assets'
 
-const Container = styled.div`
+const ContactSection = styled.div`
   margin: 0 5px;
+  padding-bottom: 15px;
+  padding: 1rem 0;
+  @media (min-width: 1000px) {
+    padding: 3rem 0;
+  }
+`
+const LinkSection = styled.div`
+  display: flex;
+`
+const StyledLink = styled.a`
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+`
+const Title = styled.h1`
+  font-size: 1.5rem;
+  padding-top: 10px;
 `
 
-const Contact = () => (
-  <Container>
-    <Description>Getting in touch is easy!</Description>
-    <Links link="mailto:robhhr@outlook.com">email</Links>
-    <Links link="https://linkedin.com/in/roberto-h">linkedin</Links>
-  </Container>
-)
+const Contact = () => {
+  return (
+    <ContactSection>
+      <Title>Contact</Title>
+      <LinkSection>
+        <StyledLink
+          href="https://github.com/robhhr"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <Git /> GitHub
+        </StyledLink>
+        <StyledLink href="mailto:robhhr@outlook.com">
+          <Mail /> Email
+        </StyledLink>
+        <StyledLink
+          href="https://twitter.com/hallorob"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <Twitter /> Twitter
+        </StyledLink>
+      </LinkSection>
+    </ContactSection>
+  )
+}
 
 export default Contact

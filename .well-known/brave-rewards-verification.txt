@@ -1,4 +1,0 @@
-This is a Brave Rewards publisher verification file.
-
-Domain: robhhr.com
-Token: 4d76de5b6e4a82dd1d501baa8c8252527faef7bcacbbd7152c3b04c69598ad22

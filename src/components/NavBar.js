@@ -1,55 +1,48 @@
-import React from "react"
-import { Link } from "gatsby"
-import Logo from "../images/blueLogo.svg"
-import styled from "styled-components"
+import React from 'react'
+import {Link} from 'gatsby'
+import styled from 'styled-components'
+import {Profile, Moon} from '../assets'
 
 const StyledNav = styled.nav`
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.04);
-  height: 70px;
-
-  @media (min-width: 850px) {
-    padding: 0px 135px;
-    height: 80px;
-  }
-`
-
-const StyledLogo = styled.img`
-  margin: 0 20px;
-  width: 100px;
-
-  @media (min-width: 850px) {
-    width: 120px;
-  }
+  margin: 20px auto;
 `
 
 const StyledLink = styled(props => <Link {...props} />)`
+  display: flex;
+  align-items: center;
   text-decoration: none;
-  margin: 0 14px;
-  font-family: "Poppins", sans-serif;
-  font-size: 14px;
+`
 
-  &:last-child {
-    margin-right: 20px;
-  }
+const Title = styled.p`
+  font-size: 1.2rem;
+  font-weight: bolder;
+  padding: 0 10px;
+`
 
-  @media (min-width: 850px) {
-    font-size: 17px;
-    margin-right: 35px;
+const MoonContainer = styled.button`
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+
+  &:focus {
+    border: none;
+    outline: none;
   }
 `
 
-const NavBar = () => {
+const NavBar = ({onClick}) => {
   return (
     <StyledNav>
-      <Link to="/">
-        <StyledLogo src={Logo} alt="site-logo" />
-      </Link>
-      <div>
-        <StyledLink to="/about">about</StyledLink>
-      </div>
+      <StyledLink to="/">
+        <Profile />
+        <Title>robhhr</Title>
+      </StyledLink>
+      <MoonContainer onClick={onClick}>
+        <Moon />
+      </MoonContainer>
     </StyledNav>
   )
 }

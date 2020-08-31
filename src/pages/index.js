@@ -1,8 +1,15 @@
 import React from 'react'
 import {Contact, NavBar, ProjectSection, SEO, Wrapper} from '../components'
 import styled, {ThemeProvider} from 'styled-components'
-import {useDarkMode} from '../hooks/useDarkMode'
-import {darkTheme, defaultTheme, ParticlesCanvas} from '../utils'
+import {useCustomTheme} from '../hooks'
+import {
+  darkTheme,
+  defaultTheme,
+  ParticlesCanvas,
+  greenTheme,
+  blueTheme,
+  redTheme,
+} from '../utils'
 
 const SummarySection = styled.div`
   padding: 0 5px;
@@ -38,9 +45,19 @@ const Summary = styled.p`
 `
 
 const App = () => {
-  const [theme, toggleTheme] = useDarkMode()
-  const themeMode = theme === 'default' ? defaultTheme : darkTheme
-
+  const [theme, toggleTheme] = useCustomTheme()
+  const themeMode =
+    theme === 'default'
+      ? defaultTheme
+      : theme === 'dark'
+      ? darkTheme
+      : theme === 'green'
+      ? greenTheme
+      : theme === 'blue'
+      ? blueTheme
+      : theme === 'red'
+      ? redTheme
+      : defaultTheme
   return (
     <ThemeProvider theme={themeMode}>
       {theme === 'default' ? <ParticlesCanvas /> : null}

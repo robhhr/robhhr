@@ -35,7 +35,7 @@ const SummaryTech = styled.p`
 `
 
 const SkillTitle = styled.h1`
-  font-size: 1.3rem;
+  font-size: 1.25rem;
   padding: 10px 5px;
 `
 

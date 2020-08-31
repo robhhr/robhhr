@@ -19,6 +19,9 @@ const Link = styled.a`
   border: 0.8px solid ${props => props.theme.iconColor};
   border-radius: 5px;
   transition: all 0.25s linear;
+  @media (min-width: 1000px) {
+    margin-top: 10px;
+  }
 `
 const LinkSection = styled.div`
   display: flex;
@@ -28,8 +31,11 @@ const Title = styled.h1`
   text-transform: uppercase;
   padding-bottom: 10px;
   margin: 0;
-  word-spacing: 3.5px;
+  word-spacing: 1.5px;
   letter-spacing: 1px;
+  @media (min-width: 1000px) {
+    font-size: 1.07rem;
+  }
 `
 
 const Project = ({description, live, repo, title}) => {

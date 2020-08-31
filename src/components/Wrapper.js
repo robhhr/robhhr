@@ -24,6 +24,9 @@ const GlobalStyle = createGlobalStyle`
   main {
     margin: 0;
     padding: 0.5rem 1.5rem;
+      @media (min-width: 1000px) {
+        padding: 0 8rem 2rem 8rem;
+      }
   }
   a {
     text-decoration: none

@@ -24,15 +24,24 @@ const SummaryTech = styled.p`
   font-size: 0.9rem;
   font-style: italic;
   color: ${props => props.theme.primaryColorHover};
+  @media (min-width: 1000px) {
+    font-size: 1.15rem;
+  }
 `
 
 const SummaryTitle = styled.h1`
   font-size: 1.5rem;
   font-weight: normal;
+  @media (min-width: 1000px) {
+    font-size: 1.7rem;
+  }
 `
 
 const Summary = styled.p`
   font-size: 1.12rem;
+  @media (min-width: 1000px) {
+    font-size: 1.25rem;
+  }
 `
 
 const App = () => {

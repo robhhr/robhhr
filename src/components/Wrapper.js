@@ -31,6 +31,9 @@ const GlobalStyle = createGlobalStyle`
   a {
     text-decoration: none
   }
+  a {
+    text-decoration: none
+  }
 `
 
 const Wrapper = ({children}) => {

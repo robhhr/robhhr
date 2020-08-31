@@ -19,6 +19,7 @@ const Link = styled.a`
   background-color: ${props => props.theme.backgroundColor};
   border: 0.8px solid ${props => props.theme.iconColor};
   border-radius: 5px;
+  transition: all 0.25s linear;
 `
 const LinkSection = styled.div`
   display: flex;

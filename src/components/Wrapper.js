@@ -6,7 +6,8 @@ import {primaryFont} from '../utils'
 const GlobalStyle = createGlobalStyle`
   ${normalize()}
   html {
-    background-color: ${props => props.theme.backgroundColor}
+    background-color: ${props => props.theme.backgroundColor};
+    transition: all 0.25s linear;
   }
   body {
     margin: 0;
@@ -18,6 +19,7 @@ const GlobalStyle = createGlobalStyle`
     font-size: 1rem;
     color: ${props => props.theme.textColor};
     line-height: 1.625;
+    transition: all 0.25s linear;
   }
   main {
     margin: 0;
@@ -25,7 +27,7 @@ const GlobalStyle = createGlobalStyle`
   }
 `
 
-const Wrapper = ({children, theme}) => {
+const Wrapper = ({children}) => {
   return (
     <>
       <GlobalStyle />

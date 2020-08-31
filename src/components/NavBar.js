@@ -15,6 +15,7 @@ const StyledLogo = styled.img`
   height: 35px;
   background-color: ${props => props.theme.profileBackground};
   border-radius: 50%;
+  transition: all 0.25s linear;
 `
 
 const StyledLink = styled(props => <Link {...props} />)`

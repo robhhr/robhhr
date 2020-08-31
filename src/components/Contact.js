@@ -5,6 +5,10 @@ import {Git, Mail, Twitter} from '../assets'
 const ContactSection = styled.div`
   margin: 0 5px;
   padding-bottom: 15px;
+  padding: 1rem 0;
+  @media (min-width: 1000px) {
+    padding: 3rem 0;
+  }
 `
 const LinkSection = styled.div`
   display: flex;

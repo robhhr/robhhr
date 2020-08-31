@@ -1,21 +1,12 @@
 import React from 'react'
 import {Link} from 'gatsby'
 import styled from 'styled-components'
-import Logo from '../assets/profile.svg'
-import {Moon} from '../assets/moon'
+import {Profile, Moon} from '../assets'
 
 const StyledNav = styled.nav`
   display: flex;
   justify-content: space-between;
   margin: 20px auto;
-`
-
-const StyledLogo = styled.img`
-  width: 35px;
-  height: 35px;
-  background-color: ${props => props.theme.profileBackground};
-  border-radius: 50%;
-  transition: all 0.25s linear;
 `
 
 const StyledLink = styled(props => <Link {...props} />)`
@@ -46,7 +37,7 @@ const NavBar = ({onClick}) => {
   return (
     <StyledNav>
       <StyledLink to="/">
-        <StyledLogo src={Logo} alt="home" />
+        <Profile />
         <Title>robhhr</Title>
       </StyledLink>
       <MoonContainer onClick={onClick}>

@@ -18,12 +18,17 @@ const savedTheme = localStorage.getItem('theme')
 
 const SummarySection = styled.div`
   padding: 0 5px;
+  padding-bottom: 1rem;
+  @media (min-width: 1000px) {
+    padding-top: 0.5rem;
+    padding-bottom: 3rem;
+  }
 `
 
 const SummaryTech = styled.p`
   font-size: 0.9rem;
   font-style: italic;
-  color: ${props => props.theme.primaryColorHover};
+  color: ${props => props.theme.summaryColor};
   @media (min-width: 1000px) {
     font-size: 1.15rem;
   }

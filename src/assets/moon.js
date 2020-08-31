@@ -8,7 +8,7 @@ const StyledMoon = styled.svg`
   height: 35px;
 `
 
-export const Moon = () => {
+const Moon = () => {
   return (
     <StyledMoon
       xmlns="http://www.w3.org/2000/svg"
@@ -21,3 +21,5 @@ export const Moon = () => {
     </StyledMoon>
   )
 }
+
+export default Moon

@@ -1,17 +1,53 @@
 import React from 'react'
+import styled from 'styled-components'
+import {Live, Git} from '../assets'
+
+const Container = styled.div`
+  padding: 10px 0 30px 0;
+`
+const Description = styled.p`
+  margin: 0;
+`
+const Link = styled.a`
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 0.9rem;
+  text-decoration: none;
+  padding: 2.5px 8px;
+  margin-right: 15px;
+  background-color: ${props => props.theme.backgroundColor};
+  border: 0.8px solid ${props => props.theme.iconColor};
+  border-radius: 5px;
+`
+const LinkSection = styled.div`
+  display: flex;
+  padding: 5px 0;
+`
+const Title = styled.h1`
+  text-transform: uppercase;
+  padding-bottom: 10px;
+  margin: 0;
+  word-spacing: 3.5px;
+  letter-spacing: 1px;
+`
 
 const Project = ({description, live, repo, title}) => {
   return (
-    <>
-      <h1>{title}</h1>
-      <p>{description}</p>
-      <a href={repo} target="_blank" rel="noreferrer">
-        Source
-      </a>
-      <a href={live} target="_blank" rel="noreferrer">
-        Live
-      </a>
-    </>
+    <Container>
+      <Title>{title}</Title>
+      <Description>{description}</Description>
+      <LinkSection>
+        <Link href={repo} target="_blank" rel="noreferrer">
+          <Git /> Source
+        </Link>
+        {live ? (
+          <Link href={live} target="_blank" rel="noreferrer">
+            <Live /> Live
+          </Link>
+        ) : null}
+      </LinkSection>
+    </Container>
   )
 }
 

@@ -68,8 +68,8 @@ const App = () => {
           <SummaryTitle>Hello, I'm Roberto</SummaryTitle>
           <Summary>Full-stack developer. Based in Vancouver, CA</Summary>
           <Summary>
-            I am a design-oriented developer, striving for building safer,
-            faster and more accessible web content
+            I am a design-oriented developer, striving to create and build
+            safer, faster and more accessible web content
           </Summary>
           <SummaryTech>
             React/React Native, Redux, NodeJS, GraphQL, PostgreSQL/MongoDB

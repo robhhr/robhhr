@@ -40,7 +40,7 @@ const NavBar = ({onClick}) => {
         <Profile />
         <Title>robhhr</Title>
       </StyledLink>
-      <MoonContainer onClick={onClick}>
+      <MoonContainer onClick={onClick} aria-label="theme toggler">
         <Moon />
       </MoonContainer>
     </StyledNav>

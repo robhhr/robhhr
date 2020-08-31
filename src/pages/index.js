@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import {NavBar, SEO, Wrapper} from '../components'
+import {NavBar, ProjectSection, SEO, Wrapper} from '../components'
 import styled, {ThemeProvider} from 'styled-components'
 import {
   darkTheme,
@@ -16,27 +16,23 @@ const blueThemeQuery = window.matchMedia('(prefers-color-scheme: blue)')
 const redThemeQuery = window.matchMedia('(prefers-color-scheme: red)')
 const savedTheme = localStorage.getItem('theme')
 
-const SummaryTitle = styled.h1`
-  font-size: 1.5rem;
-  font-weight: normal;
-  padding: 0 5px;
-`
-
-const Summary = styled.p`
-  font-size: 1.12rem;
+const SummarySection = styled.div`
   padding: 0 5px;
 `
 
 const SummaryTech = styled.p`
   font-size: 0.9rem;
-  padding: 0 5px;
   font-style: italic;
   color: ${props => props.theme.primaryColorHover};
 `
 
-const SkillTitle = styled.h1`
-  font-size: 1.25rem;
-  padding: 10px 5px;
+const SummaryTitle = styled.h1`
+  font-size: 1.5rem;
+  font-weight: normal;
+`
+
+const Summary = styled.p`
+  font-size: 1.12rem;
 `
 
 const App = () => {
@@ -112,16 +108,18 @@ const App = () => {
       <Wrapper>
         <NavBar onClick={toggleTheme} />
         <SEO title="full-stack developer" />
-        <SummaryTitle>Hello, I'm Roberto</SummaryTitle>
-        <Summary>Full-stack developer. Based in Vancouver, CA</Summary>
-        <Summary>
-          I am a design-oriented developer, passionate for building safer,
-          faster and more accessible web content
-        </Summary>
-        <SummaryTech>
-          React/React Native, Redux, NodeJS, GraphQL, PostgreSQL/MongoDB
-        </SummaryTech>
-        <SkillTitle>Projects</SkillTitle>
+        <SummarySection>
+          <SummaryTitle>Hello, I'm Roberto</SummaryTitle>
+          <Summary>Full-stack developer. Based in Vancouver, CA</Summary>
+          <Summary>
+            I am a design-oriented developer, striving for building safer,
+            faster and more accessible web content
+          </Summary>
+          <SummaryTech>
+            React/React Native, Redux, NodeJS, GraphQL, PostgreSQL/MongoDB
+          </SummaryTech>
+        </SummarySection>
+        <ProjectSection />
       </Wrapper>
     </ThemeProvider>
   )

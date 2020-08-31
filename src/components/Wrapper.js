@@ -25,6 +25,9 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0.5rem 1.5rem;
   }
+  a {
+    text-decoration: none
+  }
 `
 
 const Wrapper = ({children}) => {

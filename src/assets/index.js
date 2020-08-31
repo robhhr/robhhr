@@ -1,4 +1,6 @@
 import Git from './git'
+import Mail from './mail'
 import Live from './live'
+import Twitter from './twitter'
 
-export {Git, Live}
+export {Git, Mail, Live, Twitter}

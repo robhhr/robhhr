@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import {NavBar, ProjectSection, SEO, Wrapper} from '../components'
+import {Contact, NavBar, ProjectSection, SEO, Wrapper} from '../components'
 import styled, {ThemeProvider} from 'styled-components'
 import {
   darkTheme,
@@ -120,6 +120,7 @@ const App = () => {
           </SummaryTech>
         </SummarySection>
         <ProjectSection />
+        <Contact />
       </Wrapper>
     </ThemeProvider>
   )

@@ -13,7 +13,6 @@ const Link = styled.a`
   justify-content: flex-start;
   align-items: center;
   font-size: 0.9rem;
-  text-decoration: none;
   padding: 2.5px 8px;
   margin-right: 15px;
   background-color: ${props => props.theme.backgroundColor};

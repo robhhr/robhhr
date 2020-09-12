@@ -20,12 +20,20 @@ const GlobalStyle = createGlobalStyle`
     color: ${props => props.theme.textColor};
     line-height: 1.625;
     transition: all 0.25s linear;
+    @media only screen and (min-width: 1000px) {
+      font-size: 1.10rem;
+    }
   }
   main {
     margin: 0;
     padding: 0.5rem 1.5rem;
       @media (min-width: 1000px) {
-        padding: 0 8rem 2rem 8rem;
+        padding: 1rem 8rem 2rem 8rem;
+      }
+      @media (min-width: 1500px) {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 1rem 0
       }
   }
   a {

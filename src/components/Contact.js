@@ -17,10 +17,20 @@ const StyledLink = styled.a`
   display: flex;
   align-items: center;
   margin-right: 20px;
+  @media (min-width: 1000px) {
+    font-size: 1.2rem;
+    margin: 10px 50px 10px 0;
+  }
 `
 const Title = styled.h1`
   font-size: 1.5rem;
   padding-top: 10px;
+  @media (min-width: 1000px) {
+    font-size: 1.5rem;
+    font-weight: lighter;
+    border-bottom: 0.65px solid ${props => props.theme.iconColor};
+    width: fit-content;
+  }
 `
 
 const Contact = () => {

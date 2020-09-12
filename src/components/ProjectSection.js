@@ -9,7 +9,7 @@ const ProjectContainer = styled.div`
     grid-gap: 1.5rem;
   }
   @media (min-width: 1000px) {
-    grid-template-columns: repeat(3, auto);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 `
 const Section = styled.div`
@@ -19,7 +19,10 @@ const Title = styled.h1`
   font-size: 1.5rem;
   padding-top: 10px;
   @media (min-width: 1000px) {
-    font-size: 1.55rem;
+    font-size: 1.5rem;
+    font-weight: lighter;
+    border-bottom: 0.65px solid ${props => props.theme.iconColor};
+    width: fit-content;
   }
 `
 

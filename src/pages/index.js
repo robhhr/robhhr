@@ -25,7 +25,7 @@ const SummaryTech = styled.p`
   font-style: italic;
   color: ${props => props.theme.summaryColor};
   @media (min-width: 1000px) {
-    font-size: 1.15rem;
+    font-size: 1.2rem;
   }
 `
 
@@ -33,14 +33,16 @@ const SummaryTitle = styled.h1`
   font-size: 1.5rem;
   font-weight: normal;
   @media (min-width: 1000px) {
-    font-size: 1.7rem;
+    font-size: 1.95rem;
   }
 `
 
 const Summary = styled.p`
   font-size: 1.12rem;
   @media (min-width: 1000px) {
-    font-size: 1.25rem;
+    font-size: 1.3rem;
+    font-weight: 100;
+    letter-spacing: 0.15px;
   }
 `
 

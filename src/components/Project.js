@@ -7,6 +7,7 @@ const Container = styled.div`
 `
 const Description = styled.p`
   margin: 0;
+  width: 85%;
 `
 const Link = styled.a`
   display: flex;
@@ -34,7 +35,7 @@ const Title = styled.h1`
   word-spacing: 1.5px;
   letter-spacing: 1px;
   @media (min-width: 1000px) {
-    font-size: 1.07rem;
+    font-size: 1.1rem;
   }
 `
 

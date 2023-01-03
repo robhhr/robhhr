@@ -6,7 +6,7 @@
   "author": "Roberto Hernandez <robhhr@outlook.com>",
   "dependencies": {
     "babel-plugin-styled-components": "^1.11.1",
-    "gatsby": "^2.19.7",
+    "gatsby": "^5.3.3",
     "gatsby-image": "^2.2.39",
     "gatsby-plugin-manifest": "^2.2.39",
     "gatsby-plugin-offline": "^3.0.32",

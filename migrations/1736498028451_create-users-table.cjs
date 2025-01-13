@@ -12,7 +12,8 @@ exports.up = (pgm) => {
       id UUID DEFAULT gen_random_uuid() NOT NULL UNIQUE,
       username VARCHAR(30) NOT NULL UNIQUE,
       role_id INT NOT NULL REFERENCES roles(id) ON DELETE CASCADE,
-      password CHAR(64) NOT NULL,
+      email VARCHAR(255) NOT NULL UNIQUE,
+      password VARCHAR(64) NOT NULL,
       created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
       last_login TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     );

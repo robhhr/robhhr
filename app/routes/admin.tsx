@@ -1,5 +1,5 @@
 import {type LoaderFunctionArgs} from '@remix-run/node'
-import {requireUser} from '~/models/auth'
+import {requireUser} from '~/models/auth.server'
 
 export const loader = async ({request}: LoaderFunctionArgs) => {
   // const userId = await requireUser(request)

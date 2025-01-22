@@ -4,13 +4,25 @@ import {
   type LoaderFunctionArgs,
 } from '@remix-run/node'
 import {Form, useActionData} from '@remix-run/react'
-import {isUserAuthenticated, login} from '~/models/auth'
+import {
+  insertFingerprint,
+  isUserAuthenticated,
+  login,
+} from '~/models/auth.server'
 import {Button} from '~/components/modules/button'
+import {useEffect} from 'react'
+import {createValkeySession} from '~/valkey/valkey.server'
 import useFingerprint from '~/hooks/useFingerprint'
-import {useEffect, useState} from 'react'
+import {checkIFingerprintExists} from '~/models/session.server'
 
 export const loader = async ({request}: LoaderFunctionArgs) => {
   const isLoggedIn = await isUserAuthenticated(request)
+
+  // const valkey = await valkeyClient.set('first_key', 'Hello Valkey!', 'EX', 3600)
+  // const value = await valkeyClient.get('first_key')
+
+  // console.log('VALKEY', valkey)
+  // console.log('VALUE', value)
 
   if (isLoggedIn) {
     throw redirect('/admin')
@@ -36,7 +48,63 @@ export const action = async ({request}: ActionFunctionArgs) => {
     return {error: 'invalid credentials'}
   }
 
-  return {user, username, password, fingerprint, fingerprintData}
+  await Promise.allSettled([
+    (async () => {
+      try {
+        await createValkeySession(username, fingerprint)
+      } catch (error) {
+        console.error('Error creating Valkey session:', error)
+      }
+    })(),
+
+    (async () => {
+      try {
+        await insertFingerprint({
+          userId: user.id,
+          fingerprint: fingerprintData,
+          hash: fingerprint,
+          isActive: true,
+        })
+      } catch (error) {
+        console.error('Error inserting fingerprint:', error)
+      }
+    })(),
+
+    // (async () => {
+    //   try {
+    //     const exists = await checkIFingerprintExists({
+    //       // userId: '4ec95158-7532-43b2-86da-f41a3fccbf11',
+    //       userId: user.id,
+    //     })
+    //     console.log('Does fingerprint exist for this user?', exists)
+    //   } catch (error) {
+    //     console.error('Error checking if fingerprint exists:', error)
+    //   }
+    // })(),
+  ])
+
+  const doesFingerprintExist = await checkIFingerprintExists({userId: '4ec95158-7532-43b2-86da-f41a3fccbf133'})
+
+  if (!doesFingerprintExist) {
+    return {error: 'No active fingerprint found for this user.'}
+  }
+
+  // return new Response(
+  //   JSON.stringify({
+  //     user,
+  //     username,
+  //   }),
+  //   {
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //       'Set-Cookie': `session=${sessionIM.sessionToken}; HttpOnly; Secure; Path=/; Max-Age=3600`,
+  //     },
+  //   },
+  // )
+
+  // console.log(sessionIM)
+
+  return {user}
 }
 
 const Login = () => {
@@ -46,16 +114,12 @@ const Login = () => {
   console.log(actionData)
 
   useEffect(() => {
-    console.log('useEffect triggered')
-
     const fetchFingerprint = async () => {
       await generateFingerprint()
     }
 
     fetchFingerprint()
   }, [generateFingerprint])
-
-  console.log('rendered')
 
   return (
     <div>

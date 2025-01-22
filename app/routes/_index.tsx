@@ -1,5 +1,5 @@
 import {type LoaderFunctionArgs, MetaFunction} from '@remix-run/node'
-import {requireUser} from '~/models/auth'
+import {requireUser} from '~/models/auth.server'
 
 export const meta: MetaFunction = () => {
   return [

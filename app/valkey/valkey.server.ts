@@ -9,11 +9,13 @@ export const valkeyClient = new Valkey({
 })
 
 export const createValkeySession = async (
+  userId: string,
   username: string,
   fingerprint: string,
 ) => {
   const sessionToken = randomUUID()
   const sessionData = {
+    userId,
     username,
     fingerprint,
     loginTime: Date.now().toString(),
@@ -29,4 +31,29 @@ export const createValkeySession = async (
 
   return {sessionToken, sessionData}
 }
+
+export const checkValkeySession = async (userId: string) => {
+  try {
+    const keys = await valkeyClient.keys('session:*');
+
+    for (const key of keys) {
+      const sessionData = await valkeyClient.get(key);
+
+      if (sessionData) {
+        const session = JSON.parse(sessionData);
+
+        if (session.userId === userId) {
+          console.log('matching session found:', session);
+          return session;
+        }
+      }
+    }
+
+    console.log('no matching session found for userId:', userId);
+    return null;
+  } catch (error) {
+    console.error('error checking redis session:', error);
+    return null;
+  }
+};
 

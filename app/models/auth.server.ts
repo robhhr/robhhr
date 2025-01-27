@@ -34,9 +34,7 @@ export async function login({
     result[0].password ?? '',
   )
 
-  if (!isPasswordValid) {
-    throw new Error('invalid credentials')
-  }
+  if (!isPasswordValid) return
 
   return {
     id: result[0].id,

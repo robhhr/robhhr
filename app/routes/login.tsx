@@ -1,40 +1,48 @@
 import {
+  data,
   redirect,
   type ActionFunctionArgs,
   type LoaderFunctionArgs,
 } from '@remix-run/node'
-import {Form, useActionData} from '@remix-run/react'
+import {Form, useActionData, useLoaderData} from '@remix-run/react'
 import {
+  createUserSession,
   insertFingerprint,
   isUserAuthenticated,
   login,
 } from '~/models/auth.server'
 import {Button} from '~/components/modules/button'
-import {useEffect} from 'react'
-import {createValkeySession} from '~/valkey/valkey.server'
+import {useEffect, useState} from 'react'
+import {checkValkeySession, createValkeySession} from '~/valkey/valkey.server'
 import useFingerprint from '~/hooks/useFingerprint'
 import {checkIFingerprintExists} from '~/models/session.server'
+import {cx} from 'class-variance-authority'
+import {IconCheckmark} from '~/components/icons/checkmark'
+import {getSession} from '~/session.server'
+
+enum AuthState {
+  IDLE = 'idle',
+  TWO_FACTOR = '2fa',
+  LOADING = 'loading',
+  SUCCESS = 'success',
+  ERROR = 'error',
+}
 
 export const loader = async ({request}: LoaderFunctionArgs) => {
-  const isLoggedIn = await isUserAuthenticated(request)
+  const session = await getSession(request.headers.get('Cookie'))
 
-  // const valkey = await valkeyClient.set('first_key', 'Hello Valkey!', 'EX', 3600)
-  // const value = await valkeyClient.get('first_key')
-
-  // console.log('VALKEY', valkey)
-  // console.log('VALUE', value)
-
-  if (isLoggedIn) {
-    throw redirect('/admin')
+  if (!session.get('userId')) {
+    return null
   }
 
-  return {isLoggedIn}
+  return {id: session.get('userId')}
 }
 
 export const action = async ({request}: ActionFunctionArgs) => {
   const body = await request.formData()
   const username = body.get('username') as string
   const password = body.get('password') as string
+  const remember = body.get('remember') as string
   const fingerprint = body.get('fingerprint') as string
   const fingerprintData = body.get('fingerprintData') as string
 
@@ -42,76 +50,68 @@ export const action = async ({request}: ActionFunctionArgs) => {
     return {error: 'fill all fields'}
   }
 
+  // #1 check db user password match
   const user = await login({username, password})
 
   if (!user) {
     return {error: 'invalid credentials'}
   }
 
-  await Promise.allSettled([
-    (async () => {
-      try {
-        await createValkeySession(username, fingerprint)
-      } catch (error) {
-        console.error('Error creating Valkey session:', error)
-      }
-    })(),
+  // #2 check if device exists for this user
+  const exists = await checkIFingerprintExists({
+    userId: user.id,
+    hash: fingerprint,
+  })
 
-    (async () => {
-      try {
-        await insertFingerprint({
-          userId: user.id,
-          fingerprint: fingerprintData,
-          hash: fingerprint,
-          isActive: true,
-        })
-      } catch (error) {
-        console.error('Error inserting fingerprint:', error)
-      }
-    })(),
-
-    // (async () => {
-    //   try {
-    //     const exists = await checkIFingerprintExists({
-    //       // userId: '4ec95158-7532-43b2-86da-f41a3fccbf11',
-    //       userId: user.id,
-    //     })
-    //     console.log('Does fingerprint exist for this user?', exists)
-    //   } catch (error) {
-    //     console.error('Error checking if fingerprint exists:', error)
-    //   }
-    // })(),
-  ])
-
-  const doesFingerprintExist = await checkIFingerprintExists({userId: '4ec95158-7532-43b2-86da-f41a3fccbf133'})
-
-  if (!doesFingerprintExist) {
-    return {error: 'No active fingerprint found for this user.'}
+  // #2.1 if it doesnt, try to insert
+  if (!exists) {
+    try {
+      await insertFingerprint({
+        userId: user.id,
+        fingerprint: fingerprintData,
+        hash: fingerprint,
+        isActive: true,
+      })
+    } catch (error) {
+      console.error('error inserting log data:', error)
+      return {error: 'error inserting log data'}
+    }
   }
 
-  // return new Response(
-  //   JSON.stringify({
-  //     user,
-  //     username,
-  //   }),
-  //   {
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //       'Set-Cookie': `session=${sessionIM.sessionToken}; HttpOnly; Secure; Path=/; Max-Age=3600`,
-  //     },
-  //   },
-  // )
+  // #3 create user session
+  try {
+    const createSession = await createUserSession(user.id, request)
 
-  // console.log(sessionIM)
-
-  return {user}
+    return new Response(
+      JSON.stringify({
+        authState: AuthState.TWO_FACTOR,
+      }),
+      {
+        status: 200,
+        headers: {
+          'Set-Cookie': createSession,
+          'Content-Type': 'application/json',
+        },
+      },
+    )
+  } catch (error) {
+    console.error('error creating user session:', error)
+    return {error: 'error creating user session'}
+  }
 }
 
 const Login = () => {
   const actionData = useActionData<typeof action>()
+  const loaderData = useLoaderData<typeof loader>()
   const {fingerprint, generateFingerprint} = useFingerprint()
+  const [remember, setRemember] = useState<boolean>(false)
 
-  console.log(actionData)
+  const toggleRemember = () => {
+    setRemember(!remember)
+  }
+
+  console.log(actionData, ' actionData')
+  console.log(loaderData, ' loaderData')
 
   useEffect(() => {
     const fetchFingerprint = async () => {
@@ -121,11 +121,17 @@ const Login = () => {
     fetchFingerprint()
   }, [generateFingerprint])
 
+  if (actionData?.authState === AuthState.TWO_FACTOR) {
+    return <div>2fa</div>
+  }
+
   return (
     <div>
       {actionData?.error && <h1>{actionData.error}</h1>}
 
       <Form method="post">
+        <input type="hidden" name="intent" value="login" />
+
         <div className="flex flex-col font-ms-sans-serif text-xs">
           <label htmlFor="username">username</label>
           <input
@@ -157,6 +163,30 @@ const Login = () => {
           type="hidden"
           name="fingerprintData"
           value={fingerprint ? JSON.stringify(fingerprint.data) : ''}
+        />
+
+        <div className="flex font-ms-sans-serif text-xs">
+          <button
+            type="button"
+            aria-label="remember me"
+            onClick={e => {
+              e.preventDefault()
+              toggleRemember()
+            }}
+            className={cx(
+              'block h-3.5 w-3.5 cursor-pointer shadow-input',
+              'inset-input bg-white',
+            )}
+          >
+            {remember && <IconCheckmark />}
+          </button>
+          remember me
+        </div>
+
+        <input
+          type="hidden"
+          name="remember"
+          value={remember ? 'true' : 'false'}
         />
 
         <Button intent="admin" type="submit" name="login">

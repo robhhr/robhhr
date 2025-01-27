@@ -1,5 +1,7 @@
 import {createCookie, createCookieSessionStorage} from '@remix-run/node'
 
+const Max_Age = 3600
+
 type SessionData = {
   userId: string
 }
@@ -14,21 +16,21 @@ if (!sessionSecret) {
   throw new Error("SESSION_SECRET must be set in your environment variables");
 }
 
-const { getSession, commitSession, destroySession } =
-  createCookieSessionStorage<SessionData, SessionFlashData>(
-    {
-      cookie: {
-        name: "__session",
-        domain: "remix.run",
-        httpOnly: true,
-        maxAge: 60 * 60 * 24 * 7,
-        path: "/",
-        sameSite: "lax",
-        secrets: [sessionSecret],
-        secure: true,
-      },
-    }
-  );
+export const sessionCookie = createCookie('_session', {
+  httpOnly: true,
+  maxAge: Max_Age,
+  path: '/',
+  sameSite: 'lax',
+  secrets: ['s3cret1'],
+  // secure: process.env.NODE_ENV === 'production',
+})
+
+const {getSession, commitSession, destroySession} = createCookieSessionStorage<
+  SessionData,
+  SessionFlashData
+>({
+  cookie: sessionCookie,
+})
 
 export { getSession, commitSession, destroySession };
 

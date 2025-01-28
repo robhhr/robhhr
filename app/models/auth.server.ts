@@ -43,9 +43,10 @@ export async function login({
   }
 }
 
-export async function createUserSession(userId: string, request: Request) {
+export async function createUserSession(userId: string, authenticated: boolean, request: Request) {
   const session = await getSession(request.headers.get('Cookie'))
   session.set('userId', userId)
+  session.set('authenticated', authenticated)
 
   return commitSession(session)
 }
@@ -94,7 +95,7 @@ export async function insertFingerprint({
       isActive,
     ])
 
-    console.log(`inserted print record with ID: ${JSON.stringify(result)}`)
+    console.log(`inserted print record: ${JSON.stringify(result)}`)
   } catch (error) {
     console.error('error inserting print:', error)
     throw error

@@ -12,6 +12,7 @@ export const createValkeySession = async (
   userId: string,
   username: string,
   fingerprint: string,
+  is2FA?: boolean
 ) => {
   const sessionToken = randomUUID()
   const sessionData = {
@@ -19,6 +20,7 @@ export const createValkeySession = async (
     username,
     fingerprint,
     loginTime: Date.now().toString(),
+    is2FA: is2FA || false,
   }
 
   // NOTE: create valkey session

@@ -19,10 +19,17 @@ import {checkIFingerprintExists} from '~/models/session.server'
 import {cx} from 'class-variance-authority'
 import {IconCheckmark} from '~/components/icons/checkmark'
 import {getSession} from '~/session.server'
+import {InputText} from '~/components/ui/admin/input-text'
+import {generateHashCode} from '~/utils/code-gen'
+import {
+  checkIfCodeMatches,
+  insertTwoFactorCode,
+} from '~/models/auth-codes.server'
+import {sendCodeEmail} from '~/utils/mailer'
 
 enum AuthState {
   IDLE = 'idle',
-  TWO_FACTOR = '2fa',
+  TWO_FACTOR = '2FA',
   LOADING = 'loading',
   SUCCESS = 'success',
   ERROR = 'error',
@@ -40,64 +47,111 @@ export const loader = async ({request}: LoaderFunctionArgs) => {
 
 export const action = async ({request}: ActionFunctionArgs) => {
   const body = await request.formData()
-  const username = body.get('username') as string
-  const password = body.get('password') as string
+  const action = body.get('action') as string
   const remember = body.get('remember') as string
   const fingerprint = body.get('fingerprint') as string
   const fingerprintData = body.get('fingerprintData') as string
 
-  if (!username || !password) {
-    return {error: 'fill all fields'}
-  }
+  switch (action) {
+    case '2FA': {
+      // #1 check form code & generate hashed code
+      const code = body.get('code') as string
 
-  // #1 check db user password match
-  const user = await login({username, password})
+      if (!code) {
+        return {error: 'add code'}
+      }
 
-  if (!user) {
-    return {error: 'invalid credentials'}
-  }
+      // #2 get user data from session (session created in case: 'login')
+      const session = await getSession(request.headers.get('Cookie'))
+      const userId = session.get('userId')
 
-  // #2 check if device exists for this user
-  const exists = await checkIFingerprintExists({
-    userId: user.id,
-    hash: fingerprint,
-  })
+      if (!userId) {
+        return {error: 'error with user'}
+      }
 
-  // #2.1 if it doesnt, try to insert
-  if (!exists) {
-    try {
-      await insertFingerprint({
-        userId: user.id,
-        fingerprint: fingerprintData,
-        hash: fingerprint,
-        isActive: true,
-      })
-    } catch (error) {
-      console.error('error inserting log data:', error)
-      return {error: 'error inserting log data'}
+      // #3 compare form code w/ hashed code in db
+      try {
+        const matches = await checkIfCodeMatches({userId, code})
+
+        if (!matches) {
+          return {error: 'invalid code'}
+        }
+
+        // #3.1 if match change cookie auth & insert browser data
+        session.set('authenticated', true)
+
+        await insertFingerprint({
+          userId: userId,
+          fingerprint: fingerprintData,
+          hash: fingerprint,
+          isActive: true,
+        })
+
+        return {authState: AuthState.SUCCESS, error: null}
+      } catch (error) {
+        console.error('error verifying code:', error)
+        return {
+          authState: AuthState.ERROR,
+          error: 'error verifying code',
+        }
+      }
     }
+
+    case 'login': {
+      const username = body.get('username') as string
+      const password = body.get('password') as string
+
+      if (!username || !password) {
+        return {error: 'fill all fields'}
+      }
+
+      // #1 check db user password match
+      const user = await login({username, password})
+
+      if (!user) {
+        return {error: 'invalid credentials'}
+      }
+
+      // #2 check if device exists for this user
+      const exists = await checkIFingerprintExists({
+        userId: user.id,
+        hash: fingerprint,
+      })
+
+      // #2.1 if it doesnt, try to insert fingerprint, auth code & send email w/ auth code && render 2FA
+      if (!exists) {
+        const hashedCode = await generateHashCode()
+        const createSession = await createUserSession(user.id, false, request)
+
+        try {
+          await Promise.allSettled([
+            insertTwoFactorCode(user.id, hashedCode.hash),
+            sendCodeEmail(hashedCode.code),
+          ])
+
+          return data(
+            {authState: AuthState.TWO_FACTOR, error: null},
+            {
+              headers: {
+                'Set-Cookie': createSession,
+                'Content-Type': 'application/json',
+              },
+            },
+          )
+        } catch (error) {
+          console.error('error inserting log data:', error)
+          return {error: 'error inserting log data'}
+        }
+      }
+
+      // TODO: check valkey session
+      break
+    }
+
+    default:
+      return {authState: AuthState.IDLE}
   }
 
-  // #3 create user session
-  try {
-    const createSession = await createUserSession(user.id, request)
-
-    return new Response(
-      JSON.stringify({
-        authState: AuthState.TWO_FACTOR,
-      }),
-      {
-        status: 200,
-        headers: {
-          'Set-Cookie': createSession,
-          'Content-Type': 'application/json',
-        },
-      },
-    )
-  } catch (error) {
-    console.error('error creating user session:', error)
-    return {error: 'error creating user session'}
-  }
 }
 
 const Login = () => {
@@ -122,7 +176,20 @@ const Login = () => {
   }, [generateFingerprint])
 
   if (actionData?.authState === AuthState.TWO_FACTOR) {
-    return <div>2fa</div>
+    return (
+      <div>
+        <h1>2fa</h1>
+
+        <Form method="post">
+          <input type="hidden" name="action" value="2FA" />
+          <InputText name="code" />
+          <label htmlFor="code">code</label>
+          <Button intent="admin" type="submit">
+            login
+          </Button>
+        </Form>
+      </div>
+    )
   }
 
   return (
@@ -130,7 +197,7 @@ const Login = () => {
       {actionData?.error && <h1>{actionData.error}</h1>}
 
       <Form method="post">
-        <input type="hidden" name="intent" value="login" />
+        <input type="hidden" name="action" value="login" />
 
         <div className="flex flex-col font-ms-sans-serif text-xs">
           <label htmlFor="username">username</label>
@@ -189,7 +256,7 @@ const Login = () => {
           value={remember ? 'true' : 'false'}
         />
 
-        <Button intent="admin" type="submit" name="login">
+        <Button intent="admin" type="submit">
           login
         </Button>
       </Form>

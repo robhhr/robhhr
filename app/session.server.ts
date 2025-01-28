@@ -23,7 +23,7 @@ export const sessionCookie = createCookie('_session', {
   path: '/',
   sameSite: 'lax',
   secrets: ['s3cret1'],
-  // secure: process.env.NODE_ENV === 'production',
+  secure: process.env.NODE_ENV === 'production',
 })
 
 const {getSession, commitSession, destroySession} = createCookieSessionStorage<

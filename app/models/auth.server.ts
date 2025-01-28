@@ -43,12 +43,20 @@ export async function login({
   }
 }
 
-export async function createUserSession(userId: string, authenticated: boolean, request: Request) {
+export async function createUserSession(
+  userId: string,
+  authenticated: boolean,
+  request: Request,
+  remember: boolean = false,
+) {
   const session = await getSession(request.headers.get('Cookie'))
   session.set('userId', userId)
   session.set('authenticated', authenticated)
 
-  return commitSession(session)
+  // 30days vs 30min
+  const maxAge = remember ? 30 * 24 * 60 * 60 : 1800
+
+  return commitSession(session, {maxAge})
 }
 
 export async function isUserAuthenticated(request: Request) {

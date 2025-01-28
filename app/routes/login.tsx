@@ -4,7 +4,7 @@ import {
   type ActionFunctionArgs,
   type LoaderFunctionArgs,
 } from '@remix-run/node'
-import {Form, useActionData, useLoaderData} from '@remix-run/react'
+import {Form, useActionData, useLoaderData, useNavigate} from '@remix-run/react'
 import {
   createUserSession,
   insertFingerprint,
@@ -37,10 +37,14 @@ enum AuthState {
 
 export const loader = async ({request}: LoaderFunctionArgs) => {
   const session = await getSession(request.headers.get('Cookie'))
+  const userId = session.get('userId')
 
-  if (!session.get('userId')) {
+  if (!userId) {
     return null
   }
+
+  await checkValkeySession(userId)
+  console.log('-------------------------------------------------------')
 
   return {id: session.get('userId')}
 }
@@ -48,7 +52,7 @@ export const loader = async ({request}: LoaderFunctionArgs) => {
 export const action = async ({request}: ActionFunctionArgs) => {
   const body = await request.formData()
   const action = body.get('action') as string
-  const remember = body.get('remember') as string
+  const remember = Boolean(body.get('remember'))
   const fingerprint = body.get('fingerprint') as string
   const fingerprintData = body.get('fingerprintData') as string
 
@@ -80,14 +84,17 @@ export const action = async ({request}: ActionFunctionArgs) => {
         // #3.1 if match change cookie auth & insert browser data
         session.set('authenticated', true)
 
-        await insertFingerprint({
-          userId: userId,
-          fingerprint: fingerprintData,
-          hash: fingerprint,
-          isActive: true,
-        })
+        await Promise.all([
+          insertFingerprint({
+            userId: userId,
+            fingerprint: fingerprintData,
+            hash: fingerprint,
+            isActive: true,
+          }),
+          createValkeySession({userId, fingerprint, is2FA: true, remember}),
+        ])
 
-        return {authState: AuthState.SUCCESS, error: null}
+        return redirect('/')
       } catch (error) {
         console.error('error verifying code:', error)
         return {
@@ -121,7 +128,8 @@ export const action = async ({request}: ActionFunctionArgs) => {
       // #2.1 if it doesnt, try to insert fingerprint, auth code & send email w/ auth code && render 2FA
       if (!exists) {
         const hashedCode = await generateHashCode()
-        const createSession = await createUserSession(user.id, false, request)
+        // insert cookie without authenticated flag
+        const createSession = await createUserSession(user.id, false, request, remember)
 
         try {
           await Promise.allSettled([
@@ -144,14 +152,28 @@ export const action = async ({request}: ActionFunctionArgs) => {
         }
       }
 
-      // TODO: check valkey session
+      // #3 if exists continue w/o 2FA
+      try {
+        const createSession = await createUserSession(user.id, true, request, remember)
+
+        // create valkey session with user db id
+        await createValkeySession({userId: user.id, fingerprint, is2FA: true, remember})
+
+        return redirect('/', {
+          headers: {
+            'Set-Cookie': createSession,
+          },
+        })
+      } catch (error) {
+        console.error('error main login', error)
+      }
+
       break
     }
 
     default:
       return {authState: AuthState.IDLE}
   }
-
 }
 
 const Login = () => {
@@ -194,6 +216,12 @@ const Login = () => {
 
   return (
     <div>
+      {loaderData?.id && (
+        <div>
+          <p>cookie in</p>
+        </div>
+      )}
+
       {actionData?.error && <h1>{actionData.error}</h1>}
 
       <Form method="post">

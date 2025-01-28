@@ -2,18 +2,28 @@
 import {randomUUID} from 'crypto'
 import Valkey from 'iovalkey'
 
+interface ValkeySession {
+  userId: string
+  username?: string
+  fingerprint: string
+  loginTime?: string
+  is2FA?: boolean
+  remember?: boolean
+}
+
 export const valkeyClient = new Valkey({
   port: 6379,
   host: '127.0.0.1',
   password: process.env.REDIS_PASSWORD,
 })
 
-export const createValkeySession = async (
-  userId: string,
-  username: string,
-  fingerprint: string,
-  is2FA?: boolean
-) => {
+export const createValkeySession = async ({
+  userId,
+  username,
+  fingerprint,
+  is2FA,
+  remember = false,
+}: ValkeySession) => {
   const sessionToken = randomUUID()
   const sessionData = {
     userId,
@@ -28,7 +38,8 @@ export const createValkeySession = async (
     `session:${sessionToken}`,
     JSON.stringify(sessionData),
     'EX',
-    3600,
+    // 30 days vs 30min
+    remember ? 30 * 24 * 60 * 60 : 1800,
   )
 
   return {sessionToken, sessionData}
@@ -36,26 +47,26 @@ export const createValkeySession = async (
 
 export const checkValkeySession = async (userId: string) => {
   try {
-    const keys = await valkeyClient.keys('session:*');
+    const keys = await valkeyClient.keys('session:*')
 
     for (const key of keys) {
-      const sessionData = await valkeyClient.get(key);
+      const sessionData = await valkeyClient.get(key)
 
       if (sessionData) {
-        const session = JSON.parse(sessionData);
+        const session = JSON.parse(sessionData)
 
         if (session.userId === userId) {
-          console.log('matching session found:', session);
-          return session;
+          console.log('matching session found:', session)
+          return session
         }
       }
     }
 
-    console.log('no matching session found for userId:', userId);
-    return null;
+    console.log('no matching session found for userId:', userId)
+    return null
   } catch (error) {
-    console.error('error checking redis session:', error);
-    return null;
+    console.error('error checking redis session:', error)
+    return null
   }
-};
+}
 

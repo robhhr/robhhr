@@ -1,7 +1,11 @@
 import {Form} from '@remix-run/react'
 import {cx} from 'class-variance-authority'
+import {useState} from 'react'
 import {IconCheckmark} from '~/components/icons/checkmark'
+import {IconEye, IconEyeClose} from '~/components/icons/eye'
 import {Button} from '~/components/modules/button'
+import {InputText} from '~/components/ui/admin/input-text'
+import {TitleBar} from '~/components/ui/admin/title-bar'
 import type {LoginFormProps} from '~/types/admin/forms'
 
 export const LoginForm = ({
@@ -9,31 +13,48 @@ export const LoginForm = ({
   toggleRemember,
   remember,
 }: LoginFormProps) => {
+  const [togglePassword, setTogglePassword] = useState<boolean>(false)
+
+  const togglePasswordVisibility = () => {
+    setTogglePassword(!togglePassword)
+  }
+
   return (
-    <div>
-      <Form method="post">
+    <div className="flex w-4/5 flex-col bg-silver p-[3px] shadow-window md:w-1/3">
+      <TitleBar title="admin" />
+
+      <Form method="post" className="m-2">
         <input type="hidden" name="action" value="login" />
 
         <div className="flex flex-col font-ms-sans-serif text-xs">
-          <label htmlFor="username">username</label>
-          <input
-            // required
-            type="text"
-            name="username"
-            className="w-fit bg-white p-1 text-xs shadow-input"
-            // onChange={e => setUsername(e.target.value)}
-          />
+          <label htmlFor="username" className="mb-1.5">
+            username
+          </label>
+          <InputText name="username" />
         </div>
 
-        <div className="flex flex-col font-ms-sans-serif text-xs">
-          <label htmlFor="password">password</label>
-          <input
-            // required
-            type="password"
-            name="password"
-            className="w-fit bg-white p-1 text-xs shadow-input"
-            // onChange={e => setPassword(e.target.value)}
-          />
+        <div className="mt-2 flex flex-col font-ms-sans-serif text-xs">
+          <label htmlFor="password" className="mb-1.5">
+            password
+          </label>
+
+          <div className="relative w-fit">
+            <InputText
+              name="password"
+              type={togglePassword ? 'text' : 'password'}
+              className="pr-6"
+            />
+
+            <button
+              className="absolute right-1.5 top-1/2 -translate-y-1/2 cursor-pointer"
+              onClick={e => {
+                e.preventDefault()
+                togglePasswordVisibility()
+              }}
+            >
+              {togglePassword ? <IconEyeClose /> : <IconEye />}
+            </button>
+          </div>
         </div>
 
         <input
@@ -47,7 +68,7 @@ export const LoginForm = ({
           value={fingerprint ? JSON.stringify(fingerprint.data) : ''}
         />
 
-        <div className="flex font-ms-sans-serif text-xs">
+        <div className="my-2.5 flex items-center font-ms-sans-serif text-xs">
           <button
             type="button"
             aria-label="remember me"
@@ -56,13 +77,13 @@ export const LoginForm = ({
               toggleRemember()
             }}
             className={cx(
-              'block h-3.5 w-3.5 cursor-pointer shadow-input',
+              'flex h-3.5 w-3.5 cursor-pointer items-center justify-center shadow-input',
               'inset-input bg-white',
             )}
           >
             {remember && <IconCheckmark />}
           </button>
-          remember me
+          <span className="ml-1">remember me</span>
         </div>
 
         <input

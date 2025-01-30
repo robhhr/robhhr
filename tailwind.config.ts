@@ -4,19 +4,28 @@ export default {
   content: ['./app/**/{**,.client,.server}/**/*.{js,jsx,ts,tsx}'],
   theme: {
     extend: {
+      colors: {
+        default: '#0a0a0a',
+      },
       fontFamily: {
         'ms-sans-serif': ['MS Sans Serif', 'sans-serif'],
       },
       backgroundColor: {
-        'title-bar': 'linear-gradient(90deg,navy,#1084d0)',
+        obsidian: '#151615',
         silver: '#C0C0C0',
+      },
+      backgroundImage: {
+        'title-bar': 'linear-gradient(90deg,navy,#1084d0)',
       },
       boxShadow: {
         input:
           'inset -1px -1px #fff,inset 1px 1px grey,inset -2px -2px #dfdfdf,inset 2px 2px #0a0a0a',
         'button-admin':
           'inset -1px -1px #0a0a0a,inset 1px 1px #fff,inset -2px -2px grey,inset 2px 2px #dfdfdf',
-        'button-admin-pressed': 'inset -1px -1px #ffffff, inset 1px 1px #0a0a0a, inset -2px -2px #dfdfdf, inset 2px 2px #808080',
+        'button-admin-pressed':
+          'inset -1px -1px #ffffff, inset 1px 1px #0a0a0a, inset -2px -2px #dfdfdf, inset 2px 2px #808080',
+        window:
+          'inset -1px -1px #0a0a0a,inset 1px 1px #dfdfdf,inset -2px -2px grey,inset 2px 2px #fff',
       },
       textShadow: {
         button: '0 0 #222',

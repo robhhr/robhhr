@@ -245,11 +245,13 @@ const Login = () => {
   }
 
   return (
-    <LoginForm
-      fingerprint={fingerprint || undefined}
-      toggleRemember={toggleRemember}
-      remember={remember}
-    />
+    <div className="mx-auto flex h-screen min-h-96 w-full items-center justify-center bg-silver">
+      <LoginForm
+        fingerprint={fingerprint || undefined}
+        toggleRemember={toggleRemember}
+        remember={remember}
+      />
+    </div>
   )
 }
 

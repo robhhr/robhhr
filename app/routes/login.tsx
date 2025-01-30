@@ -27,6 +27,7 @@ import {InputText} from '~/components/ui/admin/input-text'
 import {IconCheckmark} from '~/components/icons/checkmark'
 import useFingerprint from '~/hooks/useFingerprint'
 import {LoginForm} from '~/components/forms/admin/login'
+import {Dialog} from '~/components/ui/admin/dialog'
 
 enum AuthState {
   IDLE = 'idle',
@@ -245,12 +246,14 @@ const Login = () => {
   }
 
   return (
-    <div className="mx-auto flex h-screen min-h-96 w-full items-center justify-center bg-silver">
+    <div className="relative mx-auto flex h-screen min-h-96 w-full items-center justify-center bg-silver">
       <LoginForm
         fingerprint={fingerprint || undefined}
         toggleRemember={toggleRemember}
         remember={remember}
       />
+
+      {actionData?.error && <Dialog error={actionData?.error} />}
     </div>
   )
 }

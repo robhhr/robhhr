@@ -16,6 +16,7 @@ export default {
       },
       backgroundImage: {
         'title-bar': 'linear-gradient(90deg,navy,#1084d0)',
+        'title-bar-error': 'linear-gradient(90deg,#ff2727,#ff8989)',
       },
       boxShadow: {
         input:

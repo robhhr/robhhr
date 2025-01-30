@@ -6,3 +6,5 @@ export type LoginFormProps = {
   toggleRemember: () => void
 }
 
+export type CodeAuthFormProps = Pick<LoginFormProps, 'fingerprint'>
+

@@ -45,7 +45,8 @@ export const LoginForm = ({
               className="pr-6"
             />
 
-            <button
+            <span
+              aria-hidden
               className="absolute right-1.5 top-1/2 -translate-y-1/2 cursor-pointer"
               onClick={e => {
                 e.preventDefault()
@@ -53,7 +54,7 @@ export const LoginForm = ({
               }}
             >
               {togglePassword ? <IconEyeClose /> : <IconEye />}
-            </button>
+            </span>
           </div>
         </div>
 

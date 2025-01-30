@@ -1,31 +1,31 @@
+import {useEffect, useState} from 'react'
 import {
   data,
   redirect,
   type ActionFunctionArgs,
   type LoaderFunctionArgs,
 } from '@remix-run/node'
-import {Form, useActionData, useLoaderData, useNavigate} from '@remix-run/react'
+import {Form, useActionData, useLoaderData} from '@remix-run/react'
+import {cx} from 'class-variance-authority'
+import {getSession} from '~/session.server'
 import {
   createUserSession,
   insertFingerprint,
   isUserAuthenticated,
   login,
 } from '~/models/auth.server'
-import {Button} from '~/components/modules/button'
-import {useEffect, useState} from 'react'
-import {checkValkeySession, createValkeySession} from '~/valkey/valkey.server'
-import useFingerprint from '~/hooks/useFingerprint'
-import {checkIFingerprintExists} from '~/models/session.server'
-import {cx} from 'class-variance-authority'
-import {IconCheckmark} from '~/components/icons/checkmark'
-import {getSession} from '~/session.server'
-import {InputText} from '~/components/ui/admin/input-text'
-import {generateHashCode} from '~/utils/code-gen'
 import {
   checkIfCodeMatches,
   insertTwoFactorCode,
 } from '~/models/auth-codes.server'
+import {createValkeySession} from '~/valkey/valkey.server'
+import {checkIFingerprintExists} from '~/models/session.server'
+import {generateHashCode} from '~/utils/code-gen'
 import {sendCodeEmail} from '~/utils/mailer'
+import {Button} from '~/components/modules/button'
+import {InputText} from '~/components/ui/admin/input-text'
+import {IconCheckmark} from '~/components/icons/checkmark'
+import useFingerprint from '~/hooks/useFingerprint'
 
 enum AuthState {
   IDLE = 'idle',
@@ -36,17 +36,13 @@ enum AuthState {
 }
 
 export const loader = async ({request}: LoaderFunctionArgs) => {
-  const session = await getSession(request.headers.get('Cookie'))
-  const userId = session.get('userId')
+  const isAuth = await isUserAuthenticated(request)
 
-  if (!userId) {
-    return null
+  if (isAuth) {
+    return redirect('/')
   }
 
-  await checkValkeySession(userId)
-  console.log('-------------------------------------------------------')
-
-  return {id: session.get('userId')}
+  return {}
 }
 
 export const action = async ({request}: ActionFunctionArgs) => {
@@ -82,17 +78,22 @@ export const action = async ({request}: ActionFunctionArgs) => {
         }
 
         // #3.1 if match change cookie auth & insert browser data
-        session.set('authenticated', true)
+        const {sessionToken} = await createValkeySession({
+          userId,
+          fingerprint,
+          is2FA: true,
+          remember,
+        })
 
-        await Promise.all([
-          insertFingerprint({
-            userId: userId,
-            fingerprint: fingerprintData,
-            hash: fingerprint,
-            isActive: true,
-          }),
-          createValkeySession({userId, fingerprint, is2FA: true, remember}),
-        ])
+        session.set('authenticated', true)
+        session.set('sessionToken', sessionToken)
+
+        await insertFingerprint({
+          userId: userId,
+          fingerprint: fingerprintData,
+          hash: fingerprint,
+          isActive: true,
+        })
 
         return redirect('/')
       } catch (error) {
@@ -129,7 +130,12 @@ export const action = async ({request}: ActionFunctionArgs) => {
       if (!exists) {
         const hashedCode = await generateHashCode()
         // insert cookie without authenticated flag
-        const createSession = await createUserSession(user.id, false, request, remember)
+        const createSession = await createUserSession(
+          user.id,
+          false,
+          request,
+          remember,
+        )
 
         try {
           await Promise.allSettled([
@@ -154,10 +160,23 @@ export const action = async ({request}: ActionFunctionArgs) => {
 
       // #3 if exists continue w/o 2FA
       try {
-        const createSession = await createUserSession(user.id, true, request, remember)
-
         // create valkey session with user db id
-        await createValkeySession({userId: user.id, fingerprint, is2FA: true, remember})
+        const {sessionToken} = await createValkeySession({
+          userId: user.id,
+          username,
+          fingerprint,
+          is2FA: true,
+          remember,
+        })
+
+        // create local session w/ valkey id on it
+        const createSession = await createUserSession(
+          user.id,
+          true,
+          request,
+          remember,
+          sessionToken,
+        )
 
         return redirect('/', {
           headers: {
@@ -204,6 +223,16 @@ const Login = () => {
 
         <Form method="post">
           <input type="hidden" name="action" value="2FA" />
+          <input
+            type="hidden"
+            name="fingerprint"
+            value={fingerprint?.hash || ''}
+          />
+          <input
+            type="hidden"
+            name="fingerprintData"
+            value={fingerprint ? JSON.stringify(fingerprint.data) : ''}
+          />
           <InputText name="code" />
           <label htmlFor="code">code</label>
           <Button intent="admin" type="submit">
@@ -216,12 +245,6 @@ const Login = () => {
 
   return (
     <div>
-      {loaderData?.id && (
-        <div>
-          <p>cookie in</p>
-        </div>
-      )}
-
       {actionData?.error && <h1>{actionData.error}</h1>}
 
       <Form method="post">

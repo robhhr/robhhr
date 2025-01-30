@@ -5,6 +5,7 @@ const Max_Age = 3600
 type SessionData = {
   userId: string
   authenticated: boolean
+  sessionToken?: string
 }
 
 type SessionFlashData = {

@@ -1,6 +1,7 @@
+import {redirect} from '@remix-run/react'
 import {commitSession, getSession} from '~/session.server'
 import {query} from '../../db'
-import {redirect} from '@remix-run/react'
+import {valkeyClient} from '~/valkey/valkey.server'
 import bcrypt from 'bcryptjs'
 
 interface User {
@@ -48,10 +49,15 @@ export async function createUserSession(
   authenticated: boolean,
   request: Request,
   remember: boolean = false,
+  sessionToken?: string,
 ) {
   const session = await getSession(request.headers.get('Cookie'))
   session.set('userId', userId)
   session.set('authenticated', authenticated)
+
+  if (sessionToken) {
+    session.set('sessionToken', sessionToken)
+  }
 
   // 30days vs 30min
   const maxAge = remember ? 30 * 24 * 60 * 60 : 1800
@@ -62,8 +68,22 @@ export async function createUserSession(
 export async function isUserAuthenticated(request: Request) {
   const session = await getSession(request.headers.get('Cookie'))
   const userId = session.get('userId')
+  const sessionToken = session.get('sessionToken')
 
-  return Boolean(userId)
+  if (!userId || !sessionToken) {
+    return false
+  }
+
+  const valkeySession = await valkeyClient
+    .get(`session:${sessionToken}`)
+    .then(res => res && JSON.parse(res))
+    .catch(() => null)
+
+  if (!valkeySession || !valkeySession.is2FA) {
+    return false
+  }
+
+  return true
 }
 
 export async function requireUser(request: Request): Promise<string> {

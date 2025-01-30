@@ -1,5 +1,6 @@
-import {type LoaderFunctionArgs, MetaFunction} from '@remix-run/node'
-import {requireUser} from '~/models/auth.server'
+import {type LoaderFunctionArgs, MetaFunction, redirect} from '@remix-run/node'
+import {LogoutButton} from '~/components/modules/logout-button'
+import {isUserAuthenticated} from '~/models/auth.server'
 
 export const meta: MetaFunction = () => {
   return [
@@ -9,16 +10,23 @@ export const meta: MetaFunction = () => {
 }
 
 export const loader = async ({request}: LoaderFunctionArgs) => {
-  const userId = await requireUser(request)
-  return {userId}
+  const isAuth = await isUserAuthenticated(request)
+
+  if (!isAuth) {
+    return redirect('/login')
+  }
+
+  return {}
 }
 
 export default function Index() {
   return (
-    <div className="flex h-screen items-center justify-center">
+    <div className="flex h-screen flex-col items-center justify-center">
       <div className="flex flex-col items-center gap-16">
         <p className="font-ms-sans-serif">hello there</p>
       </div>
+
+      <LogoutButton />
     </div>
   )
 }

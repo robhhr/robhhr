@@ -70,3 +70,11 @@ export const checkValkeySession = async (userId: string) => {
   }
 }
 
+export const destroyValkeySession = async (sessionToken: string) => {
+  try {
+    await valkeyClient.del(`session:${sessionToken}`)
+  } catch (error) {
+    console.error('error destroying redis session:', error)
+  }
+}
+

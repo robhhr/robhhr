@@ -5,8 +5,7 @@ import {
   type ActionFunctionArgs,
   type LoaderFunctionArgs,
 } from '@remix-run/node'
-import {Form, useActionData, useLoaderData} from '@remix-run/react'
-import {cx} from 'class-variance-authority'
+import {useActionData, useLoaderData} from '@remix-run/react'
 import {getSession} from '~/session.server'
 import {
   createUserSession,
@@ -22,12 +21,10 @@ import {createValkeySession} from '~/valkey/valkey.server'
 import {checkIFingerprintExists} from '~/models/session.server'
 import {generateHashCode} from '~/utils/code-gen'
 import {sendCodeEmail} from '~/utils/mailer'
-import {Button} from '~/components/modules/button'
-import {InputText} from '~/components/ui/admin/input-text'
-import {IconCheckmark} from '~/components/icons/checkmark'
-import useFingerprint from '~/hooks/useFingerprint'
 import {LoginForm} from '~/components/forms/admin/login'
-import {Dialog} from '~/components/ui/admin/dialog'
+import {CodeAuthForm} from '~/components/forms/admin/code-auth'
+import {FeedbackDialog} from '~/components/ui/admin/dialog'
+import useFingerprint from '~/hooks/useFingerprint'
 
 enum AuthState {
   IDLE = 'idle',
@@ -39,6 +36,11 @@ enum AuthState {
 
 export const loader = async ({request}: LoaderFunctionArgs) => {
   const isAuth = await isUserAuthenticated(request)
+  const session = await getSession(request.headers.get('Cookie'))
+
+  console.log(isAuth)
+  console.log(session.get('userId'), 'loader userid')
+  console.log(session.get('sessionToken'), 'loader token valkey')
 
   if (isAuth) {
     return redirect('/')
@@ -87,6 +89,9 @@ export const action = async ({request}: ActionFunctionArgs) => {
           remember,
         })
 
+        console.log(sessionToken, "ST")
+
+        // FIX: writing session token fails
         session.set('authenticated', true)
         session.set('sessionToken', sessionToken)
 
@@ -202,6 +207,7 @@ const Login = () => {
   const loaderData = useLoaderData<typeof loader>()
   const {fingerprint, generateFingerprint} = useFingerprint()
   const [remember, setRemember] = useState<boolean>(false)
+  // const [visible, setVisible] = useState<boolean>(false)
 
   const toggleRemember = () => {
     setRemember(!remember)
@@ -218,42 +224,21 @@ const Login = () => {
     fetchFingerprint()
   }, [generateFingerprint])
 
-  if (actionData?.authState === AuthState.TWO_FACTOR) {
-    return (
-      <div>
-        <h1>2fa</h1>
-
-        <Form method="post">
-          <input type="hidden" name="action" value="2FA" />
-          <input
-            type="hidden"
-            name="fingerprint"
-            value={fingerprint?.hash || ''}
-          />
-          <input
-            type="hidden"
-            name="fingerprintData"
-            value={fingerprint ? JSON.stringify(fingerprint.data) : ''}
-          />
-          <InputText name="code" />
-          <label htmlFor="code">code</label>
-          <Button intent="admin" type="submit">
-            login
-          </Button>
-        </Form>
-      </div>
-    )
-  }
-
   return (
     <div className="relative mx-auto flex h-screen min-h-96 w-full items-center justify-center bg-silver">
-      <LoginForm
-        fingerprint={fingerprint || undefined}
-        toggleRemember={toggleRemember}
-        remember={remember}
-      />
+      {actionData?.authState === AuthState.TWO_FACTOR ? (
+        <CodeAuthForm fingerprint={fingerprint || undefined} />
+      ) : (
+        <LoginForm
+          fingerprint={fingerprint || undefined}
+          toggleRemember={toggleRemember}
+          remember={remember}
+        />
+      )}
 
-      {actionData?.error && <Dialog error={actionData?.error} />}
+      <FeedbackDialog
+        actionData={actionData?.error ? {error: actionData.error} : undefined}
+      />
     </div>
   )
 }

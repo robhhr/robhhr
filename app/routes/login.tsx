@@ -218,6 +218,7 @@ const Login = () => {
   const [error, setError] = useState<string | null>(null)
 
   const toggleRemember = () => {
+    setError(null)
     setRemember(!remember)
   }
 

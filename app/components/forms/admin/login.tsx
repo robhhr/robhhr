@@ -1,6 +1,6 @@
 import {Form} from '@remix-run/react'
-import {cx} from 'class-variance-authority'
 import {useState} from 'react'
+import {cx} from 'class-variance-authority'
 import {IconCheckmark} from '~/components/icons/checkmark'
 import {IconEye, IconEyeClose} from '~/components/icons/eye'
 import {Button} from '~/components/modules/button'
@@ -18,6 +18,12 @@ export const LoginForm = ({
 
   const togglePasswordVisibility = () => {
     setTogglePassword(!togglePassword)
+  }
+
+  const handleRememberToggle = (e: React.MouseEvent) => {
+    e.preventDefault()
+    e.stopPropagation()
+    toggleRemember()
   }
 
   return (
@@ -75,10 +81,7 @@ export const LoginForm = ({
           <button
             type="button"
             aria-label="remember me"
-            onClick={e => {
-              e.preventDefault()
-              toggleRemember()
-            }}
+            onClick={handleRememberToggle}
             className={cx(
               'flex h-3.5 w-3.5 cursor-pointer items-center justify-center shadow-input',
               'inset-input bg-white',
@@ -102,4 +105,3 @@ export const LoginForm = ({
     </div>
   )
 }
-

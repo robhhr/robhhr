@@ -6,7 +6,7 @@ import {
   type LoaderFunctionArgs,
 } from '@remix-run/node'
 import {useActionData, useLoaderData} from '@remix-run/react'
-import {getSession} from '~/session.server'
+import {commitSession, getSession} from '~/session.server'
 import {
   createUserSession,
   insertFingerprint,
@@ -91,7 +91,6 @@ export const action = async ({request}: ActionFunctionArgs) => {
 
         console.log(sessionToken, 'ST')
 
-        // FIX: writing session token fails
         session.set('sessionToken', sessionToken)
 
         console.log(session.has('sessionToken'), 'has token')
@@ -104,7 +103,11 @@ export const action = async ({request}: ActionFunctionArgs) => {
             isActive: true,
           })
 
-          return redirect('/')
+          return redirect('/', {
+            headers: {
+              'Set-Cookie': await commitSession(session),
+            },
+          })
         } else {
           return {
             authState: AuthState.ERROR,

@@ -10,6 +10,7 @@ import type {LoginFormProps} from '~/types/admin/forms'
 
 export const LoginForm = ({
   fingerprint,
+  onChange,
   toggleRemember,
   remember,
 }: LoginFormProps) => {
@@ -30,7 +31,7 @@ export const LoginForm = ({
           <label htmlFor="username" className="mb-1.5">
             username
           </label>
-          <InputText name="username" />
+          <InputText name="username" onChange={onChange} />
         </div>
 
         <div className="mt-2 flex flex-col font-ms-sans-serif text-xs">
@@ -43,6 +44,7 @@ export const LoginForm = ({
               name="password"
               type={togglePassword ? 'text' : 'password'}
               className="pr-6"
+              onChange={onChange}
             />
 
             <span

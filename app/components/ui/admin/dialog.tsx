@@ -28,7 +28,7 @@ export const FeedbackDialog = ({
 
   return (
     <AnimatePresence>
-      {visible && (
+      {visible && actionData?.error && (
         <motion.div
           initial={{translateY: 100, opacity: 0}}
           animate={{translateY: 0, opacity: 1}}

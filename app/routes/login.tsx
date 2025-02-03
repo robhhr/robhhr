@@ -89,7 +89,7 @@ export const action = async ({request}: ActionFunctionArgs) => {
           remember,
         })
 
-        console.log(sessionToken, "ST")
+        console.log(sessionToken, 'ST')
 
         // FIX: writing session token fails
         session.set('authenticated', true)
@@ -207,7 +207,7 @@ const Login = () => {
   const loaderData = useLoaderData<typeof loader>()
   const {fingerprint, generateFingerprint} = useFingerprint()
   const [remember, setRemember] = useState<boolean>(false)
-  // const [visible, setVisible] = useState<boolean>(false)
+  const [error, setError] = useState<string | null>(null)
 
   const toggleRemember = () => {
     setRemember(!remember)
@@ -224,6 +224,14 @@ const Login = () => {
     fetchFingerprint()
   }, [generateFingerprint])
 
+  useEffect(() => {
+    if (actionData?.error) {
+      setError(actionData.error)
+    }
+  }, [actionData])
+
+  const handleChange = () => setError(null)
+
   return (
     <div className="relative mx-auto flex h-screen min-h-96 w-full items-center justify-center bg-silver">
       {actionData?.authState === AuthState.TWO_FACTOR ? (
@@ -231,17 +239,15 @@ const Login = () => {
       ) : (
         <LoginForm
           fingerprint={fingerprint || undefined}
+          onChange={handleChange}
           toggleRemember={toggleRemember}
           remember={remember}
         />
       )}
 
-      <FeedbackDialog
-        actionData={actionData?.error ? {error: actionData.error} : undefined}
-      />
+      <FeedbackDialog actionData={error ? {error} : undefined} />
     </div>
   )
 }
 
 export default Login
-

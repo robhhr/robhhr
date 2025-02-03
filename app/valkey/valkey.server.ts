@@ -42,13 +42,9 @@ export const createValkeySession = async ({
       // 30 days vs 30min
       remember ? 30 * 24 * 60 * 60 : 1800,
     )
-
-    console.log('valkey session created:', sessionToken)
   } catch (error) {
     console.error('error creating redis session:', error)
   }
-
-    console.log('valkey attempt:', sessionToken, sessionData)
 
   return {sessionToken, sessionData}
 }

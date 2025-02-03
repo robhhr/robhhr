@@ -1,6 +1,6 @@
 import {type LoaderFunctionArgs, MetaFunction, redirect} from '@remix-run/node'
-import {LogoutButton} from '~/components/modules/logout-button'
 import {isUserAuthenticated} from '~/models/auth.server'
+import {LogoutButton} from '~/components/modules/logout-button'
 
 export const meta: MetaFunction = () => {
   return [
@@ -30,4 +30,3 @@ export default function Index() {
     </div>
   )
 }
-

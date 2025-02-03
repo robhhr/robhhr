@@ -71,8 +71,6 @@ export async function isUserAuthenticated(request: Request) {
   const sessionToken = session.get('sessionToken')
   const authenticated = session.get('authenticated')
 
-  console.log(userId, sessionToken, 'isUserAuthenticated')
-
   if (!userId || !sessionToken) {
     return false
   }
@@ -81,8 +79,6 @@ export async function isUserAuthenticated(request: Request) {
     .get(`session:${sessionToken}`)
     .then(res => res && JSON.parse(res))
     .catch(() => null)
-
-  console.log(valkeySession, 'valkeySession ##')
 
   if (!valkeySession || !valkeySession.is2FA || !authenticated) {
     return false

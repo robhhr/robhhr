@@ -89,12 +89,8 @@ export const action = async ({request}: ActionFunctionArgs) => {
           remember,
         })
 
-        console.log(sessionToken, 'ST')
-
         session.set('authenticated', true)
         session.set('sessionToken', sessionToken)
-
-        console.log(session.has('sessionToken'), 'has token')
 
         if (sessionToken) {
           await insertFingerprint({

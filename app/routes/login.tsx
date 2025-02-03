@@ -38,7 +38,7 @@ export const loader = async ({request}: LoaderFunctionArgs) => {
   const isAuth = await isUserAuthenticated(request)
   const session = await getSession(request.headers.get('Cookie'))
 
-  console.log(isAuth)
+  console.log(isAuth, 'loader isAuth')
   console.log(session.get('userId'), 'loader userid')
   console.log(session.get('sessionToken'), 'loader token valkey')
 
@@ -92,17 +92,25 @@ export const action = async ({request}: ActionFunctionArgs) => {
         console.log(sessionToken, 'ST')
 
         // FIX: writing session token fails
-        session.set('authenticated', true)
         session.set('sessionToken', sessionToken)
 
-        await insertFingerprint({
-          userId: userId,
-          fingerprint: fingerprintData,
-          hash: fingerprint,
-          isActive: true,
-        })
+        console.log(session.has('sessionToken'), 'has token')
 
-        return redirect('/')
+        if (sessionToken) {
+          await insertFingerprint({
+            userId: userId,
+            fingerprint: fingerprintData,
+            hash: fingerprint,
+            isActive: true,
+          })
+
+          return redirect('/')
+        } else {
+          return {
+            authState: AuthState.ERROR,
+            error: 'error creating valkey session',
+          }
+        }
       } catch (error) {
         console.error('error verifying code:', error)
         return {

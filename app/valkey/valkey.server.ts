@@ -34,13 +34,21 @@ export const createValkeySession = async ({
   }
 
   // NOTE: create valkey session
-  await valkeyClient.set(
-    `session:${sessionToken}`,
-    JSON.stringify(sessionData),
-    'EX',
-    // 30 days vs 30min
-    remember ? 30 * 24 * 60 * 60 : 1800,
-  )
+  try {
+    await valkeyClient.set(
+      `session:${sessionToken}`,
+      JSON.stringify(sessionData),
+      'EX',
+      // 30 days vs 30min
+      remember ? 30 * 24 * 60 * 60 : 1800,
+    )
+
+    console.log('valkey session created:', sessionToken)
+  } catch (error) {
+    console.error('error creating redis session:', error)
+  }
+
+    console.log('valkey attempt:', sessionToken, sessionData)
 
   return {sessionToken, sessionData}
 }
@@ -77,4 +85,3 @@ export const destroyValkeySession = async (sessionToken: string) => {
     console.error('error destroying redis session:', error)
   }
 }
-

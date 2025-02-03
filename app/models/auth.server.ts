@@ -69,6 +69,9 @@ export async function isUserAuthenticated(request: Request) {
   const session = await getSession(request.headers.get('Cookie'))
   const userId = session.get('userId')
   const sessionToken = session.get('sessionToken')
+  const authenticated = session.get('authenticated')
+
+  console.log(userId, sessionToken, 'isUserAuthenticated')
 
   if (!userId || !sessionToken) {
     return false
@@ -79,7 +82,9 @@ export async function isUserAuthenticated(request: Request) {
     .then(res => res && JSON.parse(res))
     .catch(() => null)
 
-  if (!valkeySession || !valkeySession.is2FA) {
+  console.log(valkeySession, 'valkeySession ##')
+
+  if (!valkeySession || !valkeySession.is2FA || !authenticated) {
     return false
   }
 
@@ -129,4 +134,3 @@ export async function insertFingerprint({
     throw error
   }
 }
-

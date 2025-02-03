@@ -91,6 +91,7 @@ export const action = async ({request}: ActionFunctionArgs) => {
 
         console.log(sessionToken, 'ST')
 
+        session.set('authenticated', true)
         session.set('sessionToken', sessionToken)
 
         console.log(session.has('sessionToken'), 'has token')

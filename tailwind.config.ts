@@ -2,10 +2,15 @@ import plugin from 'tailwindcss/plugin'
 
 export default {
   content: ['./app/**/{**,.client,.server}/**/*.{js,jsx,ts,tsx}'],
+  darkMode: 'class',
   theme: {
     extend: {
       colors: {
         default: '#0a0a0a',
+        background: {
+          DEFAULT: '#fbf1c7',
+          dark: '#282828',
+        },
       },
       fontFamily: {
         'ms-sans-serif': ['MS Sans Serif', 'sans-serif'],
@@ -49,4 +54,3 @@ export default {
     }),
   ],
 }
-

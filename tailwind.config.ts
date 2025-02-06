@@ -11,6 +11,10 @@ export default {
           DEFAULT: '#fbf1c7',
           dark: '#282828',
         },
+        color: {
+          DEFAULT: '#282828',
+          dark: '#fbf1c7',
+        }
       },
       fontFamily: {
         'ms-sans-serif': ['MS Sans Serif', 'sans-serif'],

@@ -25,6 +25,7 @@ import {LoginForm} from '~/components/forms/admin/login'
 import {CodeAuthForm} from '~/components/forms/admin/code-auth'
 import {FeedbackDialog} from '~/components/ui/admin/dialog'
 import useFingerprint from '~/hooks/useFingerprint'
+import { ToggleTheme } from '~/components/modules/toggle-theme'
 
 enum AuthState {
   IDLE = 'idle',
@@ -52,7 +53,7 @@ export const loader = async ({request}: LoaderFunctionArgs) => {
 export const action = async ({request}: ActionFunctionArgs) => {
   const body = await request.formData()
   const action = body.get('action') as string
-  const remember = Boolean(body.get('remember'))
+  const remember = body.get('remember') === 'true'
   const fingerprint = body.get('fingerprint') as string
   const fingerprintData = body.get('fingerprintData') as string
 
@@ -243,6 +244,7 @@ const Login = () => {
 
   return (
     <div className="relative mx-auto flex h-screen min-h-96 w-full items-center justify-center bg-silver">
+
       {actionData?.authState === AuthState.TWO_FACTOR ? (
         <CodeAuthForm fingerprint={fingerprint || undefined} />
       ) : (

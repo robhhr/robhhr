@@ -44,7 +44,7 @@ export const loader = async ({request}: LoaderFunctionArgs) => {
   console.log(session.get('sessionToken'), 'loader token valkey')
 
   if (isAuth) {
-    return redirect('/')
+    return redirect('/dashboard')
   }
 
   return {}
@@ -101,7 +101,7 @@ export const action = async ({request}: ActionFunctionArgs) => {
             isActive: true,
           })
 
-          return redirect('/', {
+          return redirect('/dashboard', {
             headers: {
               'Set-Cookie': await commitSession(session),
             },
@@ -194,7 +194,7 @@ export const action = async ({request}: ActionFunctionArgs) => {
           sessionToken,
         )
 
-        return redirect('/', {
+        return redirect('/dashboard', {
           headers: {
             'Set-Cookie': createSession,
           },

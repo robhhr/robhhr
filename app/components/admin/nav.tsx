@@ -3,15 +3,15 @@ import {Link} from '@remix-run/react'
 export const Nav = () => {
   return (
     <nav>
-      <ul>
+      <ul className="flex">
         <li>
-          <Link to="/dashboard">Dashboard</Link>
+          <Link to="/admin">index</Link>
         </li>
         <li>
-          <Link to="/dashboard/projects">Projects</Link>
+          <Link to="/admin/projects">Projects</Link>
         </li>
         <li>
-          <Link to="/dashboard/thoughts">Thoughts</Link>
+          <Link to="/admin/thoughts">Thoughts</Link>
         </li>
       </ul>
     </nav>

@@ -34,6 +34,7 @@ export default {
           'inset -1px -1px #0a0a0a,inset 1px 1px #fff,inset -2px -2px grey,inset 2px 2px #dfdfdf',
         'button-admin-pressed':
           'inset -1px -1px #ffffff, inset 1px 1px #0a0a0a, inset -2px -2px #dfdfdf, inset 2px 2px #808080',
+        nav: "inset -1px 0 #0a0a0a,inset 1px 1px #dfdfdf,inset -2px 0 grey,inset 2px 2px #fff",
         window:
           'inset -1px -1px #0a0a0a,inset 1px 1px #dfdfdf,inset -2px -2px grey,inset 2px 2px #fff',
       },

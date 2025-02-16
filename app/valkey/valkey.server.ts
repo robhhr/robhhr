@@ -12,9 +12,9 @@ interface ValkeySession {
 }
 
 export const valkeyClient = new Valkey({
-  port: 6379,
-  host: '127.0.0.1',
-  password: process.env.REDIS_PASSWORD,
+  port: Number(process.env.RAILWAY_VALKEY_PORT) || 6379,
+  host: process.env.RAILWAY_VALKEY_HOST || '127.0.0.1',
+  password: process.env.RAILWAY_VALKEY_PASS,
 })
 
 export const createValkeySession = async ({

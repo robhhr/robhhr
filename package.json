@@ -4,11 +4,12 @@
   "sideEffects": false,
   "type": "module",
   "scripts": {
-    "build": "npm run redirects:enable && npm remix vite:build",
+    "build": "npm install --include=dev && npm run redirects:enable && npx remix vite:build",
     "dev": "remix vite:dev",
     "lint": "eslint --ignore-path .gitignore --cache --cache-location ./node_modules/.cache/eslint .",
     "start": "remix-serve ./build/server/index.js",
-    "typecheck": "tsc"
+    "typecheck": "tsc",
+    "redirects:enable": "shx cp .redirects public/_redirects"
   },
   "dependencies": {
     "@remix-run/node": "^2.15.2",
@@ -27,6 +28,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "redis": "^4.7.0",
+    "shx": "^0.3.4",
     "tailwind-merge": "^2.6.0"
   },
   "devDependencies": {

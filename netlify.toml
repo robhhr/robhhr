@@ -1,6 +1,9 @@
 [build]
 command = "npm run build"
 publish = "public"
+environment = {
+  NODE_VERSION = "22"
+}
 
 [dev]
 command = "npm run dev"

@@ -1,3 +1,4 @@
 [build]
-  command = "npm install @remix-run/dev && npm run build"
+  command = "npm ci && npm run build"
   publish = "build"
+  environment = { NODE_VERSION = "22" }

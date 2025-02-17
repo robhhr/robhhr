@@ -49,7 +49,7 @@ export async function sendCodeEmail(code: string) {
     const html = `code: ${code}`
 
     try {
-      await sendEmail(process.env.EMAIL_FROM ?? '', subject, undefined, html)
+      await sendEmail(process.env.EMAIL_TO ?? '', subject, undefined, html)
     } catch (error) {
       console.error('error sending email:', error)
       throw new Error('failed to send email')

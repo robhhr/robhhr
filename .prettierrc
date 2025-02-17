@@ -1,18 +1,1 @@
-{
-  "arrowParens": "avoid",
-  "bracketSpacing": false,
-  "endOfLine": "lf",
-  "htmlWhitespaceSensitivity": "css",
-  "bracketSameLine": false,
-  "printWidth": 80,
-  "proseWrap": "preserve",
-  "requirePragma": false,
-  "semi": false,
-  "singleQuote": true,
-  "tabWidth": 2,
-  "trailingComma": "all",
-  "useTabs": false,
-  "plugins": [
-    "prettier-plugin-tailwindcss"
-  ]
-}
+{}

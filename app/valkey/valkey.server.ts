@@ -1,5 +1,6 @@
 // NOTE: used only when attempting to log into admin
 import {randomUUID} from 'crypto'
+import {commitSession, getSession} from '~/session.server'
 import Valkey from 'iovalkey'
 
 interface ValkeySession {
@@ -79,5 +80,20 @@ export const destroyValkeySession = async (sessionToken: string) => {
     await valkeyClient.del(`session:${sessionToken}`)
   } catch (error) {
     console.error('error destroying redis session:', error)
+  }
+}
+
+export async function refreshSessionTTL(request: Request) {
+  const session = await getSession(request.headers.get('Cookie'))
+  const sessionToken = session.get('sessionToken')
+  const remember = session.get('remember')
+
+  if (!sessionToken) return
+
+  if (!remember) {
+    // refresh for another 30min
+    await valkeyClient.expire(`session:${sessionToken}`, 1800)
+
+    return commitSession(session, {maxAge: 1800})
   }
 }

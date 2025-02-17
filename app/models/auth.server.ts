@@ -54,6 +54,7 @@ export async function createUserSession(
   const session = await getSession(request.headers.get('Cookie'))
   session.set('userId', userId)
   session.set('authenticated', authenticated)
+  session.set('remember', remember)
 
   if (sessionToken) {
     session.set('sessionToken', sessionToken)
@@ -71,7 +72,15 @@ export async function isUserAuthenticated(request: Request) {
   const sessionToken = session.get('sessionToken')
   const authenticated = session.get('authenticated')
 
-  if (!userId || !sessionToken) {
+  if (!userId || !sessionToken || !authenticated) {
+    return false
+  }
+
+  const sessionExpiresAt = session.expires
+    ? new Date(session.expires).getTime()
+    : null
+
+  if (sessionExpiresAt && Date.now() > sessionExpiresAt) {
     return false
   }
 
@@ -80,7 +89,7 @@ export async function isUserAuthenticated(request: Request) {
     .then(res => res && JSON.parse(res))
     .catch(() => null)
 
-  if (!valkeySession || !valkeySession.is2FA || !authenticated) {
+  if (!valkeySession || !valkeySession.is2FA) {
     return false
   }
 

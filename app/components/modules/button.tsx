@@ -1,3 +1,4 @@
+import {Link} from '@remix-run/react'
 import {cva, cx, type VariantProps} from 'class-variance-authority'
 
 const button = cva('button w-fit', {
@@ -28,19 +29,45 @@ const button = cva('button w-fit', {
 
 export interface ButtonProps
   extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'disabled'>,
-    VariantProps<typeof button> {}
+    VariantProps<typeof button> {
+  to?: string
+  disabled?: boolean
+}
 
 export const Button: React.FC<ButtonProps> = ({
   className,
+  children,
+  to,
   intent,
   disabled,
   ...props
-}) => (
-  <button
-    type={props.type || 'button'}
-    className={cx(button({intent, disabled}), className)}
-    disabled={disabled || undefined}
-    {...props}
-  />
-)
+}) => {
+  const baseClasses = button({ intent, disabled })
+  const linkClasses = cx(baseClasses, 'py-1', className)
+  const buttonClasses = cx(baseClasses, className)
 
+  if (to) {
+    return (
+      <Link
+        to={to}
+        className={linkClasses}
+        type="button"
+        role="button"
+        aria-disabled={disabled ? true : undefined}
+      >
+        {children}
+      </Link>
+    )
+  }
+
+  return (
+    <button
+      type={props.type || 'button'}
+      className={buttonClasses}
+      disabled={disabled || undefined}
+      {...props}
+    >
+      {children}
+    </button>
+  )
+}

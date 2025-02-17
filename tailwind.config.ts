@@ -10,6 +10,7 @@ export default {
         background: {
           DEFAULT: '#fbf1c7',
           dark: '#282828',
+          "admin-dark": '#565656',
         },
         color: {
           DEFAULT: '#282828',

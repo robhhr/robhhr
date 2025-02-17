@@ -1,5 +1,6 @@
 import {redirect, type LoaderFunctionArgs} from '@remix-run/node'
 import {Outlet} from '@remix-run/react'
+import {cx} from 'class-variance-authority'
 import {Nav} from '~/components/admin/nav'
 import {isUserAuthenticated} from '~/models/auth.server'
 
@@ -15,9 +16,26 @@ export const loader = async ({request}: LoaderFunctionArgs) => {
 
 const AdminLayout = () => {
   return (
-    <div className="h-screen bg-black text-white">
-      <Nav />
-      <Outlet />
+    <div
+      className={cx(
+        'relative h-screen',
+        'bg-silver text-default',
+        'dark:bg-background-admin-dark dark:text-color-dark',
+      )}
+    >
+      <div className="mx-auto w-3/5 pt-64">
+        <Nav />
+
+        <div
+          className={cx(
+            'min-w-[400px] px-2 py-4',
+            'bg-silver shadow-window',
+            'dark:bg-background-admin-dark',
+          )}
+        >
+          <Outlet />
+        </div>
+      </div>
     </div>
   )
 }

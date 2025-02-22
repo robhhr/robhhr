@@ -3,7 +3,7 @@ import {Form, useActionData} from '@remix-run/react'
 import {InputText} from '~/components/ui/admin/input-text'
 import {Select} from '~/components/ui/admin/select'
 import type {CreateProjectFormProps} from '~/types/admin/forms'
-import {TextArea} from '~/components/ui/admin/text-editor'
+import MarkdownEditor from '~/components/ui/admin/text-editor'
 import {redirect, type ActionFunctionArgs} from '@remix-run/node'
 import {createProject} from '~/models/projects.server'
 import {Button} from '~/components/modules/button'
@@ -31,7 +31,7 @@ export const action = async ({request}: ActionFunctionArgs) => {
 }
 
 const DashboardProjectsCreate = ({onChange}: CreateProjectFormProps) => {
-  const [selected, setSelected] = useState('publish')
+  const [selected, setSelected] = useState('draft')
   // const actionData = useActionData<typeof action>()
   // console.log(actionData, ' actionData')
 
@@ -66,7 +66,7 @@ const DashboardProjectsCreate = ({onChange}: CreateProjectFormProps) => {
         <label htmlFor="content" className="mb-1.5">
           content
         </label>
-        <TextArea name="content" />
+        <MarkdownEditor name="content" />
       </div>
 
       <Button intent="admin" type="submit">

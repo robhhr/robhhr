@@ -9,7 +9,7 @@ import type {Extension} from '@codemirror/state'
 
 const CodeMirror = lazy(() => import('@uiw/react-codemirror'))
 
-export const TextArea = ({className, ...props}) => {
+const MarkdownEditor = ({className, ...props}: {className?: string}) => {
   const [toggleMarkdown, setToggleMarkdown] = useState(false)
   const [content, setContent] = useState('')
   const [theme, setTheme] = useState<Extension | null>(null)
@@ -25,9 +25,9 @@ export const TextArea = ({className, ...props}) => {
       const newTheme: Extension = createTheme({
         theme: 'dark',
         settings: {
-          background: '#282828',
+          background: '#282828 !important',
           foreground: '#ebdbb2',
-          caret: '#ebdbb2',
+          caret: '#ebdbb2 !important',
           selection: '#b99d555c',
           lineHighlight: '#baa1602b',
           gutterBackground: '#282828',
@@ -145,3 +145,5 @@ export const TextArea = ({className, ...props}) => {
     </>
   )
 }
+
+export default MarkdownEditor

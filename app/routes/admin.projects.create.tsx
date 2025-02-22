@@ -63,10 +63,7 @@ const DashboardProjectsCreate = ({onChange}: CreateProjectFormProps) => {
       </div>
 
       <div className="mb-2.5 mt-2 flex flex-col font-ms-sans-serif text-xs">
-        <label htmlFor="content" className="mb-1.5">
-          content
-        </label>
-        <MarkdownEditor name="content" />
+        <MarkdownEditor />
       </div>
 
       <Button intent="admin" type="submit">

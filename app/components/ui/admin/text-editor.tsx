@@ -6,6 +6,7 @@ import {vim} from '@replit/codemirror-vim'
 import {tags as t} from '@lezer/highlight'
 import Markdown from 'react-markdown'
 import type {Extension} from '@codemirror/state'
+import {Button} from '~/components/modules/button'
 
 const CodeMirror = lazy(() => import('@uiw/react-codemirror'))
 
@@ -116,14 +117,22 @@ const MarkdownEditor = ({className, ...props}: {className?: string}) => {
 
   return (
     <>
-      <button
-        onClick={e => {
-          e.preventDefault()
-          setToggleMarkdown(!toggleMarkdown)
-        }}
-      >
-        Toggle
-      </button>
+      <div className="flex items-center justify-between">
+        <label htmlFor="content" className="mb-1.5">
+          content
+        </label>
+        <Button
+          className="mb-2"
+          onClick={e => {
+            e.preventDefault()
+            setToggleMarkdown(!toggleMarkdown)
+          }}
+        >
+          toggle preview
+        </Button>
+      </div>
+
+      <input type="hidden" name="content" value={content} />
       {toggleMarkdown ? (
         <div className="prose max-w-none border p-2">
           <Markdown>{content}</Markdown>

@@ -7,9 +7,5 @@ export type LoginFormProps = {
   toggleRemember: () => void
 }
 
-export type CreateProjectFormProps = {
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
-}
-
 export type CodeAuthFormProps = Pick<LoginFormProps, 'fingerprint'>
 

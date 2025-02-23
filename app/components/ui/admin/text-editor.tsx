@@ -16,7 +16,6 @@ const MarkdownEditor = ({className, ...props}: {className?: string}) => {
   const [theme, setTheme] = useState<Extension | null>(null)
 
   const onChange = useCallback((val, viewUpdate) => {
-    console.log('val:', val)
     setContent(val)
   }, [])
 

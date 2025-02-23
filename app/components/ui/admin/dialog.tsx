@@ -5,9 +5,10 @@ import {useEffect, useState} from 'react'
 export const FeedbackDialog = ({
   actionData,
 }: {
-  actionData?: {error?: string}
+  actionData?: {error?: string; success?: string}
 }) => {
   const [visible, setVisible] = useState(false)
+  const message = actionData?.error || actionData?.success
 
   const transition = {
     duration: 0.5,
@@ -17,18 +18,20 @@ export const FeedbackDialog = ({
   }
 
   useEffect(() => {
-    if (actionData?.error) {
+    if (message) {
       setVisible(true)
 
       setTimeout(() => {
         setVisible(false)
       }, 2000)
     }
-  }, [actionData])
+  }, [actionData, message])
+
+  console.log(message, 'message')
 
   return (
     <AnimatePresence>
-      {visible && actionData?.error && (
+      {visible && message && (
         <motion.div
           initial={{translateY: 100, opacity: 0}}
           animate={{translateY: 0, opacity: 1}}
@@ -44,16 +47,17 @@ export const FeedbackDialog = ({
         >
           <TitleBar
             className="w-full"
-            title="error"
+            title={
+              actionData?.error ? 'error' : actionData?.success ? 'success' : ''
+            }
             error={Boolean(actionData?.error)}
           />
 
-          {actionData?.error && (
-            <p className="m-1 text-xs">{actionData.error}</p>
+          {message && (
+            <p className="m-1 text-xs">{message}</p>
           )}
         </motion.div>
       )}
     </AnimatePresence>
   )
 }
-

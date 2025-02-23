@@ -2,61 +2,137 @@ import {MouseEvent, useState} from 'react'
 import {Button} from '~/components/modules/button'
 import {InputText} from './input-text'
 
+interface ContentItem {
+  label: string
+  value: string
+  additionalValues: string[]
+  showAdditional: boolean
+}
+
 const MetaControls = () => {
-  const [data, setData] = useState<string[]>([])
-  const [count, setCount] = useState(0)
-  const [subcount, setSubcount] = useState(0)
+  const [items, setItems] = useState<ContentItem[]>([])
 
   const addItem = (e: MouseEvent) => {
     e.preventDefault()
-    setCount(count + 1)
+    setItems([
+      ...items,
+      {label: '', value: '', additionalValues: [], showAdditional: false},
+    ])
   }
 
-  const addSubItem = (e: MouseEvent) => {
+  const toggleAdditional = (index: number) => (e: MouseEvent) => {
     e.preventDefault()
-    setSubcount(count + 1)
+    setItems(
+      items.map((item, i) =>
+        i === index ? {...item, showAdditional: !item.showAdditional} : item,
+      ),
+    )
   }
 
-  // <label htmlFor="github" className="mb-1.5">
-  //   github
-  // </label>
-  // <InputText name="github" onChange={onChange} />
+  const addSubItem = (index: number) => (e: MouseEvent) => {
+    e.preventDefault()
+    setItems(
+      items.map((item, i) =>
+        i === index
+          ? {...item, additionalValues: [...item.additionalValues, '']}
+          : item,
+      ),
+    )
+  }
 
-  // {data && data.length > 0 &&
-  //   data.map((item, i) => {
-  //     return item && <div key={i}>{item.label}</div>
-  //   })}
+  const updateLabel = (index: number, newLabel: string) => {
+    setItems(
+      items.map((item, i) => (i === index ? {...item, label: newLabel} : item)),
+    )
+  }
 
-  console.log(data, 'data')
-  console.log(count, 'count')
+  const updateValue = (index: number, newValue: string) => {
+    setItems(
+      items.map((item, i) => (i === index ? {...item, value: newValue} : item)),
+    )
+  }
+
+  const updateSubValue = (
+    index: number,
+    subIndex: number,
+    newSubValue: string,
+  ) => {
+    setItems(
+      items.map((item, i) => {
+        if (i === index) {
+          const updatedSubs = item.additionalValues.map((sub, j) =>
+            j === subIndex ? newSubValue : sub,
+          )
+          return {...item, additionalValues: updatedSubs}
+        }
+        return item
+      }),
+    )
+  }
 
   return (
-    <div>
-      <Button onClick={addItem}>add item</Button>
+    <div className="flex flex-col">
+      <Button onClick={addItem} className="mb-4 self-end">
+        add meta item
+      </Button>
 
-      {count > 0 &&
-        Array.from({length: count}).map((_, i) => {
-          return (
-            <div key={i} className="flex">
-              <InputText />
+      {items.map((item, index) => (
+        <div key={index} className="mb-2 flex flex-col rounded border p-2">
+          <div className="flex items-center space-x-2">
+            <InputText
+              value={item.label}
+              placeholder="key"
+              onChange={e => updateLabel(index, e.target.value)}
+            />
+            <InputText
+              value={item.value}
+              placeholder="value"
+              onChange={e => updateValue(index, e.target.value)}
+            />
 
-              <div className="relative">
-                <InputText />
-                <Button onClick={addSubItem}>+</Button>
-              </div>
+            <div className="flex">
+              <Button
+                onClick={toggleAdditional(index)}
+                className="h-fit mt-1.5"
+              >
+                {item.showAdditional ? 'remove subitems' : 'add subitem opt'}
+              </Button>
 
-              {subcount > 0 &&
-                Array.from({length: subcount}).map((_, i) => {
-                  return (
-                    <div key={i} className="flex">
-                      <InputText />
-                      <InputText />
-                    </div>
-                  )
-                })}
+              {item.showAdditional && (
+              <Button
+                onClick={addSubItem(index)}
+                className="h-fit ml-2 mt-1.5"
+              >
+                add sub-item
+              </Button>
+              )}
             </div>
-          )
-        })}
+          </div>
+
+          <input type="hidden" name="meta" value={JSON.stringify(items)} />
+
+          {item.showAdditional && (
+            <div className="flex">
+              <div className="ml-[152px] mt-2 flex flex-col">
+                {item.additionalValues.map((subValue, subIndex) => (
+                  <div
+                    key={subIndex}
+                    className="mb-1 flex items-center space-x-2"
+                  >
+                    <InputText
+                      value={subValue}
+                      placeholder="Additional value"
+                      onChange={e =>
+                        updateSubValue(index, subIndex, e.target.value)
+                      }
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+      ))}
     </div>
   )
 }

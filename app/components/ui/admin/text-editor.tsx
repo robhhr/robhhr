@@ -134,7 +134,7 @@ const MarkdownEditor = ({className, ...props}: {className?: string}) => {
 
       <input type="hidden" name="content" value={content} />
       {toggleMarkdown ? (
-        <div className="prose max-w-none border p-2">
+        <div className="prose max-w-none p-2 shadow-input">
           <Markdown>{content}</Markdown>
         </div>
       ) : (

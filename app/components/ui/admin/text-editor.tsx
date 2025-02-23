@@ -10,14 +10,25 @@ import {Button} from '~/components/modules/button'
 
 const CodeMirror = lazy(() => import('@uiw/react-codemirror'))
 
-const MarkdownEditor = ({className, ...props}: {className?: string}) => {
+const MarkdownEditor = ({
+  setError,
+}: {
+  setError?: React.Dispatch<React.SetStateAction<string | null>>
+}) => {
   const [toggleMarkdown, setToggleMarkdown] = useState(false)
   const [content, setContent] = useState('')
   const [theme, setTheme] = useState<Extension | null>(null)
 
-  const onChange = useCallback((val, viewUpdate) => {
-    setContent(val)
-  }, [])
+  const onChange = useCallback(
+    (val, viewUpdate) => {
+      setContent(val)
+
+      if (setError) {
+        setError(null)
+      }
+    },
+    [setError],
+  )
 
   useEffect(() => {
     import('@uiw/codemirror-themes').then(mod => {

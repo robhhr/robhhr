@@ -51,8 +51,6 @@ export const Button: React.FC<ButtonProps> = ({
       <Link
         to={to}
         className={linkClasses}
-        type="button"
-        role="button"
         aria-disabled={disabled ? true : undefined}
       >
         {children}

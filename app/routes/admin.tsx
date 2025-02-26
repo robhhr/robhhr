@@ -18,12 +18,12 @@ const AdminLayout = () => {
   return (
     <div
       className={cx(
-        'relative h-screen',
+        'relative h-full min-h-screen',
         'bg-silver text-default',
         'dark:bg-background-admin-dark dark:text-color-dark',
       )}
     >
-      <div className="mx-auto w-3/5 pt-64">
+      <div className="mx-auto w-3/5 py-64">
         <Nav />
 
         <div

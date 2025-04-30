@@ -6,12 +6,13 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "start": "astro preview"
   },
   "dependencies": {
+    "@astrojs/node": "^9.2.1",
     "@tailwindcss/vite": "^4.1.4",
     "astro": "^5.7.9",
-    "preact": "^10.26.5",
     "tailwindcss": "^4.1.4"
   }
 }

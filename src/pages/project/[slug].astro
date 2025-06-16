@@ -1,0 +1,16 @@
+---
+import BaseLayout from '../../layouts/base.astro'
+import {getProjectBySlug} from '../../db/models/projects'
+
+const slug = Astro.params.slug
+const project = await getProjectBySlug(slug)
+console.log(project)
+
+if (!project) {
+   throw new Error(`Note ${slug} not found`)
+}
+---
+
+<BaseLayout>
+  <h1>{project.title}</h1>
+</BaseLayout>

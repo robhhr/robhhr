@@ -1,19 +1,39 @@
 ---
 import '../styles/global.css'
+import ButtonTheme from '../components/button-theme.astro'
 ---
 
-<html lang="en" class="h-full">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>robhhr</title>
-	</head>
-	<body class="flex justify-center items-center h-full bg-gray-900">
-    <div class="flex flex-col items-center text-amber-200">
-      <h1 class="text-5xl mb-12">🔜</h1>
-      <a href="https://github.com/robhhr" target="_blank" rel="noopener noreferrer">github</a>
-    </div>
-	</body>
+<html
+  lang="en"
+  class="bg-primary-light dark:bg-primary-dark h-full transition-colors duration-200 ease-in-out"
+>
+  <head>
+    <script is:inline>
+      ;(() => {
+        try {
+          const theme = localStorage.getItem('theme')
+          const prefersDark = window.matchMedia(
+            '(prefers-color-scheme: dark)',
+          ).matches
+          const shouldUseDark = theme === 'dark' || (!theme && prefersDark)
+          if (shouldUseDark) {
+            document.documentElement.classList.add('dark')
+          }
+        } catch (e) {
+          // use system pref
+          if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark')
+          }
+        }
+      })()
+    </script>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>robhhr</title>
+  </head>
+  <body class="flex h-full items-center justify-center">
+    <ButtonTheme />
+  </body>
 </html>

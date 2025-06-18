@@ -1,11 +1,9 @@
 ---
 import '../styles/global.css'
-import ButtonTheme from '../components/button-theme.astro'
+import Header from '../components/header.astro'
 ---
 
-<html
-  lang="en"
->
+<html lang="en">
   <head>
     <script is:inline>
       ;(() => {
@@ -32,8 +30,8 @@ import ButtonTheme from '../components/button-theme.astro'
     <meta name="generator" content={Astro.generator} />
     <title>robhhr</title>
   </head>
-  <body class="flex h-full items-center justify-center">
-    <ButtonTheme />
+  <body class="mx-auto flex h-full max-w-3xl flex-col px-20 py-10">
+    <Header />
     <slot />
   </body>
 </html>
